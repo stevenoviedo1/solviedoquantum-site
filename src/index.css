@@ -22,7 +22,7 @@ body {
     animation: pulse 4s infinite ease-in-out;
 }
 
-/* Static intense glow option (if you want non-animated) */
+/* Static intense glow option (non-animated) */
 .glow-logo {
     filter: brightness(1.1) drop-shadow(0 0 60px rgba(139,92,246,0.8)) drop-shadow(0 0 30px rgba(6,182,212,0.6));
 }
