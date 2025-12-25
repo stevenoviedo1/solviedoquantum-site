@@ -1,0 +1,64 @@
+﻿@import "tailwindcss";
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+/* Original subtle pulse (kept for compatibility if needed) */
+@keyframes pulse {
+    0%, 100% {
+        filter: brightness(1) drop-shadow(0 0 20px rgba(139,92,246,0.8));
+    }
+
+    50% {
+        filter: brightness(1.3) drop-shadow(0 0 40px rgba(6,182,212,0.9));
+    }
+}
+
+.animate-pulse {
+    animation: pulse 4s infinite ease-in-out;
+}
+
+/* Static intense glow option (if you want non-animated) */
+.glow-logo {
+    filter: brightness(1.1) drop-shadow(0 0 60px rgba(139,92,246,0.8)) drop-shadow(0 0 30px rgba(6,182,212,0.6));
+}
+
+    .glow-logo:hover {
+        filter: brightness(1.2) drop-shadow(0 0 100px rgba(139,92,246,1)) drop-shadow(0 0 50px rgba(6,182,212,1));
+    }
+
+/* NEW: Smooth color-shifting glow – cyan/blue → purple → back */
+@keyframes quantum-glow {
+    0% {
+        filter: brightness(1.1) drop-shadow(0 0 50px rgba(6,182,212,0.8)) /* Cyan blue - subtle */
+        drop-shadow(0 0 20px rgba(6,182,212,0.6));
+    }
+
+    25% {
+        filter: brightness(1.2) drop-shadow(0 0 70px rgba(6,182,212,1)) /* Cyan peak - brighter pulse */
+        drop-shadow(0 0 35px rgba(6,182,212,0.9));
+    }
+
+    50% {
+        filter: brightness(1.15) drop-shadow(0 0 80px rgba(139,92,246,1)) /* Full purple shift */
+        drop-shadow(0 0 40px rgba(139,92,246,0.9));
+    }
+
+    75% {
+        filter: brightness(1.2) drop-shadow(0 0 70px rgba(139,92,246,1)) /* Purple peak pulse */
+        drop-shadow(0 0 35px rgba(139,92,246,0.9));
+    }
+
+    100% {
+        filter: brightness(1.1) drop-shadow(0 0 50px rgba(6,182,212,0.8)) /* Back to cyan subtle */
+        drop-shadow(0 0 20px rgba(6,182,212,0.6));
+    }
+}
+
+.glow-transition {
+    animation: quantum-glow 8s infinite ease-in-out;
+}

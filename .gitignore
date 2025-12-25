@@ -1,0 +1,43 @@
+# Node/Vite
+node_modules/
+dist/
+.env
+.vercel
+
+# Vite cache
+.vite/
+
+# Unity (if you have Unity projects in the folder)
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+Assets/StreamingAssets/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.log
+
+# AppData & Windows cache (huge offenders)
+AppData/
+Local/
+Temp/
+
+# General ignores
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# If you have other apps' cache
+Discord/
+Capitalism Lab/
+AppData/
+Library/
+Temp/
