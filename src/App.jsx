@@ -1,7 +1,8 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Particles from "@tsparticles/react";
 import { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { Analytics } from '@vercel/analytics/react';
 import ContactForm from './components/ContactForm';
 import WebDevBenefits from './components/WebDevBenefits';
 import PerfOptBenefits from './components/PerfOptBenefits';
@@ -206,6 +207,7 @@ function App() {
                     <ContactForm />
                 </div>
             </section>
+            <Analytics />
         </div>
     );
 }
