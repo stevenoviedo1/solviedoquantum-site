@@ -22,10 +22,10 @@ function ContactForm() {
 
         emailjs
             .send(
-                'service_vf9k89o',     // Your Service ID
-                'template_6m8uyjo',     // Your Template ID
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 templateParams,
-                'tMbBMZbyylJifJygD'     // Your Public Key
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             )
             .then(
                 () => {

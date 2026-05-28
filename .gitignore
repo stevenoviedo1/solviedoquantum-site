@@ -41,3 +41,14 @@ Capitalism Lab/
 AppData/
 Library/
 Temp/
+.env*.local
+
+
+# VS Code workspace files
+src/*.code-workspace
+
+# VS Code workspace files
+src/*.code-workspace
+
+# VS Code workspace files
+src/*.code-workspace

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Fairness Hub | Provably Fair Tools</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #0a0f1f;
+            color: #e0e7ff;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 100px 20px 80px;
+            background: linear-gradient(to bottom, #0f1a38, #0a0f1f);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.6rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            color: #ffffff;
+            text-shadow: 0 0 35px #00f0ff, 0 0 60px #5a8cff;
+        }
+
+        h1 img {
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #00f0ff, 0 0 70px #5a8cff;
+        }
+
+        .tagline {
+            font-size: 1.75rem;
+            max-width: 900px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+            color: #a0b8ff;
+        }
+
+        .trust-box {
+            max-width: 900px;
+            margin: 70px auto;
+            background: rgba(15, 25, 55, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #00d4ff;
+        }
+
+        .trust-box h2 {
+            color: #00f0ff;
+            font-size: 1.95rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00f0ff;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 35px;
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tool {
+            background: rgba(20, 30, 65, 0.85);
+            border-radius: 20px;
+            padding: 30px 25px;
+            border: 1px solid #00a8ff;
+            transition: all 0.3s;
+            min-height: 340px;
+        }
+
+        .tool:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 35px rgba(77, 158, 255, 0.5);
+            border-color: #00f0ff;
+        }
+
+        .tool h2 {
+            color: #00f0ff;
+            margin: 0 0 20px 0;
+            font-size: 1.8rem;
+        }
+
+        button {
+            background: linear-gradient(45deg, #5a8cff, #00f0ff);
+            color: #000;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.8);
+        }
+
+        .result {
+            font-size: 2.1rem;
+            margin: 20px 0;
+            min-height: 80px;
+            color: #00f0ff;
+            font-weight: bold;
+            text-shadow: 0 0 15px #5a8cff;
+        }
+
+        textarea, input[type="number"] {
+            width: 100%;
+            padding: 14px;
+            background: #0f1a38;
+            color: #e0e7ff;
+            border: 1px solid #5a8cff;
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 1rem;
+        }
+
+        .rps-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        footer {
+            padding: 60px 20px;
+            color: #88a0cc;
+        }
+
+        footer img {
+            height: 80px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>
+                Quantum Fairness Hub
+                <img src="logo.png" alt="Quantum Fairness Hub">
+            </h1>
+
+            <p class="tagline">
+                The ultimate collection of provably fair randomness tools
+            </p>
+        </div>
+
+        <div class="trust-box">
+            <h2>Why Trust This Site?</h2>
+            <p>
+                Unlike many online tools that use predictable "fake" randomness, this site uses 
+                <strong>cryptographically secure randomness</strong> directly from your device's hardware entropy sources.
+            </p>
+            <p>
+                This is the same ultra-secure technology used by banks, crypto wallets, and government systems. 
+                Truly unpredictable — no patterns, no seeds to hack.
+            </p>
+        </div>
+
+        <div style="margin-top: 30px; color: #5a8cff; font-size: 1.3rem;">
+            by <strong>SolViedoQuantum</strong>
+        </div>
+    </header>
+
+    <div class="tools">
+        <div class="tool">
+            <h2>Random Winner Picker</h2>
+            <textarea id="winnerList" placeholder="Paste names or @handles, one per line..." rows="5"></textarea>
+            <button onclick="pickWinner()">Pick Quantum Winner</button>
+            <div class="result" id="winnerResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Coin Flip</h2>
+            <button onclick="flipCoin()">Flip Quantum Coin</button>
+            <div class="result" id="coinResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Lottery (6/49)</h2>
+            <button onclick="pickLotto()">Generate Numbers</button>
+            <div class="result" id="lottoResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Decision Maker</h2>
+            <textarea id="decisionOptions" placeholder="Enter options, one per line (2-6)" rows="5"></textarea>
+            <button onclick="makeDecision()">Let Quantum Decide</button>
+            <div class="result" id="decisionResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Dice (d20)</h2>
+            <button onclick="rollDice()">Roll Quantum d20</button>
+            <div class="result" id="diceResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Team Splitter</h2>
+            <textarea id="teamList" placeholder="Paste player names, one per line..." rows="5"></textarea>
+            <input type="number" id="teamCount" value="2" min="2" max="8">
+            <button onclick="splitTeams()">Split Fair Teams</button>
+            <div class="result" id="teamResult" style="font-size:1.6rem;"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum RPS</h2>
+            <div class="rps-buttons">
+                <button onclick="playRPS('rock')">🪨 Rock</button>
+                <button onclick="playRPS('paper')">📄 Paper</button>
+                <button onclick="playRPS('scissors')">✂️ Scissors</button>
+            </div>
+            <div class="result" id="rpsResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Card Shuffler</h2>
+            <button onclick="shuffleCards()">Shuffle Full Deck</button>
+            <div class="result" id="cardResult" style="font-size:1.4rem; line-height:1.8;"></div>
+        </div>
+
+        <div class="tool">
+            <h2>Quantum Password</h2>
+            <input type="number" id="passLength" value="20" min="8" max="64">
+            <button onclick="generatePassword()">Generate Secure Password</button>
+            <div class="result" id="passwordResult" style="word-break:break-all;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="logo-small.png" alt="SolViedoQuantum">
+        <div>
+            Powered by cryptographically secure hardware entropy • Truly unpredictable randomness<br>
+            Built with ❤️ by <strong>SolViedoQuantum</strong>
+        </div>
+    </footer>
+
+    <script>
+        function getSecureRandomInts(length) {
+            const array = new Uint8Array(length);
+            crypto.getRandomValues(array);
+            return Array.from(array);
+        }
+
+        function flipCoin() {
+            const [bit] = getSecureRandomInts(1);
+            const result = bit % 2 === 0 ? "HEADS" : "TAILS";
+            document.getElementById("coinResult").innerHTML = `<strong>${result}</strong>`;
+        }
+
+        function rollDice() {
+            const [byte] = getSecureRandomInts(1);
+            const roll = (byte % 20) + 1;
+            document.getElementById("diceResult").innerHTML = `${roll} 🎲`;
+        }
+
+        function pickLotto() {
+            const bytes = getSecureRandomInts(40);
+            const picks = new Set();
+            for (let b of bytes) {
+                picks.add((b % 49) + 1);
+                if (picks.size === 6) break;
+            }
+            document.getElementById("lottoResult").innerHTML = Array.from(picks).sort((a,b)=>a-b).join(" • ");
+        }
+
+        function pickWinner() {
+            const text = document.getElementById("winnerList").value.trim();
+            if (!text) return document.getElementById("winnerResult").innerHTML = "Add names first!";
+            const names = text.split('\n').map(l => l.trim()).filter(l => l);
+            const [byte] = getSecureRandomInts(1);
+            const winner = names[byte % names.length];
+            document.getElementById("winnerResult").innerHTML = `🎉 WINNER: <strong>${winner}</strong> 🎉`;
+        }
+
+        function makeDecision() {
+            const text = document.getElementById("decisionOptions").value.trim();
+            if (!text) return document.getElementById("decisionResult").innerHTML = "Add options first!";
+            const options = text.split('\n').map(l => l.trim()).filter(l => l);
+            if (options.length < 2) return document.getElementById("decisionResult").innerHTML = "Add at least 2 options!";
+            const [byte] = getSecureRandomInts(1);
+            const choice = options[byte % options.length];
+            document.getElementById("decisionResult").innerHTML = `Quantum chooses: <strong>${choice}</strong>`;
+        }
+
+        function splitTeams() {
+            const text = document.getElementById("teamList").value.trim();
+            if (!text) return document.getElementById("teamResult").innerHTML = "Add players first!";
+            let players = text.split('\n').map(l => l.trim()).filter(l => l);
+            const teamCount = parseInt(document.getElementById("teamCount").value) || 2;
+            for (let i = players.length - 1; i > 0; i--) {
+                const [byte] = getSecureRandomInts(1);
+                const j = byte % (i + 1);
+                [players[i], players[j]] = [players[j], players[i]];
+            }
+            let output = "";
+            for (let t = 0; t < teamCount; t++) {
+                const teamSize = Math.ceil(players.length / teamCount);
+                const team = players.slice(t * teamSize, (t+1) * teamSize);
+                output += `<strong>Team ${t+1}:</strong> ${team.join(", ")}<br><br>`;
+            }
+            document.getElementById("teamResult").innerHTML = output;
+        }
+
+        let playerScore = 0, quantumScore = 0;
+        function playRPS(playerChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const [byte] = getSecureRandomInts(1);
+            const quantumChoice = choices[byte % 3];
+            let result = "";
+            if (playerChoice === quantumChoice) result = "Tie! 🤝";
+            else if (
+                (playerChoice === 'rock' && quantumChoice === 'scissors') ||
+                (playerChoice === 'paper' && quantumChoice === 'rock') ||
+                (playerChoice === 'scissors' && quantumChoice === 'paper')
+            ) { 
+                result = "You Win! 🎉"; 
+                playerScore++; 
+            } else { 
+                result = "Quantum Wins!"; 
+                quantumScore++; 
+            }
+            document.getElementById("rpsResult").innerHTML = 
+                `You: ${playerChoice.toUpperCase()}<br>Quantum: ${quantumChoice.toUpperCase()}<br>${result}<br>Score: You ${playerScore} - ${quantumScore} Quantum`;
+        }
+
+        function shuffleCards() {
+            const suits = ['♠', '♥', '♦', '♣'];
+            const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+            let deck = [];
+            for (let suit of suits) for (let rank of ranks) deck.push(rank + suit);
+            for (let i = deck.length - 1; i > 0; i--) {
+                const [byte] = getSecureRandomInts(1);
+                const j = byte % (i + 1);
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+            document.getElementById("cardResult").innerHTML = deck.join(" ");
+        }
+
+        function generatePassword() {
+            const length = parseInt(document.getElementById("passLength").value) || 20;
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+            const bytes = getSecureRandomInts(length);
+            let password = "";
+            for (let b of bytes) password += chars[b % chars.length];
+            document.getElementById("passwordResult").innerHTML = password;
+        }
+    </script>
+</body>
+</html>

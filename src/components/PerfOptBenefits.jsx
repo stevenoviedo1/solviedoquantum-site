@@ -2,11 +2,11 @@ function PerfOptBenefits() {
     return (
         <div className="mt-20 bg-gradient-to-br from-purple-900/20 to-black p-10 rounded-2xl border border-purple-800/50">
             <h3 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                Why Performance Optimization Matters – The SolViedo Quantum Difference
+                Why Performance Optimization Matters â€” The SolViedo Quantum Difference
             </h3>
             <div className="space-y-10 text-lg leading-relaxed">
                 <div>
-                    <h4 className="text-2xl font-bold text-cyan-400 mb-4">Core Web Vitals Mastery – 100/100 Lighthouse Scores</h4>
+                    <h4 className="text-2xl font-bold text-cyan-400 mb-4">Core Web Vitals Mastery â€” 100/100 Lighthouse Scores</h4>
                     <p className="text-gray-200">
                         Google uses speed as a major ranking factor. Sites scoring 90+ on Lighthouse (LCP, FID, CLS) rank higher, get more organic traffic, and convert better. Many "fast" sites built on platforms score 50-70. We deliver consistent 95-100.
                     </p>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WW3 Simulator - SolViedo Quantum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #00ff9d;
+            font-family: 'Courier New', monospace;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { text-align: center; color: #00ccff; font-size: 2.5rem; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 20px; }
+        .countries {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .country {
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s;
+        }
+        .country.usa { border-color: #00ccff; background: #1a1a2e; }
+        .country.dead { opacity: 0.4; }
+        .name { font-size: 1.3rem; font-weight: bold; margin-bottom: 8px; }
+        .health-bar {
+            height: 12px;
+            background: #222;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .health {
+            height: 100%;
+            background: linear-gradient(to right, #00ff9d, #00ccff);
+            transition: width 0.4s;
+        }
+        .status { font-size: 0.9rem; margin-top: 8px; }
+        #output {
+            height: 180px;
+            overflow-y: auto;
+            background: #111;
+            padding: 15px;
+            border: 2px solid #00ccff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-attack { background: #ff4444; color: white; }
+        .btn-heal { background: #00cc88; color: black; }
+        button:hover { transform: scale(1.05); }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #1a1a2e;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #00ccff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 WW3 Simulator</h1>
+        <p class="subtitle">You are playing as <strong>USA</strong> — Last country standing wins!</p>
+
+        <div class="countries" id="countries"></div>
+        
+        <div id="output"></div>
+
+        <div class="actions">
+            <button class="btn-attack" onclick="playerAttack()">ATTACK</button>
+            <button class="btn-heal" onclick="playerHeal()">HEAL</button>
+        </div>
+
+        <button onclick="restartGame()" style="width:100%; padding:14px; font-size:1.1rem;">Restart Game</button>
+    </div>
+
+    <!-- Target Selection Modal -->
+    <div class="modal" id="targetModal">
+        <div class="modal-content">
+            <h2 style="color:#00ccff; text-align:center;">Choose a target to attack</h2>
+            <div id="targetList" style="margin:20px 0;"></div>
+            <button onclick="hideModal()" style="width:100%; background:#666;">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let round = 1;
+        let countries = [
+            { name: "USA", health: 120, maxHealth: 120, attack: 28, alive: true },
+            { name: "Russia", health: 135, maxHealth: 135, attack: 24, alive: true },
+            { name: "China", health: 125, maxHealth: 125, attack: 26, alive: true },
+            { name: "North Korea", health: 90, maxHealth: 90, attack: 22, alive: true },
+            { name: "Iran", health: 100, maxHealth: 100, attack: 20, alive: true },
+            { name: "India", health: 115, maxHealth: 115, attack: 23, alive: true },
+            { name: "United Kingdom", health: 105, maxHealth: 105, attack: 21, alive: true },
+            { name: "France", health: 110, maxHealth: 110, attack: 19, alive: true },
+            { name: "Germany", health: 108, maxHealth: 108, attack: 25, alive: true }
+        ];
+
+        function renderCountries() {
+            const container = document.getElementById("countries");
+            container.innerHTML = "";
+            countries.forEach(c => {
+                const div = document.createElement("div");
+                div.className = `country ${c.name === "USA" ? "usa" : ""} ${!c.alive ? "dead" : ""}`;
+                div.innerHTML = `
+                    <div class="name">${c.name}</div>
+                    <div class="health-bar"><div class="health" style="width: ${c.alive ? (c.health / c.maxHealth * 100) : 0}%"></div></div>
+                    <div class="status">${c.alive ? `<strong>${c.health}</strong> / ${c.maxHealth} HP` : "DEFEATED"}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function print(line) {
+            const output = document.getElementById("output");
+            output.innerHTML += line + "<br>";
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function printStatus() {
+            print(`\n=== ROUND ${round} ===`);
+        }
+
+        function playerHeal() {
+            const usa = countries[0];
+            if (!usa.alive) return;
+            const heal = Math.floor(Math.random() * 11) + 15;
+            usa.health = Math.min(usa.maxHealth, usa.health + heal);
+            print(`USA heals for ${heal} HP! Now at ${usa.health} HP`);
+            renderCountries();
+            aiTurn();
+        }
+
+        function playerAttack() {
+            const aliveTargets = countries.filter(c => c.alive && c.name !== "USA");
+            if (aliveTargets.length === 0) {
+                print("No targets left to attack!");
+                return;
+            }
+
+            const modal = document.getElementById("targetModal");
+            const list = document.getElementById("targetList");
+            list.innerHTML = "";
+
+            aliveTargets.forEach(target => {
+                const btn = document.createElement("button");
+                btn.style = "width:100%; margin:8px 0; padding:12px; background:#ff4444; color:white;";
+                btn.textContent = `${target.name} (${target.health} HP)`;
+                btn.onclick = () => {
+                    hideModal();
+                    const usa = countries[0];
+                    const damage = Math.floor(Math.random() * 11) + (usa.attack - 5);
+                    target.health -= damage;
+                    print(`USA attacks ${target.name} for ${damage} damage!`);
+                    if (target.health <= 0) {
+                        target.health = 0;
+                        target.alive = false;
+                        print(`💥 ${target.name} has been defeated!`);
+                    }
+                    renderCountries();
+                    aiTurn();
+                };
+                list.appendChild(btn);
+            });
+
+            modal.style.display = "flex";
+        }
+
+        function hideModal() {
+            document.getElementById("targetModal").style.display = "none";
+        }
+
+        function aiTurn() {
+            countries.forEach(country => {
+                if (!country.alive || country.name === "USA") return;
+
+                print(`\n${country.name}'s turn!`);
+
+                if (country.health < 45 && Math.random() < 0.6) {
+                    const heal = Math.floor(Math.random() * 11) + 15;
+                    country.health = Math.min(country.maxHealth, country.health + heal);
+                    print(`${country.name} heals for ${heal} HP!`);
+                } else {
+                    const targets = countries.filter(c => c.alive && c.name !== country.name);
+                    if (targets.length > 0) {
+                        const target = targets[Math.floor(Math.random() * targets.length)];
+                        const damage = Math.floor(Math.random() * 11) + (country.attack - 5);
+                        target.health -= damage;
+                        print(`${country.name} attacks ${target.name} for ${damage} damage!`);
+                        if (target.health <= 0) {
+                            target.health = 0;
+                            target.alive = false;
+                            print(`💥 ${target.name} has been defeated!`);
+                        }
+                    }
+                }
+            });
+            renderCountries();
+            round++;
+            printStatus();
+            checkGameOver();
+        }
+
+        function checkGameOver() {
+            const alive = countries.filter(c => c.alive);
+            if (alive.length <= 1) {
+                const output = document.getElementById("output");
+                if (alive[0] && alive[0].name === "USA") {
+                    print("\n🎉 YOU WIN! USA stands victorious in WW3!");
+                } else if (alive.length > 0) {
+                    print(`\n💥 Game Over. ${alive[0].name} wins WW3!`);
+                } else {
+                    print("\n💥 Mutual destruction - no one wins.");
+                }
+            }
+        }
+
+        function restartGame() {
+            round = 1;
+            countries.forEach(c => {
+                c.health = c.maxHealth;
+                c.alive = true;
+            });
+            document.getElementById("output").innerHTML = "";
+            print("🌍 Welcome to WW3 Simulator!");
+            print("You are playing as the USA. The other 8 countries are AI.\n");
+            renderCountries();
+            printStatus();
+        }
+
+        // Start the game
+        renderCountries();
+        print("🌍 Welcome to WW3 Simulator!");
+        print("You are playing as the USA. The other 8 countries are AI.\n");
+        printStatus();
+    </script>
+</body>
+</html>

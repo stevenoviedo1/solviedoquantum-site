@@ -36,7 +36,7 @@ function WebDevBenefits() {
                         <tr className="bg-black/40 rounded-lg">
                             <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Full Ownership & No Vendor Lock-In</td>
                             <td className="py-8 px-4 text-gray-200 leading-relaxed">Client owns 100% of the code; host anywhere, modify freely.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Tied to the platform—exporting/migrating is limited or impossible; you're "renting" the site.</td>
+                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Tied to the platform â€” exporting/migrating is limited or impossible; you're "renting" the site.</td>
                             <td className="py-8 px-4 text-gray-200 leading-relaxed">Freedom to switch hosts/providers, avoid rising subscription fees, and full control over data/security.</td>
                         </tr>
                         <tr className="bg-black/40 rounded-lg">
@@ -49,7 +49,7 @@ function WebDevBenefits() {
                             <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Cost Efficiency Long-Term</td>
                             <td className="py-8 px-4 text-gray-200 leading-relaxed">Higher upfront but lower ongoing (no monthly platform fees + add-ons); pays off as site grows.</td>
                             <td className="py-8 px-4 text-gray-200 leading-relaxed">Low start but recurring fees + premium apps can add up quickly.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Saves money over 2–5 years for serious businesses; no surprise costs for "upgrades."</td>
+                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Saves money over 2â€“5 years for serious businesses; no surprise costs for "upgrades."</td>
                         </tr>
                         <tr className="bg-black/40 rounded-lg">
                             <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Advanced Features with Node.js</td>
