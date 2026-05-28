@@ -14,12 +14,14 @@ import { projects } from './data/projects';
 import ZombiesPage from './pages/ZombiesPage';
 import QuantumFairnessHub from './pages/QuantumFairnessHub';
 import WW3Simulator from './pages/WW3Simulator';
+import NotFound from './pages/NotFound';
 
 function App() {
     const [init, setInit] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [showBenefits, setShowBenefits] = useState(false);
     const [showPerfBenefits, setShowPerfBenefits] = useState(false);
+    const [showPhishModal, setShowPhishModal] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -178,7 +180,10 @@ function App() {
                             <div
                                 key={project.id}
                                 onClick={() => {
-                                    if (project.link.startsWith("http")) {
+                                    if (project.id === 4) {
+                                        // PhishGuard - show coming soon modal
+                                        setShowPhishModal(true);
+                                    } else if (project.link.startsWith("http")) {
                                         window.open(project.link, "_blank");
                                     } else {
                                         navigate(project.link);
@@ -236,6 +241,57 @@ function App() {
                     <ContactForm />
                 </div>
             </section>
+
+            {/* PhishGuard Coming Soon Modal */}
+            {showPhishModal && (
+                <div 
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6"
+                    onClick={() => setShowPhishModal(false)}
+                >
+                    <div 
+                        className="bg-gradient-to-br from-purple-950 to-black border border-purple-700 rounded-3xl p-8 md:p-10 max-w-lg w-full relative"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button 
+                            onClick={() => setShowPhishModal(false)}
+                            className="absolute top-5 right-6 text-3xl text-gray-400 hover:text-white"
+                        >
+                            ×
+                        </button>
+
+                        <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+                            PhishGuard Extension
+                        </h3>
+                        
+                        <p className="text-lg text-gray-300 mb-6">
+                            Real-time phishing protection for Gmail and web browsing. Built with Manifest V3.
+                        </p>
+                        
+                        <div className="bg-black/50 border border-purple-800 rounded-2xl p-6 mb-8">
+                            <p className="text-yellow-400 font-semibold mb-2">Status: In Development</p>
+                            <p className="text-gray-400 text-sm">
+                                I'm currently refining the extension before public release. 
+                                Want early access when it launches?
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <a 
+                                href="mailto:Steven.oviedo1@gmail.com?subject=PhishGuard%20Early%20Access"
+                                className="flex-1 text-center px-6 py-4 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full font-semibold hover:scale-[1.02] transition"
+                            >
+                                Request Early Access
+                            </a>
+                            <button 
+                                onClick={() => setShowPhishModal(false)}
+                                className="flex-1 px-6 py-4 border border-purple-700 rounded-full hover:bg-purple-900/30 transition"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 
@@ -246,6 +302,9 @@ function App() {
                 <Route path="/zombies" element={<ZombiesPage />} />
                 <Route path="/quantum-fairness-hub" element={<QuantumFairnessHub />} />
                 <Route path="/ww3" element={<WW3Simulator />} />
+
+                {/* 404 Catch-all */}
+                <Route path="*" element={<NotFound />} />
             </Routes>
 
             {/* Vercel Analytics — gives you clear "Visitors" count in your Vercel dashboard */}
