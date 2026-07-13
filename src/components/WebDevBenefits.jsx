@@ -1,67 +1,139 @@
 function WebDevBenefits() {
-    return (
-        <div className="mt-20 bg-gradient-to-br from-purple-900/20 to-black p-10 rounded-2xl border border-purple-800/50">
-            <h3 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                Key Benefits of Choosing SolViedo Quantum Web Development
-            </h3>
-            <div className="overflow-x-auto">
-                <table className="w-full text-left border-separate border-spacing-y-8">
-                    <thead>
-                        <tr>
-                            <th className="text-xl md:text-2xl font-bold text-cyan-400 pb-6 pr-4 min-w-[160px]">Benefit</th>
-                            <th className="text-xl md:text-2xl font-bold text-cyan-400 pb-6 pr-4">SolViedo Quantum Sites</th>
-                            <th className="text-xl md:text-2xl font-bold text-cyan-400 pb-6 pr-4">Website Builders (Wix, Squarespace, etc.)</th>
-                            <th className="text-xl md:text-2xl font-bold text-cyan-400 pb-6">Why It Matters for Clients</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Unlimited Customization</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Build anything exactly to specs. No template restrictions or "locked" features.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Limited to templates, plugins, and drag-and-drop; advanced changes often impossible or require paid add-ons.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Unique branding, custom UI/UX, or special features (e.g., interactive tools, dashboards) that make the site truly theirs.</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Superior Performance & Speed</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Node.js is lightweight, event-driven, and excels at fast load times, real-time features, and handling traffic spikes.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Often slower due to bloated code, extra layers, and shared hosting limitations.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Better user experience, higher SEO rankings (Google favors fast sites), lower bounce rates, and more conversions/sales.</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Scalability</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Easily scale horizontally/vertically as the business grows (e.g., add microservices, handle millions of users like Netflix or PayPal do with Node.js).</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Can hit limits (e.g., page caps, traffic throttling); migrating off later is painful and expensive.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Future-proof: Start small, grow big without rebuilding the site from scratch.</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Full Ownership & No Vendor Lock-In</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Client owns 100% of the code; host anywhere, modify freely.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Tied to the platform — exporting/migrating is limited or impossible; you're "renting" the site.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Freedom to switch hosts/providers, avoid rising subscription fees, and full control over data/security.</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Better Security</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Tailored security measures, no unnecessary bloat exposing vulnerabilities.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Shared platforms can be targets; rely on provider's updates (which may lag).</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Reduced risk of hacks, especially for sites handling sensitive data or e-commerce.</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Cost Efficiency Long-Term</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Higher upfront but lower ongoing (no monthly platform fees + add-ons); pays off as site grows.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Low start but recurring fees + premium apps can add up quickly.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Saves money over 2–5 years for serious businesses; no surprise costs for "upgrades."</td>
-                        </tr>
-                        <tr className="bg-black/40 rounded-lg">
-                            <td className="py-8 px-4 font-semibold text-yellow-400 text-lg">Advanced Features with Node.js</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Real-time (chat, live updates), seamless APIs/integrations, server-side rendering for SEO, single-language (JavaScript) efficiency.</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Basic features; complex ones need third-party tools (often clunky/slow).</td>
-                            <td className="py-8 px-4 text-gray-200 leading-relaxed">Ideal for dynamic apps, e-commerce with custom logic, or integrating with other systems (e.g., CRMs, payments).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    );
+  return (
+    <div className="mt-12 md:mt-20 bg-gradient-to-br from-purple-900/20 to-black p-4 sm:p-8 md:p-10 rounded-2xl border border-purple-800/50">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+        Why custom-coded beats website builders
+      </h3>
+      <p className="text-center text-gray-400 text-sm sm:text-base mb-10 max-w-2xl mx-auto">
+        SolViedo Quantum vs Wix, Squarespace, and other template platforms — what you actually
+        get when the site is built for your business.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border-separate border-spacing-y-6 min-w-[720px]">
+          <thead>
+            <tr>
+              <th className="text-base md:text-lg font-bold text-cyan-400 pb-4 pr-4 min-w-[140px]">
+                Benefit
+              </th>
+              <th className="text-base md:text-lg font-bold text-cyan-400 pb-4 pr-4">
+                SolViedo Quantum
+              </th>
+              <th className="text-base md:text-lg font-bold text-cyan-400 pb-4 pr-4">
+                Website builders
+              </th>
+              <th className="text-base md:text-lg font-bold text-cyan-400 pb-4">
+                Why it matters
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Unlimited customization</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Built to your specs — unique UI, custom flows, dashboards, ordering systems,
+                anything the business needs.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Stuck to templates, plugins, and drag-and-drop. Advanced features often need
+                paid add-ons or aren&apos;t possible.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Your brand and operations, not a generic theme everyone else has.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Real apps, not just pages</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Full-stack with Next.js, React, and modern backends (e.g. Supabase) — realtime
+                updates, auth, databases, APIs, owner dashboards.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Brochure sites with limited logic. Complex tools need third-party widgets that
+                rarely fit well.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Run the business on the site: orders, live data, admin tools — not just a pretty
+                homepage.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Performance &amp; SEO</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Lean, custom code aimed at fast loads, strong Core Web Vitals, and SEO-friendly
+                structure from day one.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Extra scripts, shared hosting, and theme bloat often drag speed and rankings
+                down.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Faster sites rank better, bounce less, and convert more visitors into customers.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Full ownership</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                You own the code. Host anywhere, change anything, no platform holding your site
+                hostage.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                You&apos;re renting the site. Export is limited; leaving means rebuilding.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                No rising subscription tax for basic features. Full control over data and future
+                moves.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Security &amp; trust</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Only the stack you need — tailored auth, forms, and data handling without random
+                plugin risk.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Shared platforms and third-party apps expand the attack surface; updates depend
+                on the vendor.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Safer for orders, customer data, and anything past a simple brochure.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Cost over time</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Higher upfront investment; lower ongoing cost — no monthly builder fees stacking
+                forever.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Cheap to start, expensive to grow: plans, premium apps, and transaction fees add
+                up.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Better ROI for businesses that plan to stay online and grow for years.
+              </td>
+            </tr>
+            <tr className="bg-black/40 rounded-lg">
+              <td className="py-6 px-4 font-semibold text-yellow-400">Room to grow</td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Add features as you scale — new tools, integrations, multiplayer or realtime
+                systems — without starting over.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Hit plan limits, traffic caps, or feature walls. Migration later is painful.
+              </td>
+              <td className="py-6 px-4 text-gray-200 leading-relaxed">
+                Start focused, expand when the business is ready — same codebase, not a rebuild.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-8 text-center text-sm text-gray-500">
+        Recent work includes restaurant ordering systems, multiplayer products, and custom tools —
+        see Portfolio for live examples.
+      </p>
+    </div>
+  );
 }
 
 export default WebDevBenefits;

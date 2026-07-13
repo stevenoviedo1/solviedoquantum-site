@@ -1,0 +1,311 @@
+{
+  "version": "2.0",
+  "last_updated": "2026-07-10",
+  "description": "Centralized multi-signal phishing rules for PhishGuard desktop app, Chrome extension, and web demo.",
+
+  "keyword_patterns": [
+    {
+      "category": "cloud_storage_scam",
+      "severity": "high",
+      "terms": [
+        "cloud storage", "storage has reached", "backups are at risk",
+        "upgrade your storage", "special offer expires", "up to 85%",
+        "upgrade now", "drive sync disabled", "photos, videos, and backups may not be saved",
+        "your backup is incomplete", "storage almost full", "icloud storage",
+        "google drive storage full", "onedrive is full"
+      ],
+      "score": 34,
+      "message_template": "Cloud storage / backup pressure scam: \"{term}\""
+    },
+    {
+      "category": "fake_registration",
+      "severity": "high",
+      "terms": [
+        "registration is complete", "welcome aboard", "account has been created",
+        "you did not create this account", "unauthorized registration"
+      ],
+      "score": 30,
+      "message_template": "Fake registration / account-creation notice"
+    },
+    {
+      "category": "verification_urgency",
+      "severity": "high",
+      "terms": [
+        "confirm your email", "confirm your info", "verify here",
+        "secure your profile", "action required immediately", "verify your account",
+        "click here to verify", "confirm ownership", "re-verify your identity"
+      ],
+      "score": 32,
+      "message_template": "Urgency to confirm or verify: \"{term}\""
+    },
+    {
+      "category": "time_pressure",
+      "severity": "medium",
+      "terms": [
+        "expires in a few hours", "special offer", "hurry",
+        "limited time", "ends soon", "last chance", "within 24 hours",
+        "act now", "immediate action required", "final notice"
+      ],
+      "score": 22,
+      "message_template": "Time-pressure / scarcity tactic: \"{term}\""
+    },
+    {
+      "category": "payment_invoice_scam",
+      "severity": "high",
+      "terms": [
+        "invoice overdue", "payment failed", "wire transfer", "urgent payment",
+        "update your billing", "account will be suspended", "failed payment",
+        "billing information expired", "charge will be processed", "refund pending"
+      ],
+      "score": 33,
+      "message_template": "Payment / invoice scam: \"{term}\""
+    },
+    {
+      "category": "account_suspension",
+      "severity": "high",
+      "terms": [
+        "account will be suspended", "your account has been limited",
+        "security alert", "unusual activity detected", "verify your identity",
+        "account locked", "temporary hold", "suspicious sign-in"
+      ],
+      "score": 34,
+      "message_template": "Account suspension / security threat: \"{term}\""
+    },
+    {
+      "category": "tech_support_scam",
+      "severity": "critical",
+      "terms": [
+        "your computer has a virus", "microsoft support", "windows defender alert",
+        "remote assistance", "call this number immediately", "teamviewer",
+        "anydesk", "pc infected", "call apple support"
+      ],
+      "score": 40,
+      "message_template": "Tech support scam: \"{term}\""
+    },
+    {
+      "category": "prize_lottery_scam",
+      "severity": "high",
+      "terms": [
+        "you have won", "claim your prize", "lottery winner",
+        "congratulations you won", "mega millions", "free gift card",
+        "claim reward", "selected as winner"
+      ],
+      "score": 30,
+      "message_template": "Prize / lottery scam: \"{term}\""
+    },
+    {
+      "category": "crypto_wallet_scam",
+      "severity": "critical",
+      "terms": [
+        "seed phrase", "recovery phrase", "wallet connect", "airdrop claim",
+        "connect your wallet", "private key", "claim free crypto",
+        "synchronize wallet", "validate your wallet"
+      ],
+      "score": 42,
+      "message_template": "Crypto / wallet phishing: \"{term}\""
+    },
+    {
+      "category": "credential_harvest",
+      "severity": "critical",
+      "terms": [
+        "enter your password", "re-enter password", "update password immediately",
+        "signin to continue", "log in to avoid", "password expires today",
+        "ssn required", "social security number", "routing number",
+        "one-time password below", "enter otp"
+      ],
+      "score": 38,
+      "message_template": "Credential / PII harvest language: \"{term}\""
+    },
+    {
+      "category": "delivery_package_scam",
+      "severity": "medium",
+      "terms": [
+        "package could not be delivered", "delivery fee required",
+        "reschedule delivery", "customs fee", "shipping holds",
+        "track your package", "undelivered parcel"
+      ],
+      "score": 26,
+      "message_template": "Delivery / package scam: \"{term}\""
+    },
+    {
+      "category": "tax_irs_scam",
+      "severity": "critical",
+      "terms": [
+        "irs refund", "tax refund pending", "owe back taxes",
+        "federal tax notice", "hmrc refund", "warrant for arrest"
+      ],
+      "score": 40,
+      "message_template": "Tax / government impersonation: \"{term}\""
+    },
+    {
+      "category": "qr_code_bait",
+      "severity": "medium",
+      "terms": [
+        "scan the qr code", "scan qr to verify", "qr code below",
+        "scan to claim", "scan to unlock"
+      ],
+      "score": 20,
+      "message_template": "QR-code bait (quishing): \"{term}\""
+    }
+  ],
+
+  "regex_patterns": [
+    {
+      "category": "generic_greeting",
+      "pattern": "(hello|dear|hi)\\s+[a-z0-9._%+-]+@",
+      "score": 16,
+      "severity": "medium",
+      "message": "Generic greeting that uses the raw email address as a name"
+    },
+    {
+      "category": "ip_address_url",
+      "pattern": "https?://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
+      "score": 28,
+      "severity": "high",
+      "message": "URL uses a raw IP address (common in phishing kits)"
+    },
+    {
+      "category": "suspicious_shortener",
+      "pattern": "bit\\.ly|tinyurl\\.com|t\\.co/|is\\.gd|goo\\.gl|rebrand\\.ly|cutt\\.ly|rb\\.gy|ow\\.ly",
+      "score": 14,
+      "severity": "medium",
+      "message": "Link uses a URL shortener (hides the real destination)"
+    },
+    {
+      "category": "data_uri_or_js_link",
+      "pattern": "href=[\"']?(javascript:|data:text/html)",
+      "score": 35,
+      "severity": "critical",
+      "message": "Dangerous javascript: or data: URI link detected"
+    },
+    {
+      "category": "base64_blob",
+      "pattern": "(?:[A-Za-z0-9+/]{60,}={0,2})",
+      "score": 12,
+      "severity": "low",
+      "message": "Large base64-like blob (possible obfuscated payload)"
+    },
+    {
+      "category": "homoglyph_like_domain",
+      "pattern": "xn--[a-z0-9-]+",
+      "score": 30,
+      "severity": "high",
+      "message": "Punycode (xn--) domain — possible internationalized spoof"
+    },
+    {
+      "category": "free_hosting_path",
+      "pattern": "(github\\.io|netlify\\.app|vercel\\.app|web\\.app|pages\\.dev|firebaseapp\\.com|ngrok\\.io|trycloudflare\\.com)/[\\w./-]*(login|signin|verify|secure|account|wallet)",
+      "score": 26,
+      "severity": "high",
+      "message": "Login/verify path hosted on free cloud infrastructure"
+    }
+  ],
+
+  "sender_rules": [
+    {
+      "category": "suspicious_sender_length",
+      "min_length": 40,
+      "score": 14,
+      "severity": "medium",
+      "message": "Unusually long or complex sender address"
+    }
+  ],
+
+  "domain_rules": {
+    "suspicious_tlds": [
+      ".top", ".xyz", ".fun", ".online", ".click", ".link", ".gq", ".tk",
+      ".ml", ".cf", ".ga", ".work", ".rest", ".surf", ".monster", ".icu",
+      ".buzz", ".zip", ".mov", ".country", ".kim", ".loan", ".win"
+    ],
+    "score": 16,
+    "severity": "medium",
+    "message": "Suspicious or abuse-prone domain extension"
+  },
+
+  "brand_protection": {
+    "brands": [
+      {
+        "name": "PayPal",
+        "keywords": ["paypal"],
+        "legit_domains": ["paypal.com", "paypal.me", "paypalobjects.com"]
+      },
+      {
+        "name": "Microsoft",
+        "keywords": ["microsoft", "office 365", "onedrive", "azure ad", "microsoft account", "microsoft 365"],
+        "legit_domains": ["microsoft.com", "live.com", "outlook.com", "office.com", "microsoftonline.com", "office365.com", "onedrive.com", "azure.com", "msn.com"]
+      },
+      {
+        "name": "Apple",
+        "keywords": ["apple id", "icloud", "app store", "apple support"],
+        "legit_domains": ["apple.com", "icloud.com", "appleid.apple.com", "mzstatic.com"]
+      },
+      {
+        "name": "Amazon",
+        "keywords": ["amazon", "aws", "prime membership"],
+        "legit_domains": ["amazon.com", "amazon.co.uk", "aws.amazon.com", "amazonaws.com", "amazon.dev"]
+      },
+      {
+        "name": "Google",
+        "keywords": ["google account", "gmail", "google drive", "youtube"],
+        "legit_domains": ["google.com", "gmail.com", "googleapis.com", "gstatic.com", "youtube.com", "googlemail.com", "withgoogle.com"]
+      },
+      {
+        "name": "Netflix",
+        "keywords": ["netflix"],
+        "legit_domains": ["netflix.com", "nflxext.com", "nflximg.net"]
+      },
+      {
+        "name": "Banking",
+        "keywords": ["chase", "bank of america", "wells fargo", "citibank", "capital one"],
+        "legit_domains": ["chase.com", "bankofamerica.com", "wellsfargo.com", "citi.com", "capitalone.com"]
+      },
+      {
+        "name": "Crypto exchanges",
+        "keywords": ["coinbase", "binance", "metamask", "kraken"],
+        "legit_domains": ["coinbase.com", "binance.com", "metamask.io", "kraken.com"]
+      },
+      {
+        "name": "IRS",
+        "keywords": ["internal revenue", "irs.gov", "tax refund"],
+        "legit_domains": ["irs.gov", "usa.gov"]
+      }
+    ],
+    "impersonation_score": 36,
+    "typosquat_score": 34
+  },
+
+  "trusted_domains": [
+    "google.com", "gmail.com", "microsoft.com", "live.com", "outlook.com",
+    "apple.com", "icloud.com", "amazon.com", "paypal.com", "github.com",
+    "linkedin.com", "facebook.com", "twitter.com", "x.com", "instagram.com",
+    "wikipedia.org", "gov", "edu", "solviedoquantum.com", "quantumstockgame.com"
+  ],
+
+  "url_path_red_flags": [
+    "login", "signin", "sign-in", "verify", "secure", "account", "update",
+    "confirm", "password", "wallet", "session", "auth", "oauth", "billing",
+    "unlock", "recover", "support-ticket", "webscr"
+  ],
+
+  "scoring": {
+    "max_score": 100,
+    "thresholds": {
+      "CRITICAL": 70,
+      "HIGH": 50,
+      "MEDIUM": 30,
+      "LOW": 0
+    },
+    "sensitivity": {
+      "strict": {"score_multiplier": 1.15, "threshold_offset": -8},
+      "balanced": {"score_multiplier": 1.0, "threshold_offset": 0},
+      "quiet": {"score_multiplier": 0.85, "threshold_offset": 10}
+    }
+  },
+
+  "playbooks": {
+    "CRITICAL": "1. Do not click any links or open attachments.\n2. Disconnect if you already clicked — change passwords from a known-good device.\n3. Report as phishing in your email client.\n4. Enable 2FA on affected accounts.\n5. Check bank/crypto activity for unauthorized actions.",
+    "HIGH": "1. Do not interact with links or forms in this message.\n2. Delete or quarantine the email.\n3. Report phishing to your provider.\n4. Visit official sites only by typing the URL yourself.\n5. Monitor account notifications for the next 48 hours.",
+    "MEDIUM": "1. Treat links with caution — verify the real domain hover/preview.\n2. Prefer navigating to the service via bookmark or typed URL.\n3. Do not enter credentials from this message.\n4. Report if it keeps arriving.",
+    "LOW": "1. No strong automated red flags — still verify unexpected requests.\n2. Never share passwords, MFA codes, or seed phrases.\n3. When unsure, contact the organization via a known channel."
+  }
+}

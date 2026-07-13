@@ -89,6 +89,32 @@
             width: 90%;
             border: 2px solid #00ccff;
         }
+
+        * { box-sizing: border-box; }
+
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            h1 { font-size: 1.75rem; }
+            .subtitle { font-size: 0.95rem; }
+            .countries { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .country { padding: 10px; }
+            .name { font-size: 1rem; }
+            #output { height: 140px; font-size: 0.9rem; padding: 12px; }
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            button {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 1rem;
+            }
+            .modal-content {
+                padding: 18px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -204,6 +230,10 @@
         function hideModal() {
             document.getElementById("targetModal").style.display = "none";
         }
+
+        document.getElementById("targetModal").addEventListener("click", (e) => {
+            if (e.target.id === "targetModal") hideModal();
+        });
 
         function aiTurn() {
             countries.forEach(country => {

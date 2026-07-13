@@ -7,6 +7,9 @@ dist/
 # Vite cache
 .vite/
 
+# Local audit screenshots
+screenshots/
+
 # Unity (if you have Unity projects in the folder)
 Library/
 Temp/

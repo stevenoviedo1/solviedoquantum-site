@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "copy:rules": "node scripts/copy-phishing-rules.cjs",
+    "predev": "npm run copy:rules",
     "dev": "vite",
+    "prebuild": "npm run copy:rules",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

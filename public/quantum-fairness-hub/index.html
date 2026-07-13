@@ -157,6 +157,45 @@
             height: 80px;
             border-radius: 12px;
         }
+
+        * { box-sizing: border-box; }
+
+        @media (max-width: 768px) {
+            header { padding: 48px 16px 40px; }
+            h1 {
+                flex-direction: column;
+                font-size: 2rem;
+                gap: 12px;
+            }
+            h1 img { height: 72px; }
+            .tagline { font-size: 1.1rem; padding: 0 8px; }
+            .trust-box {
+                margin: 32px 16px;
+                padding: 24px 20px;
+            }
+            .trust-box h2 { font-size: 1.4rem; }
+            .tools {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 32px 16px;
+            }
+            .tool {
+                min-height: auto;
+                padding: 22px 18px;
+            }
+            .tool h2 { font-size: 1.35rem; }
+            .result { font-size: 1.5rem; min-height: 56px; }
+            button {
+                width: 100%;
+                max-width: 100%;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+            .rps-buttons { flex-direction: column; }
+            .rps-buttons button { width: 100%; }
+            footer { padding: 40px 16px; }
+            footer img { height: 56px; }
+        }
     </style>
 </head>
 <body>
@@ -282,13 +321,14 @@
         }
 
         function pickLotto() {
-            const bytes = getSecureRandomInts(40);
-            const picks = new Set();
-            for (let b of bytes) {
-                picks.add((b % 49) + 1);
-                if (picks.size === 6) break;
+            const pool = Array.from({ length: 49 }, (_, i) => i + 1);
+            for (let i = pool.length - 1; i > 0; i--) {
+                const [byte] = getSecureRandomInts(1);
+                const j = byte % (i + 1);
+                [pool[i], pool[j]] = [pool[j], pool[i]];
             }
-            document.getElementById("lottoResult").innerHTML = Array.from(picks).sort((a,b)=>a-b).join(" • ");
+            const picks = pool.slice(0, 6).sort((a, b) => a - b);
+            document.getElementById("lottoResult").innerHTML = picks.join(" • ");
         }
 
         function pickWinner() {
