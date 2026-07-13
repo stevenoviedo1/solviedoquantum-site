@@ -27,9 +27,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Offset fixed nav when jumping to in-page anchors */
+/* Offset fixed nav when jumping to in-page anchors (taller on mobile for menu bar) */
 section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+    section[id] {
+        scroll-margin-top: 5.5rem;
+    }
 }
 
 /* Screen-reader only utility (Tailwind sr-only fallback if needed) */

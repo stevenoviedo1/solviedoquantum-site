@@ -237,10 +237,10 @@ function HomePage() {
                   setShowPerfBenefits(false);
                 }}
                 aria-expanded={showBenefits}
-                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               >
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Custom Web Development</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Custom Web Development</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
                   Sites and full web apps from scratch — marketing pages, online ordering,
                   dashboards, and realtime features. Next.js, React, and modern backends.
                 </p>
@@ -251,10 +251,10 @@ function HomePage() {
 
               <a
                 href="#portfolio"
-                className="bg-gradient-to-br from-cyan-900/20 to-black p-8 md:p-10 rounded-2xl border border-cyan-800/50 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.02] block"
+                className="bg-gradient-to-br from-cyan-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-cyan-800/50 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.02] block"
               >
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Game Development</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Game Development</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
                   Browser and Unity WebGL games, multiplayer products, and interactive
                   experiences — built to play, not just look cool.
                 </p>
@@ -268,10 +268,10 @@ function HomePage() {
                   setShowBenefits(false);
                 }}
                 aria-expanded={showPerfBenefits}
-                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               >
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Performance Optimization</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Performance Optimization</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
                   Core Web Vitals, lean code, and mobile-first speed — built for SEO,
                   conversions, and real users on real phones.
                 </p>
@@ -323,10 +323,15 @@ function HomePage() {
                         className="w-full h-full object-cover object-[center_15%]"
                       />
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-2.5 py-2.5">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-                        Now: Software Developer
+                    {/* pr keeps label clear of the overlapping military photo on mobile */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent pl-2.5 pr-[42%] sm:pr-[40%] py-2.5">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-200 leading-tight">
+                        <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+                        <span>
+                          Now:{' '}
+                          <span className="sm:hidden">Developer</span>
+                          <span className="hidden sm:inline">Software Developer</span>
+                        </span>
                       </span>
                     </div>
                   </div>
@@ -342,9 +347,9 @@ function HomePage() {
                         className="w-full h-full object-cover object-[center_18%]"
                       />
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-2.5 py-2.5">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-purple-100">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_#a78bfa]" />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-2 py-2">
+                      <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-purple-100 leading-tight">
+                        <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-purple-400 shadow-[0_0_8px_#a78bfa]" />
                         Before: U.S. Army
                       </span>
                     </div>
@@ -527,7 +532,7 @@ function HomePage() {
               Contact
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 mb-2">
-              Steven Oviedo · Web &amp; Game Developer
+              Steven Oviedo · Founder of SolViedo Quantum
             </p>
             <p className="text-base sm:text-lg text-cyan-300/90 mb-1">
               <a href="tel:+19567981222" className="hover:underline">
