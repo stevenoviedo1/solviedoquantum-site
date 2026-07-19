@@ -13,7 +13,7 @@ export const projectSections = [
         title: "HostedInvite",
         description:
           "Done-for-you event hubs: custom guest pages, RSVPs, QR codes, host dashboard, Design Studio themes, and package booking. Live at hostedinvite.com.",
-        image: "/hostedinvite-v2.jpg",
+        image: "/hostedinvite-v3.jpg",
         imageFit: "cover",
         link: "https://hostedinvite.com",
         tags: ["Next.js", "Neon", "Stripe", "RSVP", "Events"],
