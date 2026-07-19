@@ -9,6 +9,16 @@ export const projectSections = [
     subtitle: "Shipped for customers and real-world use",
     projects: [
       {
+        id: "hostedinvite",
+        title: "HostedInvite",
+        description:
+          "Done-for-you event hubs: custom guest pages, RSVPs, QR codes, host dashboard, Design Studio themes, and package booking. Live at hostedinvite.com.",
+        image: "/hostedinvite.jpg",
+        imageFit: "cover",
+        link: "https://hostedinvite.com",
+        tags: ["Next.js", "Neon", "Stripe", "RSVP", "Events"],
+      },
+      {
         id: "la88",
         title: "La 88 Pizza",
         description:
