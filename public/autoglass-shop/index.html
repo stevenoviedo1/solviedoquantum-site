@@ -425,9 +425,8 @@
     .hero h1 .hero-line {
       display: block;
     }
-    /* Mobile-only visuals under headline */
-    .hero-mobile-brand,
-    .hero-mobile-photos {
+    /* Mobile-only brand mark under headline (logo only, not full business card) */
+    .hero-mobile-brand {
       display: none;
     }
     .hero-mobile-brand img {
@@ -436,42 +435,15 @@
       margin: 0 auto;
       filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.4));
     }
-    .hero-mobile-photos {
-      width: 100%;
-      flex-direction: column;
-      gap: 0.85rem;
+    /* Mobile-only work photo (desktop uses why-image + card) */
+    .hero-mobile-photo {
+      display: none;
     }
-    .hero-mobile-photos .hero-mobile-photo {
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--gold-border);
-      background: var(--black-3);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-    }
-    .hero-mobile-photos .hero-mobile-photo img {
+    .hero-mobile-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-    .hero-mobile-photos .photo-work {
-      aspect-ratio: 16 / 10;
-      max-height: 240px;
-    }
-    /* Business-card photo cropped to logo only (no address/phones) */
-    .hero-mobile-photos .photo-card-logo {
-      aspect-ratio: 1;
-      max-width: min(72%, 240px);
-      margin-inline: auto;
-      max-height: 240px;
-    }
-    .hero-mobile-photos .photo-card-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 48%;
-      transform: scale(1.35);
     }
     .hero-lead {
       font-size: 1.05rem;
@@ -1358,7 +1330,7 @@
 
     @media (max-width: 1023px) {
       /* Larger root so rem-based UI reads comfortably on phones */
-      :root { --base: 20px; --header-h: 82px; }
+      :root { --base: 20px; --header-h: 74px; }
       html { font-size: 18.5px; }
       html, body { overflow-x: hidden; width: 100%; }
       body {
@@ -1392,28 +1364,9 @@
       .header-actions .lang-toggle,
       .header-actions .nav-cta { display: none !important; }
       .nav-links { display: none !important; }
-      .menu-btn { display: inline-flex !important; width: 48px; height: 48px; border-radius: 12px; }
-      .brand {
-        gap: 0;
-        min-width: 0;
-        display: flex !important;
-        align-items: center !important;
-        z-index: 2;
-      }
-      /* Header logo — larger + gold ring so it reads on black bar */
-      .brand-logo {
-        display: block !important;
-        width: 58px !important;
-        height: 58px !important;
-        min-width: 58px !important;
-        min-height: 58px !important;
-        object-fit: contain !important;
-        background: #0a0a0a !important;
-        border: 1.5px solid rgba(212, 160, 23, 0.55) !important;
-        border-radius: 12px !important;
-        padding: 3px !important;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 4px 14px rgba(0,0,0,0.35);
-      }
+      .menu-btn { display: inline-flex !important; width: 44px; height: 44px; border-radius: 12px; }
+      .brand { gap: 0; min-width: 0; }
+      .brand-logo { width: 48px; height: 48px; }
       .brand-text { display: none !important; }
       /* Centered company name + slogan in header middle */
       .mobile-header-title {
@@ -1583,74 +1536,33 @@
       .hero h1 span {
         color: var(--gold-bright);
       }
-      /* Keep headline + both photos high on the page (before long city list) */
-      .hero-area-label { order: 1; }
-      .hero-area-title { order: 2; }
-      .hero h1 { order: 3; }
-      .hero-mobile-brand { order: 4; }
-      .hero-mobile-photos { order: 5; }
-      .hero-area-sub { order: 6; }
-      .hero-cities-wrap { order: 7; }
-      .hero-lead { order: 8; }
-      .hero-actions { order: 9; }
-      .hero-stats { order: 10; }
-
-      /* Large brand mark under headline */
+      /* Logo only under headline (not address/phones from the card) */
       .hero-mobile-brand {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin: 0 auto 0.85rem !important;
+        margin: 0 auto 1.15rem !important;
         padding: 0 !important;
       }
       .hero-mobile-brand img {
-        width: min(52vw, 190px) !important;
-        max-width: 190px !important;
+        width: min(48vw, 176px) !important;
+        max-width: 176px !important;
         height: auto !important;
-        filter: drop-shadow(0 8px 20px rgba(212, 160, 23, 0.2));
       }
-      /* Desktop's 2 photos: work shot + card logo crop */
-      .hero-mobile-photos {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto 1.2rem !important;
-        gap: 0.9rem !important;
-      }
-      .hero-mobile-photos .hero-mobile-photo {
+      /* Work photo from desktop why-section */
+      .hero-mobile-photo {
         display: block !important;
         width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.35rem auto 1.2rem !important;
         border-radius: 12px !important;
         overflow: hidden !important;
         border: 1px solid var(--gold-border) !important;
+        aspect-ratio: 16 / 10 !important;
+        max-height: 230px !important;
         background: var(--black-3) !important;
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-      }
-      .hero-mobile-photos .photo-work {
-        aspect-ratio: 16 / 10 !important;
-        max-height: 240px !important;
-      }
-      .hero-mobile-photos .photo-card-logo {
-        aspect-ratio: 1 !important;
-        width: min(68%, 220px) !important;
-        max-width: 220px !important;
-        max-height: 220px !important;
-        margin-inline: auto !important;
-      }
-      .hero-mobile-photos .photo-card-logo img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center 48% !important;
-        transform: scale(1.4);
-      }
-      .hero-mobile-photos .photo-work img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
       }
       .hero-lead {
         font-size: 1.18rem !important;
@@ -1997,16 +1909,11 @@
             </div>
           </div>
           <h1 data-i18n-html="hero.title"><span class="hero-line">Crystal-clear glass.</span><span class="hero-line"><span>Trusted service.</span></span></h1>
-          <div class="hero-mobile-brand mobile-only">
+          <div class="hero-mobile-brand mobile-only" aria-hidden="false">
             <img src="./logo.png" alt="AutoGlass Shop — At AGS You Can Trust" width="200" height="200" loading="eager" decoding="async" />
           </div>
-          <div class="hero-mobile-photos mobile-only">
-            <div class="hero-mobile-photo photo-work">
-              <img src="./service.jpg" alt="Professional auto glass installation" width="800" height="500" loading="eager" decoding="async" />
-            </div>
-            <div class="hero-mobile-photo photo-card-logo">
-              <img src="./card-clean.jpg" alt="AutoGlass Shop logo" width="400" height="400" loading="eager" decoding="async" />
-            </div>
+          <div class="hero-mobile-photo mobile-only">
+            <img src="./service.jpg" alt="Professional auto glass installation" width="800" height="500" loading="lazy" decoding="async" />
           </div>
           <p class="hero-lead" data-i18n="hero.lead">
             Windshield repair & replacement, side and rear glass, and professional window tint. Fast, careful work you can trust — in the shop or at your location.
