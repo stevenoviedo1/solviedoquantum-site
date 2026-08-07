@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AutoGlass Shop | Weslaco, TX — At AGS You Can Trust</title>
-  <meta name="description" content="Professional auto glass repair, windshield replacement, and window tint in Weslaco, TX. Mobile service available. Office 956-854-4722 · Mobile 956-647-9224." />
+  <meta name="description" content="AutoGlass Shop in Weslaco, TX — rock chip repair, windshield replacement, sunroof, ADAS calibration, auto/commercial/residential tint, vinyl wrap, PPF, and mobile service. Office 956-854-4722 · Mobile 956-647-9224." />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta property="og:title" content="AutoGlass Shop | Weslaco, TX" />
-  <meta property="og:description" content="Windshield repair & replacement, side glass, window tint, and mobile service. At AGS you can trust." />
+  <meta property="og:title" content="AutoGlass Shop | Weslaco, TX — At AGS You Can Trust" />
+  <meta property="og:description" content="Windshield, tint, wrap, PPF, ADAS, and mobile auto glass in the Rio Grande Valley. At AGS you can trust." />
   <meta property="og:image" content="/autoglass-shop/card-clean.jpg" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
@@ -79,9 +79,25 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+      background: rgba(10, 10, 10, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.18);
+    }
+    ::selection {
+      background: rgba(212, 160, 23, 0.35);
+      color: #fff;
+    }
+    .btn:focus-visible,
+    .nav-cta:focus-visible,
+    .lang-toggle button:focus-visible,
+    .menu-btn:focus-visible,
+    .field input:focus-visible,
+    .field select:focus-visible,
+    .field textarea:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 2px;
     }
     .nav-inner {
       display: flex;
@@ -526,16 +542,31 @@
       gap: 1.1rem;
     }
     .service-card {
+      position: relative;
+      overflow: hidden;
       background: var(--black-3);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: var(--radius);
-      padding: 1.25rem 1.2rem;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 1.35rem 1.35rem 1.35rem 1.45rem;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       min-height: 100%;
     }
-    .service-card:hover {
-      border-color: var(--gold-border);
-      transform: translateY(-2px);
+    .service-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold-bright), #a67c0e);
+      opacity: 0.9;
+    }
+    @media (hover: hover) {
+      .service-card:hover {
+        border-color: var(--gold-border);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+      }
     }
     .service-num {
       display: inline-flex;
@@ -544,9 +575,9 @@
       min-width: 2.5rem;
       height: 2.5rem;
       padding: 0 0.65rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(212,160,23,0.2), rgba(240,180,41,0.08));
+      background: linear-gradient(135deg, rgba(212,160,23,0.22), rgba(240,180,41,0.08));
       border: 1px solid var(--gold-border);
       color: var(--gold-bright);
       font-family: Oswald, sans-serif;
@@ -556,27 +587,13 @@
     }
     .service-card h3 {
       font-family: Oswald, sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
       color: var(--white);
     }
-    .service-card p { font-size: 1.08rem; color: var(--muted); line-height: 1.6; }
-    .service-card {
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--gold-bright), var(--gold-dim, #a67c0e));
-      opacity: 0.85;
-    }
+    .service-card p { font-size: 1.05rem; color: var(--muted); line-height: 1.6; }
 
     .why-grid {
       display: grid;
@@ -1113,17 +1130,31 @@
         margin: 0 !important;
       }
       .card-showcase img {
-        width: min(100%, 460px);
+        width: min(100%, 480px);
         max-width: 100%;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.45));
       }
-      .hero-area-label { font-size: 0.95rem; }
+      .hero-area-label { font-size: 0.95rem; letter-spacing: 0.14em; }
       .hero-area-title { font-size: 1.4rem; margin-bottom: 0.65rem; }
       .hero-area-sub { font-size: 1.12rem; max-width: 40rem; }
       .hero h1 { font-size: clamp(2.65rem, 5vw, 3.85rem); max-width: 16ch; }
       .hero-lead {
-        font-size: 1.2rem;
-        max-width: 42rem;
+        font-size: 1.18rem;
+        max-width: 40rem;
         margin-bottom: 1.25rem;
+      }
+      .services-grid { gap: 1.2rem; }
+      .contact-card,
+      .insure-card,
+      .review-card {
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      @media (hover: hover) {
+        .contact-card:hover,
+        .insure-card:hover,
+        .review-card:hover {
+          border-color: var(--gold-border);
+        }
       }
       .hero-cities-wrap { margin-bottom: 1.5rem; }
       .hero-cities {
@@ -1305,13 +1336,13 @@
       .brand-logo { width: 52px; height: 52px; }
       .brand-text { display: none !important; }
       .mobile-header-title { display: flex !important; }
-      .mobile-header-title .name { font-size: 1.08rem; }
-      .mobile-header-title .tag { font-size: 0.75rem; }
+      .mobile-header-title .name { font-size: 1.05rem; letter-spacing: 0.05em; }
+      .mobile-header-title .tag { font-size: 0.72rem; letter-spacing: 0.05em; color: #c9c9c9; }
       .nav-inner {
         display: grid !important;
         grid-template-columns: auto 1fr auto;
         align-items: center;
-        gap: 0.4rem;
+        gap: 0.45rem;
       }
       .menu-btn {
         width: 48px;
@@ -1489,21 +1520,23 @@
         min-height: 52px;
         border-radius: 999px;
         font-weight: 800;
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
       }
       .mobile-sticky-bar .msb-book {
-        flex: 1.4;
+        flex: 1.45;
         background: linear-gradient(135deg, var(--gold), var(--gold-bright));
         color: #0a0a0a;
-        font-size: 1.05rem;
+        font-size: 1.02rem;
+        box-shadow: 0 4px 16px rgba(212, 160, 23, 0.25);
       }
       .mobile-sticky-bar .msb-call {
         background: rgba(255,255,255,0.08);
         border: 1px solid rgba(212,160,23,0.35);
         color: var(--gold-bright);
       }
-      body { padding-bottom: 5.5rem; }
+      body { padding-bottom: 5.75rem; }
 
       /* Services — full width tiles, bigger labels */
       .services-grid {
