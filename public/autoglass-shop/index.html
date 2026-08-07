@@ -288,14 +288,16 @@
     .card-showcase {
       display: none;
       justify-content: center;
-      order: 2; /* below text by default */
-      width: 100%;
+      align-items: center;
+      flex-shrink: 0;
     }
     .card-showcase img {
-      width: min(100%, 280px);
+      width: min(100%, 300px);
+      height: auto;
       border-radius: 12px;
-      border: 1px solid var(--gold-border);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      border: none;
+      background: transparent;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
     }
     .hero-badge {
       display: inline-flex;
@@ -1022,28 +1024,41 @@
         min-height: 44px;
       }
       .demo-banner { font-size: 1rem; padding: 0.65rem 1rem; }
-      /* Card stacks UNDER hero text — never side-by-side */
-      .card-showcase {
-        display: flex !important;
-        order: 2;
-        margin-top: 0.25rem;
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .card-showcase img {
-        width: min(100%, 320px);
-      }
-      .hero-copy { order: 1; width: 100%; max-width: 52rem; }
+      /* Desktop: text left, business card RIGHT (side-by-side) */
       .hero {
-        min-height: auto;
-        padding: 3.25rem 0 3.75rem;
+        min-height: calc(100vh - var(--header-h) - 48px);
+        padding: 3.5rem 0 4rem;
       }
       .hero .container {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.85fr) !important;
+        flex-direction: unset !important;
+        align-items: center !important;
+        gap: 2.5rem 3rem !important;
+      }
+      .hero-copy {
+        order: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        margin: 0 !important;
+      }
+      .hero-copy > * {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .card-showcase {
         display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start;
-        gap: 2rem;
-        grid-template-columns: none !important;
+        order: 0 !important;
+        width: auto !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 !important;
+      }
+      .card-showcase img {
+        width: min(100%, 340px);
+        max-width: 100%;
       }
       .hero-area-label { font-size: 0.95rem; }
       .hero-area-title { font-size: 1.4rem; margin-bottom: 0.65rem; }
@@ -1062,11 +1077,16 @@
       }
       .hero-cities .city-chip { font-size: 1rem; padding: 0.5rem 0.9rem; }
       .hero-actions {
+        display: flex !important;
+        flex-direction: column;
         gap: 0.85rem;
         margin-bottom: 1.75rem;
+        margin-inline: 0 !important;
         align-items: flex-start;
+        max-width: none;
+        width: auto;
       }
-      .hero-call-row { max-width: 32rem; }
+      .hero-call-row { max-width: 32rem; display: grid; }
       .hero-call-row .btn { font-size: 1.05rem; min-height: 52px; }
       .hero-actions > .btn-gold { width: auto; max-width: 20rem; }
       .hero-copy {
@@ -1134,6 +1154,9 @@
       :root { --max: 1640px; }
     }
 
+    /* Sticky bar hidden on desktop by default */
+    .mobile-sticky-bar { display: none; }
+
     /* ========== MOBILE + TABLET: centered, no Reviews ========== */
     .desktop-only { display: none !important; }
     .mobile-only { display: block; }
@@ -1147,6 +1170,8 @@
       .mobile-only { display: none !important; }
       .nav-reviews { display: inline !important; }
       #reviews { display: block !important; }
+      .mobile-sticky-bar { display: none !important; }
+      body { padding-bottom: 0; }
     }
 
     @media (max-width: 1023px) {
@@ -1362,30 +1387,97 @@
         min-height: 50px;
         font-size: 0.98rem;
       }
+      /* Compact 3-up stats */
       .hero-stats {
         display: grid !important;
-        grid-template-columns: 1fr;
-        gap: 0.65rem;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 0.45rem !important;
         width: 100%;
         max-width: 22rem;
         margin-inline: auto;
-        padding-top: 0.25rem;
+        padding-top: 0.15rem;
         border-top: none;
         text-align: center;
       }
       .stat {
         text-align: center;
-        padding: 0.95rem 1rem;
+        padding: 0.65rem 0.35rem;
       }
       .stat strong {
-        font-size: 1.2rem;
+        font-size: 0.82rem;
         text-align: center;
+        line-height: 1.2;
       }
       .stat span {
-        font-size: 1rem;
+        font-size: 0.72rem;
         text-align: center;
         display: block;
+        line-height: 1.25;
+        margin-top: 0.2rem;
       }
+
+      /* Sticky bottom action bar — primary mobile CTA */
+      .mobile-sticky-bar {
+        display: flex !important;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 200;
+        gap: 0.45rem;
+        padding: 0.65rem 0.85rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+        background: rgba(10, 10, 10, 0.94);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(212, 160, 23, 0.3);
+        box-shadow: 0 -8px 28px rgba(0,0,0,0.35);
+      }
+      .mobile-sticky-bar a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+      .mobile-sticky-bar .msb-book {
+        flex: 1.35;
+        background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+        color: #0a0a0a;
+      }
+      .mobile-sticky-bar .msb-call {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(212,160,23,0.35);
+        color: var(--gold-bright);
+      }
+      body { padding-bottom: 5.25rem; }
+      /* slightly tighter hero so CTAs + content fit */
+      .hero { padding: 1.1rem 0 1.35rem; }
+      .hero-area-sub {
+        font-size: 1rem;
+        max-width: 19.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .hero-cities {
+        gap: 0.4rem;
+        max-width: 21rem;
+      }
+      .hero-cities .city-chip {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.65rem;
+      }
+      .hero h1 {
+        font-size: clamp(1.95rem, 8.5vw, 2.35rem);
+        margin-bottom: 0.55rem;
+      }
+      .hero-lead {
+        font-size: 1.02rem;
+        max-width: 20rem;
+        margin-bottom: 1rem;
+      }
+      .hero-actions { display: none !important; } /* use sticky bar instead */
 
       /* Sections */
       section { padding: 2.35rem 0; }
@@ -1719,7 +1811,7 @@
           </div>
         </div>
         <div class="card-showcase">
-          <img src="./card-clean.jpg" alt="AutoGlass Shop business card" width="340" height="510" loading="lazy" />
+          <img src="./card-clean.jpg" alt="AutoGlass Shop business card" width="340" height="510" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -2174,6 +2266,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile-only sticky call/book bar -->
+  <div class="mobile-sticky-bar" aria-label="Quick actions">
+    <a class="msb-call" href="tel:+19568544722">Office</a>
+    <a class="msb-book" href="#book" data-i18n="hero.book">Book Appointment</a>
+    <a class="msb-call" href="tel:+19566479224">Mobile</a>
+  </div>
 
   <script>
     (function () {
