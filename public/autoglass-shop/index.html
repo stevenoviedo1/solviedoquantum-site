@@ -541,6 +541,52 @@
       grid-template-columns: 1fr;
       gap: 1.1rem;
     }
+    .services-more {
+      display: none;
+      margin-top: 1.1rem;
+    }
+    .services-more.is-open {
+      display: block;
+    }
+    .services-more .services-grid {
+      margin-top: 0;
+    }
+    .services-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      width: 100%;
+      max-width: 22rem;
+      margin: 1.35rem auto 0;
+      min-height: 50px;
+      padding: 0.8rem 1.25rem;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--gold-bright);
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .services-toggle:hover {
+      background: rgba(212, 160, 23, 0.18);
+      border-color: var(--gold-bright);
+    }
+    .services-toggle:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 3px;
+    }
+    .services-toggle .chev {
+      display: inline-flex;
+      transition: transform 0.25s ease;
+    }
+    .services-toggle[aria-expanded="true"] .chev {
+      transform: rotate(180deg);
+    }
     .service-card {
       position: relative;
       overflow: hidden;
@@ -1817,7 +1863,7 @@
           From rock chips to full windshield replacements and window tint — quality workmanship and efficient service for drivers across the Valley.
         </p>
         </div>
-        <div class="services-grid">
+        <div class="services-grid" id="services-primary">
           <article class="service-card">
             <span class="service-num" aria-hidden="true">01</span>
             <h3 data-i18n="svc.chip.t">Rock Chip Repair</h3>
@@ -1833,52 +1879,62 @@
             <h3 data-i18n="svc.replace.t">Windshield Replacement</h3>
             <p data-i18n="svc.replace.d">Quality glass install for cars, trucks, and SUVs — proper seal, clean finish, ready for the road.</p>
           </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">04</span>
-            <h3 data-i18n="svc.side.t">Side & Rear Glass</h3>
-            <p data-i18n="svc.side.d">Door glass, quarter glass, and back glass replacement when something breaks — not just windshields.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">05</span>
-            <h3 data-i18n="svc.sunroof.t">Sunroof</h3>
-            <p data-i18n="svc.sunroof.d">Sunroof and moonroof glass service and replacement to keep your roof sealed and looking right.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">06</span>
-            <h3 data-i18n="svc.adas.t">ADAS Calibration</h3>
-            <p data-i18n="svc.adas.d">Camera and sensor recalibration after windshield work so safety systems stay accurate.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">07</span>
-            <h3 data-i18n="svc.tint.t">Auto Window Tint</h3>
-            <p data-i18n="svc.tint.d">Automotive window tint for comfort, privacy, and UV protection — clean lines, no bubbles.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">08</span>
-            <h3 data-i18n="svc.commercial.t">Commercial Tint</h3>
-            <p data-i18n="svc.commercial.d">Storefront and commercial glass tint for privacy, heat control, and a professional look.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">09</span>
-            <h3 data-i18n="svc.residential.t">Residential Tint</h3>
-            <p data-i18n="svc.residential.d">Home window film for UV protection, energy savings, privacy, and glare reduction.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">10</span>
-            <h3 data-i18n="svc.vinyl.t">Vinyl Wrap</h3>
-            <p data-i18n="svc.vinyl.d">Color-change and custom vinyl wraps for a fresh look and paint protection with style.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">11</span>
-            <h3 data-i18n="svc.ppf.t">Paint Protection Film</h3>
-            <p data-i18n="svc.ppf.d">Clear PPF to guard paint from chips, scratches, and road debris — nearly invisible protection.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-num" aria-hidden="true">12</span>
-            <h3 data-i18n="svc.mobile.t">Mobile Service</h3>
-            <p data-i18n="svc.mobile.d">We come to you when it works for your schedule — home, work, or roadside.</p>
-          </article>
         </div>
+        <div class="services-more" id="services-more" hidden>
+          <div class="services-grid">
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">04</span>
+              <h3 data-i18n="svc.side.t">Side & Rear Glass</h3>
+              <p data-i18n="svc.side.d">Door glass, quarter glass, and back glass replacement when something breaks — not just windshields.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">05</span>
+              <h3 data-i18n="svc.sunroof.t">Sunroof</h3>
+              <p data-i18n="svc.sunroof.d">Sunroof and moonroof glass service and replacement to keep your roof sealed and looking right.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">06</span>
+              <h3 data-i18n="svc.adas.t">ADAS Calibration</h3>
+              <p data-i18n="svc.adas.d">Camera and sensor recalibration after windshield work so safety systems stay accurate.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">07</span>
+              <h3 data-i18n="svc.tint.t">Auto Window Tint</h3>
+              <p data-i18n="svc.tint.d">Automotive window tint for comfort, privacy, and UV protection — clean lines, no bubbles.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">08</span>
+              <h3 data-i18n="svc.commercial.t">Commercial Tint</h3>
+              <p data-i18n="svc.commercial.d">Storefront and commercial glass tint for privacy, heat control, and a professional look.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">09</span>
+              <h3 data-i18n="svc.residential.t">Residential Tint</h3>
+              <p data-i18n="svc.residential.d">Home window film for UV protection, energy savings, privacy, and glare reduction.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">10</span>
+              <h3 data-i18n="svc.vinyl.t">Vinyl Wrap</h3>
+              <p data-i18n="svc.vinyl.d">Color-change and custom vinyl wraps for a fresh look and paint protection with style.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">11</span>
+              <h3 data-i18n="svc.ppf.t">Paint Protection Film</h3>
+              <p data-i18n="svc.ppf.d">Clear PPF to guard paint from chips, scratches, and road debris — nearly invisible protection.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-num" aria-hidden="true">12</span>
+              <h3 data-i18n="svc.mobile.t">Mobile Service</h3>
+              <p data-i18n="svc.mobile.d">We come to you when it works for your schedule — home, work, or roadside.</p>
+            </article>
+          </div>
+        </div>
+        <button type="button" class="services-toggle" id="services-toggle" aria-expanded="false" aria-controls="services-more">
+          <span class="services-toggle-label" data-i18n="services.more">Show more services (+9)</span>
+          <span class="chev" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -2317,6 +2373,8 @@
           'services.label': 'What we do',
           'services.title': 'Auto glass done right',
           'services.sub': 'Rock chips, windshields, sunroofs, ADAS, tint, wrap, and PPF — quality work for the Valley.',
+          'services.more': 'Show more services (+9)',
+          'services.less': 'Show fewer services',
           'svc.chip.t': 'Rock Chip Repair',
           'svc.chip.d': 'Quick chip repair to stop cracks from spreading — often same-day and insurance-friendly.',
           'svc.repair.t': 'Windshield Repair',
@@ -2494,6 +2552,8 @@
           'services.label': 'Lo que hacemos',
           'services.title': 'Vidrio automotriz bien hecho',
           'services.sub': 'Chips, parabrisas, sunroof, ADAS, polarizado, wrap y PPF — calidad para el Valle.',
+          'services.more': 'Ver más servicios (+9)',
+          'services.less': 'Ver menos servicios',
           'svc.chip.t': 'Reparación de chips',
           'svc.chip.d': 'Reparación rápida de chips para detener grietas — a menudo el mismo día y compatible con seguro.',
           'svc.repair.t': 'Reparación de parabrisas',
@@ -2680,6 +2740,18 @@
         document.title = lang === 'es'
           ? 'AutoGlass Shop | Weslaco, TX — En AGS puede confiar'
           : 'AutoGlass Shop | Weslaco, TX — At AGS You Can Trust';
+
+        syncServicesToggleLabel();
+      }
+
+      function syncServicesToggleLabel() {
+        var toggle = document.getElementById('services-toggle');
+        var label = toggle && toggle.querySelector('.services-toggle-label');
+        if (!toggle || !label) return;
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        var key = open ? 'services.less' : 'services.more';
+        label.setAttribute('data-i18n', key);
+        if (dict[key] != null) label.textContent = dict[key];
       }
 
       document.querySelectorAll('.lang-toggle button, .mobile-lang button').forEach(function (btn) {
@@ -2689,6 +2761,30 @@
       });
 
       applyLang(lang);
+
+      // Services show more / less
+      var servicesMore = document.getElementById('services-more');
+      var servicesToggle = document.getElementById('services-toggle');
+      if (servicesMore && servicesToggle) {
+        servicesToggle.addEventListener('click', function () {
+          var open = servicesToggle.getAttribute('aria-expanded') === 'true';
+          var next = !open;
+          servicesToggle.setAttribute('aria-expanded', next ? 'true' : 'false');
+          servicesMore.classList.toggle('is-open', next);
+          if (next) {
+            servicesMore.removeAttribute('hidden');
+          } else {
+            servicesMore.setAttribute('hidden', '');
+          }
+          syncServicesToggleLabel();
+          if (!next) {
+            var servicesSection = document.getElementById('services');
+            if (servicesSection) {
+              servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      }
 
       // Mobile menu
       var menuBtn = document.getElementById('menu-btn');
