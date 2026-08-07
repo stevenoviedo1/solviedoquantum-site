@@ -1001,13 +1001,14 @@
       .field select,
       .field textarea { font-size: 1.08rem; }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       :root { --base: 19px; --header-h: 112px; }
       .brand-logo { width: 108px; height: 108px; }
       .brand-text { display: flex; }
       .menu-btn { display: none; }
       .mobile-nav { display: none !important; }
       .nav-links { display: flex; }
+      .nav-reviews { display: inline !important; }
       .nav-cta {
         font-size: 1rem;
         padding: 0.7rem 1.05rem;
@@ -1133,24 +1134,54 @@
       :root { --max: 1640px; }
     }
 
-    /* ========== MOBILE: fast, lean, action-first ========== */
+    /* ========== MOBILE + TABLET: centered, no Reviews ========== */
     .desktop-only { display: none !important; }
     .mobile-only { display: block; }
-    @media (min-width: 768px) {
+    /* Reviews only on desktop header */
+    .nav-reviews { display: none !important; }
+
+    @media (min-width: 1024px) {
       .desktop-only { display: revert !important; }
       .desktop-only.flex { display: flex !important; }
       .desktop-only.grid { display: grid !important; }
       .mobile-only { display: none !important; }
+      .nav-reviews { display: inline !important; }
+      #reviews { display: block !important; }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       :root { --base: 18px; --header-h: 64px; }
 
-      /* Center everything for a true mobile layout */
-      .container {
-        width: min(100% - 1.5rem, var(--max));
-        text-align: center;
+      /* Force symmetric full-width layout (fixes rightward drift) */
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
       }
+      body { text-align: center; }
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .nav-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Never show Reviews on mobile/tablet header or page */
+      .nav-reviews,
+      .nav-links a[href="#reviews"],
+      #reviews { display: none !important; }
       .section-head {
         margin-inline: auto;
         text-align: center;
@@ -1177,10 +1208,14 @@
 
       /* Header: logo left, menu right — content below is centered */
       .header-actions .lang-toggle,
-      .header-actions .nav-cta { display: none; }
+      .header-actions .nav-cta { display: none !important; }
+      .nav-links { display: none !important; }
+      .menu-btn { display: inline-flex !important; }
       .brand-logo { width: 56px; height: 56px; }
       .nav-inner {
-        padding: 0.55rem 0;
+        padding-top: 0.55rem !important;
+        padding-bottom: 0.55rem !important;
+        /* keep equal side padding from rules above */
         gap: 0.75rem;
       }
       .menu-btn {
@@ -1239,45 +1274,56 @@
       }
       .hero-copy {
         order: 1;
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .hero-copy > * {
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       .hero-area-label {
         font-size: 0.92rem;
         margin-bottom: 0.4rem;
-        text-align: center;
+        text-align: center !important;
         width: 100%;
       }
       .hero-area-title {
         font-size: 1.25rem;
         margin-bottom: 0.55rem;
-        text-align: center;
+        text-align: center !important;
         width: 100%;
       }
       .hero-area-sub {
         font-size: 1.08rem;
         margin-bottom: 1rem;
-        margin-inline: auto;
-        text-align: center;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
         max-width: 20.5rem;
         line-height: 1.55;
       }
       .hero-cities-wrap {
         width: 100%;
         margin: 0 0 1.15rem;
-        display: flex;
-        justify-content: center;
+        display: flex !important;
+        justify-content: center !important;
       }
       .hero-cities {
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
         gap: 0.5rem;
         max-width: 22rem;
-        margin-inline: auto;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       .hero-cities .city-chip {
         font-size: 0.95rem;
@@ -1584,7 +1630,7 @@
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#why" data-i18n="nav.why">Why Us</a>
         <a href="#insurance" data-i18n="nav.insurance">Insurance</a>
-        <a href="#reviews" class="nav-reviews" data-i18n="nav.reviews">Reviews</a>
+        <a href="#reviews" class="nav-reviews desktop-only" data-i18n="nav.reviews">Reviews</a>
         <a href="#book" data-i18n="nav.book">Book</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
