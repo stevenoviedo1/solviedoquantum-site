@@ -1311,11 +1311,12 @@
       html, body { overflow-x: hidden; width: 100%; }
       body { text-align: left; }
 
+      /* Wider mobile body — less side inset */
       .container {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: 1.15rem !important;
-        padding-right: 1.15rem !important;
+        padding-left: 0.7rem !important;
+        padding-right: 0.7rem !important;
         margin: 0 !important;
         box-sizing: border-box !important;
         text-align: left !important;
@@ -1324,12 +1325,12 @@
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 0.6rem 1.15rem !important;
+        padding: 0.55rem 0.7rem !important;
         box-sizing: border-box !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        gap: 0.65rem !important;
+        gap: 0.5rem !important;
       }
 
       .header-actions .lang-toggle,
@@ -1467,7 +1468,7 @@
         font-size: 1.08rem !important;
         margin-bottom: 0.9rem !important;
         text-align: center !important;
-        max-width: 22rem !important;
+        max-width: 100% !important;
         line-height: 1.55;
       }
       .hero-cities-wrap {
@@ -1497,7 +1498,7 @@
       .hero-lead {
         font-size: 1.1rem !important;
         margin: 0 auto 1.2rem !important;
-        max-width: 22rem !important;
+        max-width: 100% !important;
         text-align: center !important;
         line-height: 1.55;
         display: block !important;
@@ -1507,7 +1508,7 @@
         flex-direction: column !important;
         gap: 0.65rem !important;
         width: 100% !important;
-        max-width: 22rem !important;
+        max-width: 100% !important;
         margin: 0 auto 1.25rem !important;
         align-items: stretch !important;
       }
@@ -1534,7 +1535,7 @@
         grid-template-columns: 1fr !important;
         gap: 0.55rem !important;
         width: 100% !important;
-        max-width: 22rem !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
         padding-top: 1rem !important;
         border-top: 1px solid rgba(255,255,255,0.08) !important;
@@ -1583,8 +1584,13 @@
         grid-template-columns: 1fr !important;
         gap: 0.75rem !important;
       }
+      .services-toggle {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-top: 1.1rem !important;
+      }
       .service-card {
-        padding: 1.15rem 1.15rem 1.15rem 1.25rem !important;
+        padding: 1.05rem 0.95rem 1.05rem 1.1rem !important;
         text-align: left !important;
       }
       .service-num {
@@ -1633,7 +1639,7 @@
       .insure-card {
         display: block !important;
         text-align: left !important;
-        padding: 1.15rem !important;
+        padding: 1rem 0.95rem !important;
       }
       .insure-card h3 {
         font-size: 1.15rem !important;
@@ -1649,7 +1655,7 @@
       .area-mobile-note {
         text-align: left !important;
         justify-items: stretch !important;
-        padding: 1.25rem !important;
+        padding: 1.05rem 0.95rem !important;
       }
       .area-mobile-note h3 { font-size: 1.25rem !important; text-align: left !important; }
       .area-mobile-note p { font-size: 1.05rem !important; max-width: 100% !important; text-align: left !important; }
@@ -1677,7 +1683,7 @@
         max-width: 100% !important;
         width: 100% !important;
         margin: 0 !important;
-        padding: 1.25rem !important;
+        padding: 1.1rem 0.95rem !important;
         text-align: left !important;
       }
       .book-form-card h3 { text-align: left !important; font-size: 1.3rem !important; }
@@ -1700,7 +1706,7 @@
       }
       .contact-card {
         text-align: left !important;
-        padding: 1.25rem !important;
+        padding: 1.05rem 0.95rem !important;
       }
       .contact-card h3 { text-align: left !important; font-size: 1.25rem !important; }
       .info-row {
