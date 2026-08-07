@@ -1031,10 +1031,10 @@
       }
       .hero .container {
         display: grid !important;
-        grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.85fr) !important;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 1fr) !important;
         flex-direction: unset !important;
         align-items: center !important;
-        gap: 2.5rem 3rem !important;
+        gap: 2.5rem 2.75rem !important;
       }
       .hero-copy {
         order: 0 !important;
@@ -1051,13 +1051,13 @@
       .card-showcase {
         display: flex !important;
         order: 0 !important;
-        width: auto !important;
+        width: 100% !important;
         justify-content: center !important;
         align-items: center !important;
         margin: 0 !important;
       }
       .card-showcase img {
-        width: min(100%, 340px);
+        width: min(100%, 460px);
         max-width: 100%;
       }
       .hero-area-label { font-size: 0.95rem; }
@@ -1139,6 +1139,7 @@
       :root { --max: 1520px; }
       .container { width: min(100% - 3rem, var(--max)); }
       .nav-inner { width: min(100% - 3rem, var(--max)); }
+      .card-showcase img { width: min(100%, 520px); }
       .services-grid,
       .insure-grid,
       .reviews-grid { gap: 1.5rem; }
