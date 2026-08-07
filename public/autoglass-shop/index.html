@@ -422,6 +422,29 @@
       margin-bottom: 0.75rem;
     }
     .hero h1 span { color: var(--gold-bright); }
+    .hero h1 .hero-line {
+      display: block;
+    }
+    /* Mobile-only brand mark under headline (logo only, not full business card) */
+    .hero-mobile-brand {
+      display: none;
+    }
+    .hero-mobile-brand img {
+      width: min(58%, 200px);
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.4));
+    }
+    /* Mobile-only work photo (desktop uses why-image + card) */
+    .hero-mobile-photo {
+      display: none;
+    }
+    .hero-mobile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .hero-lead {
       font-size: 1.05rem;
       color: var(--muted);
@@ -1423,6 +1446,7 @@
         border-color: transparent;
       }
 
+      /* Full business card stays desktop — mobile uses logo-only mark */
       .card-showcase { display: none !important; }
 
       /* Hero section: center the big text only */
@@ -1490,10 +1514,49 @@
         padding: 0.42rem 0.8rem !important;
       }
       .hero h1 {
-        font-size: clamp(2.2rem, 9vw, 2.7rem) !important;
-        max-width: 12ch !important;
-        margin: 0 auto 0.75rem !important;
+        font-size: clamp(1.55rem, 6.6vw, 2.15rem) !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto 0.85rem !important;
         text-align: center !important;
+        line-height: 1.12 !important;
+        letter-spacing: 0.01em !important;
+      }
+      .hero h1 .hero-line {
+        display: block !important;
+        white-space: nowrap !important;
+      }
+      .hero h1 .hero-line span,
+      .hero h1 span {
+        color: var(--gold-bright);
+      }
+      /* Logo only under headline (not address/phones from the card) */
+      .hero-mobile-brand {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto 1.1rem !important;
+        padding: 0 !important;
+      }
+      .hero-mobile-brand img {
+        width: min(46vw, 168px) !important;
+        max-width: 168px !important;
+        height: auto !important;
+      }
+      /* Work photo from desktop why-section */
+      .hero-mobile-photo {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.35rem auto 1.15rem !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        border: 1px solid var(--gold-border) !important;
+        aspect-ratio: 16 / 10 !important;
+        max-height: 220px !important;
+        background: var(--black-3) !important;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
       }
       .hero-lead {
         font-size: 1.1rem !important;
@@ -1610,6 +1673,7 @@
         text-align: left !important;
       }
 
+      /* Work photo is in the hero on mobile — keep Why text-first */
       .why-image { display: none !important; }
       .why-grid { display: block !important; text-align: left !important; }
       #why .section-label,
@@ -1830,7 +1894,13 @@
               <span class="city-chip" data-i18n="area.more">+ nearby areas</span>
             </div>
           </div>
-          <h1 data-i18n-html="hero.title">Crystal-clear glass. <span>Trusted service.</span></h1>
+          <h1 data-i18n-html="hero.title"><span class="hero-line">Crystal-clear glass.</span><span class="hero-line"><span>Trusted service.</span></span></h1>
+          <div class="hero-mobile-brand mobile-only" aria-hidden="false">
+            <img src="./logo.png" alt="AutoGlass Shop — At AGS You Can Trust" width="200" height="200" loading="eager" decoding="async" />
+          </div>
+          <div class="hero-mobile-photo mobile-only">
+            <img src="./service.jpg" alt="Professional auto glass installation" width="800" height="500" loading="lazy" decoding="async" />
+          </div>
           <p class="hero-lead" data-i18n="hero.lead">
             Windshield repair & replacement, side and rear glass, and professional window tint. Fast, careful work you can trust — in the shop or at your location.
           </p>
@@ -2369,7 +2439,7 @@
           'nav.contact': 'Contact',
           'nav.cta': 'Book Appointment',
           'hero.badge': 'Weslaco, TX · Mobile Available',
-          'hero.title': 'Crystal-clear glass. <span>Trusted service.</span>',
+          'hero.title': '<span class="hero-line">Crystal-clear glass.</span><span class="hero-line"><span>Trusted service.</span></span>',
           'hero.lead': 'Windshield repair & replacement, side and rear glass, and professional window tint. Fast, careful work you can trust — in the shop or at your location.',
           'hero.leadShort': 'Repair · Replace · Tint · We come to you',
           'hero.book': 'Book Appointment',
@@ -2548,7 +2618,7 @@
           'nav.contact': 'Contacto',
           'nav.cta': 'Agendar cita',
           'hero.badge': 'Weslaco, TX · Servicio móvil',
-          'hero.title': 'Vidrio cristalino. <span>Servicio de confianza.</span>',
+          'hero.title': '<span class="hero-line">Vidrio cristalino.</span><span class="hero-line"><span>Servicio de confianza.</span></span>',
           'hero.lead': 'Reparación y reemplazo de parabrisas, vidrios laterales y traseros, y polarizado profesional. Trabajo rápido y cuidadoso — en el taller o donde usted esté.',
           'hero.leadShort': 'Reparar · Reemplazar · Polarizado · Vamos a usted',
           'hero.book': 'Agendar cita',
