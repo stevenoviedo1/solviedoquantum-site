@@ -1244,7 +1244,7 @@
 
     /* ========== MOBILE: simple stacked desktop layout (1024+ desktop unchanged) ========== */
     .mobile-sticky-bar { display: none !important; }
-    .mobile-header-title { display: none !important; }
+    .mobile-header-title { display: none; }
     .desktop-only { display: none !important; }
     .mobile-only { display: block; }
     .nav-reviews { display: none !important; }
@@ -1256,6 +1256,7 @@
       .mobile-only { display: none !important; }
       .nav-reviews { display: inline !important; }
       #reviews { display: block !important; }
+      .mobile-header-title { display: none !important; }
     }
 
     @media (max-width: 1023px) {
@@ -1289,27 +1290,53 @@
       .header-actions .nav-cta { display: none !important; }
       .nav-links { display: none !important; }
       .menu-btn { display: inline-flex !important; width: 44px; height: 44px; border-radius: 12px; }
-      .brand { gap: 0.55rem; min-width: 0; flex: 1; }
+      .brand { gap: 0; min-width: 0; }
       .brand-logo { width: 48px; height: 48px; }
-      .brand-text {
+      .brand-text { display: none !important; }
+      /* Centered company name + slogan in header middle */
+      .mobile-header-title {
         display: flex !important;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         min-width: 0;
+        flex: 1;
+        padding: 0 0.4rem;
+        line-height: 1.15;
       }
-      .brand-text .name {
-        font-size: 1.05rem;
+      .mobile-header-title .name {
+        font-family: Oswald, sans-serif;
+        font-weight: 700;
+        font-size: 1.08rem;
+        letter-spacing: 0.04em;
+        color: var(--gold-bright);
+        text-transform: uppercase;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        max-width: 100%;
       }
-      .brand-text .tag {
+      .mobile-header-title .tag {
         font-size: 0.72rem;
+        font-weight: 600;
+        color: #c9c9c9;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        max-width: 100%;
+        margin-top: 0.15rem;
+      }
+      .nav-inner {
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
       }
 
-      .demo-banner { font-size: 0.85rem; padding: 0.45rem 0.75rem; }
+      .demo-banner { font-size: 0.85rem; padding: 0.45rem 0.75rem; text-align: center; }
       .demo-banner .demo-long { display: none; }
 
       .nav-reviews,
@@ -1350,56 +1377,61 @@
       }
 
       .card-showcase { display: none !important; }
+
+      /* Hero section: center the big text only */
       .hero {
         padding: 1.5rem 0 1.75rem;
-        text-align: left;
+        text-align: center;
         min-height: auto !important;
       }
       .hero .container {
         display: flex !important;
         flex-direction: column !important;
-        align-items: stretch !important;
+        align-items: center !important;
         gap: 0 !important;
-        text-align: left !important;
+        text-align: center !important;
       }
       .hero-copy {
         width: 100% !important;
         max-width: 100% !important;
-        align-items: flex-start !important;
-        text-align: left !important;
+        align-items: center !important;
+        text-align: center !important;
         margin: 0 !important;
         padding: 0 !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
       }
       .hero-copy > * {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       .hero-area-label {
-        font-size: 0.9rem !important;
-        margin-bottom: 0.35rem !important;
-        text-align: left !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 0.4rem !important;
+        text-align: center !important;
+        width: 100%;
       }
       .hero-area-title {
-        font-size: 1.25rem !important;
-        margin-bottom: 0.5rem !important;
-        text-align: left !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 0.55rem !important;
+        text-align: center !important;
+        width: 100%;
       }
       .hero-area-sub {
-        font-size: 1.05rem !important;
-        margin-bottom: 0.85rem !important;
-        text-align: left !important;
-        max-width: 100% !important;
+        font-size: 1.08rem !important;
+        margin-bottom: 0.9rem !important;
+        text-align: center !important;
+        max-width: 22rem !important;
         line-height: 1.55;
       }
       .hero-cities-wrap {
         width: 100% !important;
-        margin: 0 0 1rem !important;
-        display: block !important;
+        margin: 0 0 1.05rem !important;
+        display: flex !important;
+        justify-content: center !important;
       }
       .hero-cities {
-        justify-content: flex-start !important;
+        justify-content: center !important;
         flex-wrap: wrap !important;
         gap: 0.45rem !important;
         max-width: 100% !important;
@@ -1407,20 +1439,20 @@
         margin: 0 !important;
       }
       .hero-cities .city-chip {
-        font-size: 0.92rem !important;
-        padding: 0.4rem 0.75rem !important;
+        font-size: 0.95rem !important;
+        padding: 0.42rem 0.8rem !important;
       }
       .hero h1 {
-        font-size: clamp(2.1rem, 8.5vw, 2.6rem) !important;
-        max-width: 14ch !important;
-        margin: 0 0 0.7rem !important;
-        text-align: left !important;
+        font-size: clamp(2.2rem, 9vw, 2.7rem) !important;
+        max-width: 12ch !important;
+        margin: 0 auto 0.75rem !important;
+        text-align: center !important;
       }
       .hero-lead {
-        font-size: 1.08rem !important;
-        margin: 0 0 1.15rem !important;
-        max-width: 100% !important;
-        text-align: left !important;
+        font-size: 1.1rem !important;
+        margin: 0 auto 1.2rem !important;
+        max-width: 22rem !important;
+        text-align: center !important;
         line-height: 1.55;
         display: block !important;
       }
@@ -1429,8 +1461,8 @@
         flex-direction: column !important;
         gap: 0.65rem !important;
         width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 0 1.25rem !important;
+        max-width: 22rem !important;
+        margin: 0 auto 1.25rem !important;
         align-items: stretch !important;
       }
       .hero-actions > .btn-gold {
@@ -1456,23 +1488,23 @@
         grid-template-columns: 1fr !important;
         gap: 0.55rem !important;
         width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
+        max-width: 22rem !important;
+        margin: 0 auto !important;
         padding-top: 1rem !important;
         border-top: 1px solid rgba(255,255,255,0.08) !important;
-        text-align: left !important;
+        text-align: center !important;
       }
       .stat {
-        text-align: left !important;
+        text-align: center !important;
         padding: 0.9rem 1rem !important;
       }
       .stat strong {
         font-size: 1.1rem !important;
-        text-align: left !important;
+        text-align: center !important;
       }
       .stat span {
         font-size: 0.95rem !important;
-        text-align: left !important;
+        text-align: center !important;
         display: block;
       }
 
@@ -1673,6 +1705,10 @@
           <span class="tag" data-i18n="brand.tag">At AGS You Can Trust</span>
         </div>
       </a>
+      <div class="mobile-header-title">
+        <span class="name">AutoGlass Shop</span>
+        <span class="tag" data-i18n="brand.tag">At AGS You Can Trust</span>
+      </div>
       <nav class="nav-links" aria-label="Primary">
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#why" data-i18n="nav.why">Why Us</a>
