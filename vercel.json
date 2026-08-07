@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/autoglass-shop", "destination": "/autoglass-shop/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
@@ -36,6 +37,20 @@
           "key": "Cache-Control",
           "value": "public, max-age=86400"
         }
+      ]
+    },
+    {
+      "source": "/games/(.*)\\.wasm",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/games/(.*)\\.pck",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     }
   ]

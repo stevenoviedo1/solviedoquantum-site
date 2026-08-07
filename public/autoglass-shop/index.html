@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoGlass Shop | Weslaco, TX — At AGS You Can Trust</title>
+  <meta name="description" content="Professional auto glass repair, windshield replacement, and window tint in Weslaco, TX. Mobile service available. Office 956-854-4722 · Mobile 956-647-9224." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="AutoGlass Shop | Weslaco, TX" />
+  <meta property="og:description" content="Windshield repair & replacement, side glass, window tint, and mobile service. At AGS you can trust." />
+  <meta property="og:image" content="/autoglass-shop/card-clean.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png" />
+  <link rel="shortcut icon" href="./favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-2: #111111;
+      --black-3: #1a1a1a;
+      --gold: #d4a017;
+      --gold-bright: #f0b429;
+      --gold-soft: rgba(212, 160, 23, 0.12);
+      --gold-border: rgba(212, 160, 23, 0.35);
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --white: #ffffff;
+      --radius: 14px;
+      --max: 1400px;
+      --header-h: 72px;
+      --base: 17px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-size: var(--base);
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    section { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+    .demo-banner {
+      background: linear-gradient(90deg, #1a1408, #2a2010, #1a1408);
+      border-bottom: 1px solid var(--gold-border);
+      color: var(--gold-bright);
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 0.5rem 0.75rem;
+      letter-spacing: 0.01em;
+      line-height: 1.35;
+    }
+    .demo-banner strong { color: var(--white); font-weight: 600; }
+    .demo-banner a {
+      color: var(--gold-bright);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .container {
+      width: min(100% - 1.5rem, var(--max));
+      margin-inline: auto;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--header-h);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      width: min(100% - 1.25rem, var(--max));
+      margin-inline: auto;
+      padding: 0.55rem 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+    }
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      object-fit: contain;
+      object-position: center;
+      background: transparent;
+      display: block;
+    }
+    .brand-text { display: none; flex-direction: column; line-height: 1.15; min-width: 0; }
+    .brand-text .name {
+      font-family: Oswald, sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+    }
+    .brand-text .tag {
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .nav-links a { padding: 0.35rem 0; }
+    .nav-links a:hover { color: var(--gold-bright); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 160, 23, 0.3);
+      border-radius: 999px;
+      padding: 2px;
+      gap: 1px;
+    }
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.55rem;
+      min-height: 36px;
+      min-width: 36px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle button.active {
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      color: var(--black);
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.5rem 0.85rem;
+      min-height: 40px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .nav-cta .cta-full { display: none; }
+    .nav-cta .cta-short { display: inline; }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(212, 160, 23, 0.25);
+    }
+    .menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--gold-bright);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .menu-btn svg { width: 22px; height: 22px; }
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid rgba(212, 160, 23, 0.15);
+      background: rgba(10, 10, 10, 0.98);
+      padding: 0.5rem 0 0.85rem;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 1rem 1.25rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mobile-nav a:last-child { border-bottom: none; color: var(--gold-bright); }
+    .mobile-nav a:active { background: var(--gold-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.25rem;
+      min-height: 50px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      font-family: inherit;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      color: var(--black);
+      box-shadow: 0 8px 28px rgba(212, 160, 23, 0.22);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-bright);
+      border: 1.5px solid var(--gold-border);
+    }
+    .btn-outline:hover {
+      background: var(--gold-soft);
+      border-color: var(--gold);
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero {
+      position: relative;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 0 2.25rem;
+      overflow: hidden;
+    }
+    .hero-copy { min-width: 0; width: 100%; }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.88) 42%, rgba(10,10,10,0.55) 100%),
+        url('./hero.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(212, 160, 23, 0.12), transparent 70%);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .card-showcase {
+      display: none;
+      justify-content: center;
+      order: 2; /* below text by default */
+      width: 100%;
+    }
+    .card-showcase img {
+      width: min(100%, 280px);
+      border-radius: 12px;
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+    }
+    .hero-area-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .hero-area-title {
+      font-family: Oswald, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .hero-area-sub {
+      font-size: 1.02rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0.9rem;
+      max-width: 36rem;
+    }
+    .hero-cities-wrap {
+      margin: 0 0 1.25rem;
+      width: 100%;
+    }
+    .hero-cities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: flex-start;
+    }
+    .hero-cities .city-chip {
+      flex: 0 0 auto;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.75rem;
+      background: rgba(0, 0, 0, 0.45);
+      border-color: rgba(212, 160, 23, 0.45);
+      white-space: nowrap;
+    }
+    .hero h1 {
+      font-family: Oswald, sans-serif;
+      font-size: clamp(2rem, 8.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      max-width: 14ch;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 span { color: var(--gold-bright); }
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-actions > .btn-gold { width: 100%; }
+    .hero-call-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+    .hero-call-row .btn {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 0.6rem;
+      font-size: 0.95rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .stat {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .stat strong {
+      display: block;
+      font-family: Oswald, sans-serif;
+      font-size: 1.15rem;
+      color: var(--gold-bright);
+      letter-spacing: 0.02em;
+    }
+    .stat span { font-size: 0.95rem; color: var(--muted); }
+
+    section { padding: 2.75rem 0; }
+    .section-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.55rem;
+    }
+    .section-title {
+      font-family: Oswald, sans-serif;
+      font-size: clamp(1.85rem, 6vw, 2.45rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 42rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    #services { background: var(--black-2); }
+    #why { background: var(--black); }
+    #insurance { background: var(--black-2); }
+    #area { background: var(--black); }
+    #reviews { background: var(--black-2); }
+    #book { background: var(--black); }
+    #contact { background: var(--black-2); }
+    .section-head {
+      max-width: 40rem;
+      margin-bottom: 2.25rem;
+    }
+    .section-head .section-sub { margin-bottom: 0; }
+    .area-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .area-mobile-note {
+      margin-top: 0;
+      padding: 1.15rem 1.15rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--gold-border);
+      background: linear-gradient(135deg, rgba(26,20,8,0.9), rgba(10,10,10,0.95));
+      display: grid;
+      gap: 0.85rem;
+    }
+    .area-mobile-note h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--gold-bright);
+      margin-bottom: 0.3rem;
+    }
+    .area-mobile-note p {
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+    .service-card {
+      background: var(--black-3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      min-height: 100%;
+    }
+    .service-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-2px);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      color: var(--gold-bright);
+    }
+    .service-card h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+    .service-card p { font-size: 1.12rem; color: var(--muted); line-height: 1.6; }
+
+    .why-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .why-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--gold-border);
+      aspect-ratio: 16/10;
+      max-height: 280px;
+      background: var(--black-3);
+    }
+    @media (min-width: 768px) {
+      .why-image {
+        aspect-ratio: 4/3;
+        max-height: none;
+      }
+    }
+    .why-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .feature-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .feature {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .feature-check {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      display: grid;
+      place-items: center;
+      color: var(--gold-bright);
+      margin-top: 2px;
+    }
+    .feature h4 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .feature p { font-size: 1.1rem; color: var(--muted); line-height: 1.55; }
+
+    /* Insurance */
+    .insure-grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+    .insure-card {
+      background: var(--black-3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 1.65rem 1.75rem;
+      min-height: 100%;
+    }
+    .insure-card h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--gold-bright);
+      margin-bottom: 0.55rem;
+    }
+    .insure-card p { color: var(--muted); font-size: 1.12rem; line-height: 1.6; }
+    .insure-steps {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1.75rem;
+    }
+    .insure-step {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .insure-step span {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-bright);
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+    .insure-step strong { display: block; margin-bottom: 0.2rem; font-size: 1.15rem; }
+    .insure-step p { font-size: 1.1rem; color: var(--muted); line-height: 1.55; }
+
+    /* Service area */
+    .cities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .city-chip {
+      background: var(--black-3);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-bright);
+      font-size: 1.08rem;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+    }
+    .area-note {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 40rem;
+      line-height: 1.6;
+    }
+
+    .mobile-banner {
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.92), rgba(26,20,8,0.95)),
+        radial-gradient(ellipse at right, rgba(212,160,23,0.18), transparent 55%);
+      border-block: 1px solid var(--gold-border);
+      padding: 3.5rem 0;
+    }
+    .mobile-inner {
+      display: grid;
+      gap: 1.5rem;
+      text-align: center;
+      justify-items: center;
+    }
+    .mobile-inner h2 {
+      font-family: Oswald, sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.45rem);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      max-width: 20ch;
+    }
+    .mobile-inner p { color: var(--muted); max-width: 34rem; font-size: 1.1rem; }
+
+    .reviews-grid { display: grid; gap: 1.1rem; }
+    .review-card {
+      background: var(--black-3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 1.65rem 1.75rem;
+      min-height: 100%;
+    }
+    .stars {
+      color: var(--gold-bright);
+      letter-spacing: 0.12em;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .review-card blockquote {
+      font-size: 1.18rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.65;
+    }
+    .review-card cite {
+      font-style: normal;
+      font-size: 1.08rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .book-layout {
+      display: grid;
+      gap: 2rem;
+      align-items: start;
+    }
+    .book-points { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .book-point { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .book-point-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-bright);
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+    .book-point strong { display: block; font-size: 1.18rem; margin-bottom: 0.25rem; }
+    .book-point p { font-size: 1.1rem; color: var(--muted); line-height: 1.55; }
+    .book-form-card {
+      background: var(--black-3);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 1.15rem 1rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      width: 100%;
+    }
+    .book-form-card h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold-bright);
+      margin-bottom: 0.4rem;
+    }
+    .book-form-card > .form-intro {
+      font-size: 1.12rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .form-grid { display: grid; gap: 1rem; }
+    .form-row { display: grid; gap: 1rem; }
+    .field label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+    .field label .req { color: var(--gold-bright); }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--black);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: var(--white);
+      font: inherit;
+      font-size: 16px; /* prevents iOS zoom */
+      padding: 0.85rem 0.95rem;
+      min-height: 50px;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23d4a017' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.2rem;
+    }
+    .field select option { background: #111; color: #fff; }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field-hint { font-size: 1rem; color: #888; margin-top: 0.35rem; }
+    .form-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .form-actions .btn { width: 100%; }
+    .form-note {
+      font-size: 1rem;
+      color: #888;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 0.5rem;
+    }
+    .form-success.show { display: block; }
+    .form-success .check {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-bright);
+      display: grid;
+      place-items: center;
+    }
+    .form-success h4 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--gold-bright);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+      max-width: 28rem;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+    #book-form.is-hidden { display: none; }
+
+    #contact .contact-grid { display: grid; gap: 1.5rem; }
+    .contact-card {
+      background: var(--black-3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 1.85rem 1.9rem;
+      min-height: 100%;
+    }
+    .contact-card h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 1.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold-bright);
+      margin-bottom: 1.1rem;
+    }
+    .info-row {
+      display: flex;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: var(--gold-bright);
+    }
+    .info-row strong {
+      display: block;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .info-row a, .info-row span {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .info-row a:hover { color: var(--gold-bright); }
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.12rem;
+    }
+    .hours-table tr td {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table td:first-child { color: var(--muted); }
+    .hours-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .hours-table tr.closed td:last-child { color: #777; font-weight: 500; }
+    .map-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--gold-border);
+      min-height: 320px;
+      height: 100%;
+      background: var(--black-3);
+    }
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: 0;
+      filter: grayscale(0.35) contrast(1.05);
+    }
+    .cta-strip {
+      background: linear-gradient(135deg, #1a1408 0%, #0a0a0a 50%, #1a1408 100%);
+      border-block: 1px solid var(--gold-border);
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: Oswald, sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.65rem;
+    }
+    .cta-strip p { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+    .cta-actions .btn { width: 100%; }
+
+    footer {
+      padding: 2.5rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: Oswald, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+    }
+    .footer-meta { font-size: 1.08rem; color: var(--muted); }
+    .footer-meta a { color: var(--gold); }
+    .footer-meta a:hover { color: var(--gold-bright); }
+    .demo-note {
+      font-size: 1rem;
+      color: #777;
+      max-width: 32rem;
+      line-height: 1.55;
+    }
+
+    @media (min-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .hero-stats .stat:last-child { grid-column: 1 / -1; }
+      .hero-cities {
+        flex-wrap: wrap;
+        overflow: visible;
+        mask-image: none;
+      }
+    }
+    @media (min-width: 640px) {
+      :root { --base: 18px; }
+      .container { width: min(100% - 2rem, var(--max)); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row.two { grid-template-columns: 1fr 1fr; }
+      .insure-grid { grid-template-columns: 1fr 1fr; }
+      .area-mobile-note {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 1.5rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-call-row {
+        grid-template-columns: 1fr 1fr;
+        max-width: 100%;
+      }
+      .cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: none;
+        align-items: center;
+      }
+      .cta-actions .btn { width: auto; }
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .hero-stats .stat:last-child { grid-column: auto; }
+      .book-form-card { padding: 1.75rem; }
+      .field input,
+      .field select,
+      .field textarea { font-size: 1.08rem; }
+    }
+    @media (min-width: 768px) {
+      :root { --base: 19px; --header-h: 112px; }
+      .brand-logo { width: 108px; height: 108px; }
+      .brand-text { display: flex; }
+      .menu-btn { display: none; }
+      .mobile-nav { display: none !important; }
+      .nav-links { display: flex; }
+      .nav-cta {
+        font-size: 1rem;
+        padding: 0.7rem 1.05rem;
+        min-height: 46px;
+      }
+      .nav-cta .cta-full { display: inline; }
+      .nav-cta .cta-short { display: none; }
+      .lang-toggle button {
+        font-size: 0.95rem;
+        padding: 0.55rem 0.75rem;
+        min-height: 44px;
+      }
+      .demo-banner { font-size: 1rem; padding: 0.65rem 1rem; }
+      /* Card stacks UNDER hero text — never side-by-side */
+      .card-showcase {
+        display: flex !important;
+        order: 2;
+        margin-top: 0.25rem;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .card-showcase img {
+        width: min(100%, 320px);
+      }
+      .hero-copy { order: 1; width: 100%; max-width: 52rem; }
+      .hero {
+        min-height: auto;
+        padding: 3.25rem 0 3.75rem;
+      }
+      .hero .container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start;
+        gap: 2rem;
+        grid-template-columns: none !important;
+      }
+      .hero-area-label { font-size: 0.95rem; }
+      .hero-area-title { font-size: 1.4rem; margin-bottom: 0.65rem; }
+      .hero-area-sub { font-size: 1.12rem; max-width: 40rem; }
+      .hero h1 { font-size: clamp(2.65rem, 5vw, 3.85rem); max-width: 16ch; }
+      .hero-lead {
+        font-size: 1.2rem;
+        max-width: 42rem;
+        margin-bottom: 1.25rem;
+      }
+      .hero-cities-wrap { margin-bottom: 1.5rem; }
+      .hero-cities {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 42rem;
+      }
+      .hero-cities .city-chip { font-size: 1rem; padding: 0.5rem 0.9rem; }
+      .hero-actions {
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+        align-items: flex-start;
+      }
+      .hero-call-row { max-width: 32rem; }
+      .hero-call-row .btn { font-size: 1.05rem; min-height: 52px; }
+      .hero-actions > .btn-gold { width: auto; max-width: 20rem; }
+      .hero-copy {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: none;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 1.25rem;
+        text-align: left;
+      }
+      .stat { text-align: left; }
+      section { padding: 4.75rem 0; }
+      .section-head { max-width: 48rem; }
+      .section-sub { max-width: 48rem; font-size: 1.15rem; }
+      .section-title { font-size: clamp(2.2rem, 4vw, 2.85rem); }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+      .book-layout { grid-template-columns: 0.9fr 1.1fr; gap: 3rem; }
+      .book-form-card { padding: 2rem 2.15rem; }
+      #contact .contact-grid { grid-template-columns: 1fr 1fr; }
+      .service-card,
+      .insure-card,
+      .review-card,
+      .contact-card { padding: 1.85rem 2rem; }
+      .stat strong { font-size: 1.35rem; }
+      .stat span { font-size: 1.05rem; }
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+    @media (min-width: 960px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); gap: 1.35rem; }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 1.35rem; }
+      #contact .contact-grid { grid-template-columns: 1fr 1fr 1.15fr; gap: 1.5rem; }
+      .insure-grid { grid-template-columns: 1fr 1fr 1fr; gap: 1.35rem; }
+      .nav-links { gap: 1.25rem; font-size: 1.1rem; }
+      .map-card,
+      .map-card iframe { min-height: 360px; }
+    }
+    @media (min-width: 1100px) {
+      .nav-links { gap: 1.4rem; }
+    }
+    @media (min-width: 1280px) {
+      :root { --max: 1520px; }
+      .container { width: min(100% - 3rem, var(--max)); }
+      .nav-inner { width: min(100% - 3rem, var(--max)); }
+      .services-grid,
+      .insure-grid,
+      .reviews-grid { gap: 1.5rem; }
+      .service-card,
+      .insure-card,
+      .review-card,
+      .contact-card { padding: 2rem 2.15rem; }
+      .book-form-card { padding: 2.25rem 2.4rem; }
+      .map-card,
+      .map-card iframe { min-height: 400px; }
+    }
+    @media (min-width: 1600px) {
+      :root { --max: 1640px; }
+    }
+
+    /* ========== MOBILE: fast, lean, action-first ========== */
+    .desktop-only { display: none !important; }
+    .mobile-only { display: block; }
+    @media (min-width: 768px) {
+      .desktop-only { display: revert !important; }
+      .desktop-only.flex { display: flex !important; }
+      .desktop-only.grid { display: grid !important; }
+      .mobile-only { display: none !important; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --base: 18px; --header-h: 64px; }
+
+      /* Center everything for a true mobile layout */
+      .container {
+        width: min(100% - 1.5rem, var(--max));
+        text-align: center;
+      }
+      .section-head {
+        margin-inline: auto;
+        text-align: center;
+        max-width: 22rem;
+      }
+      .section-label {
+        letter-spacing: 0.14em;
+      }
+      .section-title {
+        margin-inline: auto;
+      }
+
+      .demo-banner {
+        font-size: 0.85rem;
+        padding: 0.45rem 0.75rem;
+        line-height: 1.35;
+        text-align: center;
+      }
+      .demo-banner .demo-long { display: none; }
+
+      /* No reviews in mobile nav or page */
+      .nav-reviews,
+      #reviews { display: none !important; }
+
+      /* Header: logo left, menu right — content below is centered */
+      .header-actions .lang-toggle,
+      .header-actions .nav-cta { display: none; }
+      .brand-logo { width: 56px; height: 56px; }
+      .nav-inner {
+        padding: 0.55rem 0;
+        gap: 0.75rem;
+      }
+      .menu-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+      }
+      .menu-btn svg { width: 24px; height: 24px; }
+      .mobile-nav { text-align: center; }
+      .mobile-nav a {
+        font-size: 1.15rem;
+        padding: 1rem 1.25rem;
+      }
+      .mobile-nav a.mobile-nav-book {
+        background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+        color: var(--black);
+        font-weight: 800;
+        text-align: center;
+        margin: 0.65rem 1rem;
+        border-radius: 999px;
+        border: none;
+        font-size: 1.1rem;
+      }
+      .mobile-nav .mobile-lang {
+        display: flex;
+        gap: 0.55rem;
+        padding: 0.85rem 1rem 0.35rem;
+      }
+      .mobile-nav .mobile-lang button {
+        flex: 1;
+        border: 1px solid var(--gold-border);
+        background: transparent;
+        color: var(--muted);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.7rem;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      .mobile-nav .mobile-lang button.active {
+        background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+        color: var(--black);
+        border-color: transparent;
+      }
+
+      .card-showcase { display: none !important; }
+
+      /* Hero block — fully centered */
+      .hero {
+        padding: 1.35rem 0 1.75rem;
+        text-align: center;
+      }
+      .hero .container {
+        align-items: center;
+        text-align: center;
+      }
+      .hero-copy {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-area-label {
+        font-size: 0.92rem;
+        margin-bottom: 0.4rem;
+        text-align: center;
+        width: 100%;
+      }
+      .hero-area-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.55rem;
+        text-align: center;
+        width: 100%;
+      }
+      .hero-area-sub {
+        font-size: 1.08rem;
+        margin-bottom: 1rem;
+        margin-inline: auto;
+        text-align: center;
+        max-width: 20.5rem;
+        line-height: 1.55;
+      }
+      .hero-cities-wrap {
+        width: 100%;
+        margin: 0 0 1.15rem;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-cities {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        max-width: 22rem;
+        margin-inline: auto;
+      }
+      .hero-cities .city-chip {
+        font-size: 0.95rem;
+        padding: 0.45rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.1rem, 9vw, 2.55rem);
+        max-width: 12ch;
+        margin: 0 auto 0.75rem;
+        text-align: center;
+      }
+      .hero-lead {
+        font-size: 1.1rem;
+        margin: 0 auto 1.25rem;
+        max-width: 21rem;
+        text-align: center;
+        line-height: 1.55;
+        display: block !important;
+      }
+      .hero-actions {
+        margin: 0 auto 1.25rem;
+        gap: 0.65rem;
+        width: 100%;
+        max-width: 22rem;
+      }
+      .hero-actions > .btn-gold {
+        min-height: 54px;
+        font-size: 1.12rem;
+        width: 100%;
+      }
+      .hero-call-row {
+        width: 100%;
+        gap: 0.6rem;
+      }
+      .hero-call-row .btn {
+        min-height: 50px;
+        font-size: 0.98rem;
+      }
+      .hero-stats {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+        width: 100%;
+        max-width: 22rem;
+        margin-inline: auto;
+        padding-top: 0.25rem;
+        border-top: none;
+        text-align: center;
+      }
+      .stat {
+        text-align: center;
+        padding: 0.95rem 1rem;
+      }
+      .stat strong {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .stat span {
+        font-size: 1rem;
+        text-align: center;
+        display: block;
+      }
+
+      /* Sections */
+      section { padding: 2.35rem 0; }
+      .section-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.45rem;
+        text-align: center;
+      }
+      .section-title {
+        font-size: clamp(1.85rem, 7vw, 2.2rem);
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .section-head { margin-bottom: 1.15rem; }
+      .section-sub { display: none; }
+
+      /* Services — centered 2-col tiles */
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        text-align: center;
+      }
+      .service-card {
+        padding: 1.15rem 0.75rem;
+        text-align: center;
+      }
+      .service-icon {
+        width: 46px;
+        height: 46px;
+        margin: 0 auto 0.65rem;
+        border-radius: 12px;
+      }
+      .service-icon svg { width: 22px; height: 22px; }
+      .service-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0;
+        line-height: 1.3;
+      }
+      .service-card p { display: none; }
+      .service-card.mobile-hide { display: none; }
+
+      /* Why — centered checklist */
+      .why-image { display: none; }
+      .why-grid {
+        text-align: center;
+        display: block;
+      }
+      #why .section-label,
+      #why .section-title { text-align: center; }
+      #why .section-title { margin-inline: auto; max-width: 14ch; }
+      .feature-list {
+        margin-top: 0.85rem;
+        gap: 0.7rem;
+        max-width: 20rem;
+        margin-inline: auto;
+      }
+      .feature {
+        justify-content: center;
+        text-align: left;
+        background: var(--black-3);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        padding: 0.85rem 1rem;
+      }
+      .feature p { display: none; }
+      .feature h4 { font-size: 1.08rem; margin: 0; }
+      .feature-check { width: 26px; height: 26px; }
+
+      /* Insurance — centered cards */
+      .insure-grid {
+        gap: 0.65rem;
+        max-width: 22rem;
+        margin-inline: auto;
+      }
+      .insure-card {
+        padding: 1rem 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        text-align: center;
+      }
+      .insure-card h3 {
+        font-size: 1.12rem;
+        margin: 0;
+      }
+      .insure-card p { display: none; }
+      .insure-steps,
+      .ins-disclaimer { display: none !important; }
+
+      /* Mobile call strip — centered */
+      #area { padding: 1.5rem 0; }
+      .area-mobile-note {
+        padding: 1.25rem 1.15rem;
+        gap: 0.9rem;
+        text-align: center;
+        justify-items: center;
+      }
+      .area-mobile-note h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.35rem;
+      }
+      .area-mobile-note p {
+        font-size: 1.05rem;
+        max-width: 18rem;
+        margin-inline: auto;
+      }
+      .area-note { display: none; }
+      .area-actions {
+        width: 100%;
+        max-width: 20rem;
+        margin-inline: auto;
+      }
+      .area-actions .btn-outline { display: none; }
+      .area-actions .btn {
+        min-height: 52px;
+        font-size: 1.08rem;
+        width: 100%;
+      }
+
+      /* Reviews — centered */
+      .review-card.extra-review { display: none; }
+      .review-card {
+        padding: 1.35rem 1.15rem;
+        text-align: center;
+        max-width: 22rem;
+        margin-inline: auto;
+      }
+      .review-card blockquote {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.55;
+      }
+      .review-card cite { font-size: 1.02rem; }
+      .stars { font-size: 1.25rem; }
+
+      /* Book form — centered card */
+      .book-layout > div:first-child { display: none; }
+      .book-form-card {
+        padding: 1.35rem 1.1rem;
+        border-radius: 16px;
+        text-align: left;
+        max-width: 24rem;
+        margin-inline: auto;
+      }
+      .book-form-card h3 {
+        font-size: 1.35rem;
+        text-align: center;
+      }
+      .form-intro {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .field label {
+        font-size: 0.95rem;
+        text-align: left;
+      }
+      .field.mobile-hide { display: none; }
+      .form-note {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .form-actions .btn {
+        min-height: 54px;
+        font-size: 1.1rem;
+      }
+
+      /* Contact — centered */
+      .contact-grid {
+        gap: 0.85rem;
+        max-width: 24rem;
+        margin-inline: auto;
+      }
+      .contact-card {
+        padding: 1.35rem 1.15rem;
+        text-align: center;
+      }
+      .contact-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+        text-align: center;
+      }
+      .info-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.45rem;
+        margin-bottom: 1.1rem;
+      }
+      .info-row strong {
+        font-size: 0.95rem;
+      }
+      .info-row a, .info-row span {
+        font-size: 1.15rem;
+      }
+      .hours-table {
+        font-size: 1.05rem;
+        max-width: 18rem;
+        margin-inline: auto;
+      }
+      .hours-table td:first-child { text-align: left; }
+      .hours-table td:last-child { text-align: right; }
+      .map-card, .map-card iframe { min-height: 220px; }
+      .map-card { border-radius: 14px; }
+
+      .demo-note { display: none; }
+      footer { text-align: center; }
+      .footer-inner {
+        align-items: center;
+        text-align: center;
+      }
+      .footer-brand { font-size: 1.3rem; }
+      .footer-meta { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    <strong data-i18n="demo.strong">Website preview</strong>
+    <span class="demo-long" data-i18n="demo.text"> for AutoGlass Shop · Built by </span>
+    <a class="demo-long" href="https://solviedoquantum.com" target="_blank" rel="noopener">SolViedo Quantum</a>
+    <span class="demo-long" data-i18n="demo.notlive"> — not the live site yet</span>
+  </div>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="AutoGlass Shop home">
+        <img
+          class="brand-logo"
+          src="./logo.png"
+          width="92"
+          height="92"
+          alt="AutoGlass Shop — At AGS You Can Trust"
+        />
+        <div class="brand-text">
+          <span class="name">AutoGlass Shop</span>
+          <span class="tag" data-i18n="brand.tag">At AGS You Can Trust</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#why" data-i18n="nav.why">Why Us</a>
+        <a href="#insurance" data-i18n="nav.insurance">Insurance</a>
+        <a href="#reviews" class="nav-reviews" data-i18n="nav.reviews">Reviews</a>
+        <a href="#book" data-i18n="nav.book">Book</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <a class="nav-cta" href="#book">
+          <span class="cta-short" data-i18n="nav.book">Book</span>
+          <span class="cta-full" data-i18n="nav.cta">Book Appointment</span>
+        </a>
+        <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+      <div class="mobile-lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="mobile-nav-book" href="#book" data-i18n="nav.cta">Book Appointment</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="tel:+19568544722">Office 956-854-4722</a>
+      <a href="tel:+19566479224">Mobile 956-647-9224</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-area-label" data-i18n="area.label">Rio Grande Valley</p>
+          <p class="hero-area-title" data-i18n="area.title">Proudly serving the Valley</p>
+          <p class="hero-area-sub" data-i18n="area.sub">
+            Based in Weslaco with mobile service available across the surrounding area. If you're nearby and need glass or tint, give us a call.
+          </p>
+          <div class="hero-cities-wrap">
+            <div class="hero-cities" aria-label="Service area cities">
+              <span class="city-chip">Weslaco</span>
+              <span class="city-chip">Mercedes</span>
+              <span class="city-chip">Donna</span>
+              <span class="city-chip">Alamo</span>
+              <span class="city-chip">San Juan</span>
+              <span class="city-chip">Pharr</span>
+              <span class="city-chip">McAllen</span>
+              <span class="city-chip">Edinburg</span>
+              <span class="city-chip">Mission</span>
+              <span class="city-chip">Harlingen</span>
+              <span class="city-chip" data-i18n="area.more">+ nearby areas</span>
+            </div>
+          </div>
+          <h1 data-i18n-html="hero.title">Crystal-clear glass. <span>Trusted service.</span></h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            Windshield repair & replacement, side and rear glass, and professional window tint. Fast, careful work you can trust — in the shop or at your location.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#book">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              <span data-i18n="hero.book">Book Appointment</span>
+            </a>
+            <div class="hero-call-row">
+              <a class="btn btn-outline" href="tel:+19568544722" data-i18n="hero.call">Call Office</a>
+              <a class="btn btn-ghost" href="tel:+19566479224" data-i18n="hero.mobileBtn">Call Mobile</a>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong data-i18n="hero.stat1t">Repair + Replace</strong>
+              <span data-i18n="hero.stat1d">Windshields & all auto glass</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="hero.stat2t">Window Tint</strong>
+              <span data-i18n="hero.stat2d">Professional install</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="hero.stat3t">Mobile Service</strong>
+              <span data-i18n="hero.stat3d">We can come to you</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-showcase">
+          <img src="./card-clean.jpg" alt="AutoGlass Shop business card" width="340" height="510" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label" data-i18n="services.label">What we do</p>
+          <h2 class="section-title" data-i18n="services.title">Auto glass done right</h2>
+          <p class="section-sub" data-i18n="services.sub">
+          From rock chips to full windshield replacements and window tint — quality workmanship and efficient service for drivers across the Valley.
+        </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l9 4v6c0 5-3.5 9-9 11-5.5-2-9-6-9-11V7l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 data-i18n="svc.repair.t">Windshield Repair</h3>
+            <p data-i18n="svc.repair.d">Chip and crack repair that can stop damage from spreading — often same-day when caught early.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+            </div>
+            <h3 data-i18n="svc.replace.t">Windshield Replacement</h3>
+            <p data-i18n="svc.replace.d">OEM-quality glass install for cars, trucks, and SUVs. Clean work, proper seal, ready for the road.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+            </div>
+            <h3 data-i18n="svc.side.t">Side & Rear Glass</h3>
+            <p data-i18n="svc.side.d">Door glass, quarter glass, and back glass replacement when something breaks — not just windshields.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.5 3 4 6 4 9s-1.5 6-4 9c-2.5-3-4-6-4-9s1.5-6 4-9z"/><path d="M3.5 9h17M3.5 15h17"/></svg>
+            </div>
+            <h3 data-i18n="svc.tint.t">Window Tint</h3>
+            <p data-i18n="svc.tint.d">Professional window tint for comfort, privacy, and UV protection — clean lines, no bubbles.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14v2H5z"/><path d="M7 17l1.5-5h7L17 17"/><path d="M8.5 12l1-3h5l1 3"/><circle cx="8.5" cy="17" r="1.5"/><circle cx="15.5" cy="17" r="1.5"/></svg>
+            </div>
+            <h3 data-i18n="svc.mobile.t">Mobile Service</h3>
+            <p data-i18n="svc.mobile.d">We come to you when it works for your schedule — home, work, or roadside. Call mobile for details.</p>
+          </article>
+          <article class="service-card mobile-hide">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 data-i18n="svc.fast.t">Fast & Efficient</h3>
+            <p data-i18n="svc.fast.d">Customers trust us for speed without cutting corners — quality install that holds up on Valley roads.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="container why-grid">
+        <div class="why-image">
+          <img src="./service.jpg" alt="Professional auto glass installation" width="800" height="600" loading="lazy" />
+        </div>
+        <div>
+          <p class="section-label" data-i18n="why.label">Why AGS</p>
+          <h2 class="section-title" data-i18n="why.title">At AGS you can trust</h2>
+          <p class="section-sub" style="margin-bottom: 0;" data-i18n="why.sub">
+            Local Weslaco shop focused on clear communication, careful installs, and getting you back on the road safely.
+          </p>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-check" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="why.f1.t">Experienced technicians</h4>
+                <p data-i18n="why.f1.d">Careful work on every vehicle — from daily drivers to trucks and SUVs.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-check" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="why.f2.t">Shop + mobile options</h4>
+                <p data-i18n="why.f2.d">Come see us at 5031 N International Blvd, or ask about mobile service.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-check" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="why.f3.t">Easy to reach</h4>
+                <p data-i18n="why.f3.d">Office and mobile lines so you always get a person who can help.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-check" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="why.f4.t">Real local reviews</h4>
+                <p data-i18n="why.f4.d">Neighbors recommend us for fast, efficient work that looks and feels right.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSURANCE -->
+    <section id="insurance">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label" data-i18n="ins.label">Insurance-friendly</p>
+          <h2 class="section-title" data-i18n="ins.title">We work with insurance</h2>
+          <p class="section-sub" data-i18n="ins.sub">
+          Many auto policies cover windshield repair or replacement with little or no out-of-pocket cost. We'll help you understand your options and keep the process simple.
+        </p>
+        </div>
+        <div class="insure-grid">
+          <article class="insure-card">
+            <h3 data-i18n="ins.c1.t">Most major insurers</h3>
+            <p data-i18n="ins.c1.d">We can work with common auto insurance carriers. Call with your claim number or policy info and we'll walk you through next steps.</p>
+          </article>
+          <article class="insure-card">
+            <h3 data-i18n="ins.c2.t">Repair often preferred</h3>
+            <p data-i18n="ins.c2.d">Chip and small crack repairs are often covered with $0 deductible — and fixing early can save a full replacement.</p>
+          </article>
+          <article class="insure-card">
+            <h3 data-i18n="ins.c3.t">Cash & self-pay OK</h3>
+            <p data-i18n="ins.c3.d">No insurance? No problem. Get a clear quote before work starts — no surprises.</p>
+          </article>
+        </div>
+        <div class="insure-steps">
+          <div class="insure-step">
+            <span>1</span>
+            <div>
+              <strong data-i18n="ins.s1.t">Call or book online</strong>
+              <p data-i18n="ins.s1.d">Tell us your vehicle, the damage, and whether you want to use insurance.</p>
+            </div>
+          </div>
+          <div class="insure-step">
+            <span>2</span>
+            <div>
+              <strong data-i18n="ins.s2.t">We help with the claim</strong>
+              <p data-i18n="ins.s2.d">Share your claim or policy details — we'll coordinate so you don't get stuck in the middle.</p>
+            </div>
+          </div>
+          <div class="insure-step">
+            <span>3</span>
+            <div>
+              <strong data-i18n="ins.s3.t">Get safe glass installed</strong>
+              <p data-i18n="ins.s3.d">Shop or mobile service. Quality glass, proper seal, back on the road.</p>
+            </div>
+          </div>
+        </div>
+        <p class="ins-disclaimer" style="margin-top: 1.75rem; font-size: 1.05rem; color: var(--muted);">
+          <span data-i18n="ins.disclaimer">Coverage varies by policy. Deductibles and glass benefits depend on your carrier. Final approval is always between you and your insurer.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- MOBILE SERVICE (area details live in hero) -->
+    <section id="area">
+      <div class="container">
+        <div class="area-mobile-note" style="margin-top: 0;">
+          <div>
+            <h3 data-i18n="mobile.title">Can't make it to the shop?</h3>
+            <p data-i18n="mobile.sub">Mobile service is available. Call the mobile line and we'll work out a time that fits your day.</p>
+            <p class="area-note" style="margin-top: 0.65rem;" data-i18n="area.note">
+              Shop address: 5031 N International Blvd, Weslaco, TX 78599. Prefer we come to you? Ask about mobile service when you book or call.
+            </p>
+          </div>
+          <div class="area-actions" style="margin-top: 0; flex-direction: column; align-items: stretch;">
+            <a class="btn btn-gold" href="tel:+19566479224">
+              <span data-i18n="mobile.cta">Call Mobile:</span> 956-647-9224
+            </a>
+            <a class="btn btn-outline" href="#book" data-i18n="area.book">Book in your area</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label" data-i18n="reviews.label">Customer stories</p>
+          <h2 class="section-title" data-i18n="reviews.title">What drivers say</h2>
+          <p class="section-sub" data-i18n="reviews.sub">Real feedback from local customers who trusted AutoGlass Shop with their vehicles.</p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <blockquote data-i18n="reviews.q1">
+              “Awesome service! Cesar did an amazing job with my Ford Escape! Very fast and efficient!! Would highly recommend this place to anyone! Thank you Autoglass shop!”
+            </blockquote>
+            <cite>— Betty F.</cite>
+          </article>
+          <article class="review-card extra-review">
+            <div class="stars">★★★★★</div>
+            <blockquote data-i18n="reviews.q2">
+              Fast, efficient installs and clear communication — the kind of local shop people recommend to family and coworkers.
+            </blockquote>
+            <cite data-i18n="reviews.c2">— What customers look for</cite>
+          </article>
+          <article class="review-card extra-review">
+            <div class="stars">★★★★★</div>
+            <blockquote data-i18n="reviews.q3">
+              Full-service auto glass: repair, replacement, tint, and mobile options so Valley drivers stay safe and on schedule.
+            </blockquote>
+            <cite data-i18n="reviews.c3">— Built around your needs</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOK -->
+    <section id="book">
+      <div class="container book-layout">
+        <div>
+          <p class="section-label" data-i18n="book.label">Schedule service</p>
+          <h2 class="section-title" data-i18n="book.title">Book an appointment</h2>
+          <p class="section-sub" style="margin-bottom: 0;" data-i18n="book.sub">
+            Tell us what you need and when works for you. We'll confirm by phone — usually the same day during business hours.
+          </p>
+          <div class="book-points">
+            <div class="book-point">
+              <div class="book-point-num">1</div>
+              <div>
+                <strong data-i18n="book.p1.t">Request online</strong>
+                <p data-i18n="book.p1.d">Pick a service, preferred day, and shop or mobile.</p>
+              </div>
+            </div>
+            <div class="book-point">
+              <div class="book-point-num">2</div>
+              <div>
+                <strong data-i18n="book.p2.t">We confirm</strong>
+                <p data-i18n="book.p2.d">AGS calls you to lock in the time and quote details.</p>
+              </div>
+            </div>
+            <div class="book-point">
+              <div class="book-point-num">3</div>
+              <div>
+                <strong data-i18n="book.p3.t">Get it done</strong>
+                <p data-i18n="book.p3.d">Come to the shop or we come to you — clear glass, fast.</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1.75rem; font-size: 1.08rem; color: var(--muted);">
+            <span data-i18n="book.prefer">Prefer to talk now?</span>
+            <a href="tel:+19568544722" style="color: var(--gold-bright); font-weight: 600;">Office 956-854-4722</a>
+            <span data-i18n="book.or"> or </span>
+            <a href="tel:+19566479224" style="color: var(--gold-bright); font-weight: 600;">Mobile 956-647-9224</a>
+          </p>
+        </div>
+
+        <div class="book-form-card">
+          <div id="form-success" class="form-success" role="status" aria-live="polite">
+            <div class="check" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h4 data-i18n="form.success.t">Request received</h4>
+            <p data-i18n-html="form.success.d">
+              Thanks — in the live site this would notify AutoGlass Shop instantly. For now, call <a href="tel:+19568544722" style="color: var(--gold-bright);">956-854-4722</a> to confirm your appointment.
+            </p>
+            <button type="button" class="btn btn-outline" id="book-another" data-i18n="form.another">Book another request</button>
+          </div>
+
+          <form id="book-form" novalidate>
+            <h3 data-i18n="form.title">Request a time</h3>
+            <p class="form-intro" data-i18n="form.intro">Takes under a minute. We'll follow up to confirm.</p>
+            <div class="form-grid">
+              <div class="form-row two">
+                <div class="field">
+                  <label for="name"><span data-i18n="form.name">Full name</span> <span class="req">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required data-i18n-placeholder="form.name.ph" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="phone"><span data-i18n="form.phone">Phone</span> <span class="req">*</span></label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(956) 000-0000" />
+                </div>
+              </div>
+              <div class="field mobile-hide">
+                <label for="email" data-i18n="form.email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" />
+              </div>
+              <div class="form-row two">
+                <div class="field">
+                  <label for="service"><span data-i18n="form.service">Service needed</span> <span class="req">*</span></label>
+                  <select id="service" name="service" required>
+                    <option value="" disabled selected data-i18n="form.service.ph">Select a service</option>
+                    <option value="repair" data-i18n="form.opt.repair">Windshield repair (chip/crack)</option>
+                    <option value="replace" data-i18n="form.opt.replace">Windshield replacement</option>
+                    <option value="side" data-i18n="form.opt.side">Side / door glass</option>
+                    <option value="rear" data-i18n="form.opt.rear">Rear glass</option>
+                    <option value="tint" data-i18n="form.opt.tint">Window tint</option>
+                    <option value="quote" data-i18n="form.opt.quote">Not sure — need a quote</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="location"><span data-i18n="form.location">Service location</span> <span class="req">*</span></label>
+                  <select id="location" name="location" required>
+                    <option value="" disabled selected data-i18n="form.location.ph">Where should we help?</option>
+                    <option value="shop" data-i18n="form.opt.shop">At the shop (Weslaco)</option>
+                    <option value="mobile" data-i18n="form.opt.mobile">Mobile — come to me</option>
+                    <option value="either" data-i18n="form.opt.either">Either works</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row two">
+                <div class="field">
+                  <label for="date" data-i18n="form.date">Preferred date</label>
+                  <input id="date" name="date" type="date" />
+                  <p class="field-hint" data-i18n="form.date.hint">Mon–Fri preferred · we'll confirm availability</p>
+                </div>
+                <div class="field">
+                  <label for="time" data-i18n="form.time">Preferred time</label>
+                  <select id="time" name="time">
+                    <option value="" data-i18n="form.opt.any">Any time</option>
+                    <option value="morning" data-i18n="form.opt.morning">Morning (8:30–11:00)</option>
+                    <option value="midday" data-i18n="form.opt.midday">Midday (11:00–2:00)</option>
+                    <option value="afternoon" data-i18n="form.opt.afternoon">Afternoon (2:00–6:00)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="vehicle" data-i18n="form.vehicle">Vehicle</label>
+                <input id="vehicle" name="vehicle" type="text" data-i18n-placeholder="form.vehicle.ph" placeholder="Year, make, model (e.g. 2019 Ford Escape)" />
+              </div>
+              <div class="field">
+                <label for="insurance" data-i18n="form.insurance">Using insurance?</label>
+                <select id="insurance" name="insurance">
+                  <option value="" data-i18n="form.opt.ins.na">Not sure yet</option>
+                  <option value="yes" data-i18n="form.opt.ins.yes">Yes — I have a claim / policy</option>
+                  <option value="no" data-i18n="form.opt.ins.no">No — self-pay</option>
+                </select>
+              </div>
+              <div class="field mobile-hide">
+                <label for="notes" data-i18n="form.notes">Notes / damage details</label>
+                <textarea id="notes" name="notes" data-i18n-placeholder="form.notes.ph" placeholder="Chip size, insurance question, best callback time…"></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-gold" data-i18n="form.submit">Request Appointment</button>
+                <p class="form-note" data-i18n="form.note">
+                  Preview demo — submissions show confirmation here. Full version can text/email the shop and auto-reply to the customer.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label" data-i18n="contact.label">Visit or call</p>
+          <h2 class="section-title" data-i18n="contact.title">Get a quote today</h2>
+          <p class="section-sub" data-i18n="contact.sub">Stop by the shop or call — we're ready to help with repair, replacement, or tint.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 data-i18n="contact.info">Contact</h3>
+            <div class="info-row">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.address">Address</strong>
+                <a href="https://www.google.com/maps/search/?api=1&query=5031+N+International+Blvd+Weslaco+TX+78599" target="_blank" rel="noopener">
+                  5031 N International Blvd<br />Weslaco, TX 78599
+                </a>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.office">Office</strong>
+                <a href="tel:+19568544722">956-854-4722</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.mobile">Mobile</strong>
+                <a href="tel:+19566479224">956-647-9224</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 data-i18n="contact.hours">Hours</h3>
+            <table class="hours-table">
+              <tbody>
+                <tr><td data-i18n="day.mon">Monday</td><td>8:30 AM – 6:00 PM</td></tr>
+                <tr><td data-i18n="day.tue">Tuesday</td><td>8:30 AM – 6:00 PM</td></tr>
+                <tr><td data-i18n="day.wed">Wednesday</td><td>8:30 AM – 6:00 PM</td></tr>
+                <tr><td data-i18n="day.thu">Thursday</td><td>8:30 AM – 6:00 PM</td></tr>
+                <tr><td data-i18n="day.fri">Friday</td><td>8:30 AM – 6:00 PM</td></tr>
+                <tr class="closed"><td data-i18n="day.sat">Saturday</td><td data-i18n="day.closed">Closed</td></tr>
+                <tr class="closed"><td data-i18n="day.sun">Sunday</td><td data-i18n="day.closed">Closed</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="map-card">
+            <iframe
+              title="AutoGlass Shop location map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=5031%20N%20International%20Blvd%2C%20Weslaco%2C%20TX%2078599&z=15&output=embed"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">AutoGlass Shop</div>
+        <p class="footer-meta" style="margin-top: 0.35rem;">
+          5031 N International Blvd · Weslaco, TX 78599
+        </p>
+      </div>
+      <div>
+        <p class="footer-meta">
+          <a href="tel:+19568544722">956-854-4722</a>
+          &nbsp;·&nbsp;
+          <a href="tel:+19566479224">956-647-9224</a>
+        </p>
+        <p class="demo-note" style="margin-top: 0.5rem;" data-i18n-html="footer.note">
+          This is a design preview built by
+          <a href="https://solviedoquantum.com">SolViedo Quantum</a>
+          for AutoGlass Shop. Content and branding can be finalized for the full launch.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var I18N = {
+        en: {
+          'demo.strong': 'Website preview',
+          'demo.text': ' for AutoGlass Shop · Built by ',
+          'demo.notlive': ' — not the live site yet',
+          'brand.tag': 'At AGS You Can Trust',
+          'nav.services': 'Services',
+          'nav.why': 'Why Us',
+          'nav.insurance': 'Insurance',
+          'nav.area': 'Service Area',
+          'nav.reviews': 'Reviews',
+          'nav.book': 'Book',
+          'nav.contact': 'Contact',
+          'nav.cta': 'Book Appointment',
+          'hero.badge': 'Weslaco, TX · Mobile Available',
+          'hero.title': 'Crystal-clear glass. <span>Trusted service.</span>',
+          'hero.lead': 'Windshield repair & replacement, side and rear glass, and professional window tint. Fast, careful work you can trust — in the shop or at your location.',
+          'hero.leadShort': 'Repair · Replace · Tint · We come to you',
+          'hero.book': 'Book Appointment',
+          'hero.call': 'Call Office',
+          'hero.mobile': 'Mobile:',
+          'hero.mobileBtn': 'Call Mobile',
+          'hero.stat1t': 'Repair + Replace',
+          'hero.stat1d': 'Windshields & all auto glass',
+          'hero.stat2t': 'Window Tint',
+          'hero.stat2d': 'Professional install',
+          'hero.stat3t': 'Mobile Service',
+          'hero.stat3d': 'We can come to you',
+          'services.label': 'What we do',
+          'services.title': 'Auto glass done right',
+          'services.sub': 'From rock chips to full windshield replacements and window tint — quality workmanship and efficient service for drivers across the Valley.',
+          'svc.repair.t': 'Windshield Repair',
+          'svc.repair.d': 'Chip and crack repair that can stop damage from spreading — often same-day when caught early.',
+          'svc.replace.t': 'Windshield Replacement',
+          'svc.replace.d': 'OEM-quality glass install for cars, trucks, and SUVs. Clean work, proper seal, ready for the road.',
+          'svc.side.t': 'Side & Rear Glass',
+          'svc.side.d': 'Door glass, quarter glass, and back glass replacement when something breaks — not just windshields.',
+          'svc.tint.t': 'Window Tint',
+          'svc.tint.d': 'Professional window tint for comfort, privacy, and UV protection — clean lines, no bubbles.',
+          'svc.mobile.t': 'Mobile Service',
+          'svc.mobile.d': 'We come to you when it works for your schedule — home, work, or roadside. Call mobile for details.',
+          'svc.fast.t': 'Fast & Efficient',
+          'svc.fast.d': 'Customers trust us for speed without cutting corners — quality install that holds up on Valley roads.',
+          'ins.label': 'Insurance-friendly',
+          'ins.title': 'We work with insurance',
+          'ins.sub': 'Many auto policies cover windshield repair or replacement with little or no out-of-pocket cost. We\'ll help you understand your options and keep the process simple.',
+          'ins.c1.t': 'Most major insurers',
+          'ins.c1.d': 'We can work with common auto insurance carriers. Call with your claim number or policy info and we\'ll walk you through next steps.',
+          'ins.c2.t': 'Repair often preferred',
+          'ins.c2.d': 'Chip and small crack repairs are often covered with $0 deductible — and fixing early can save a full replacement.',
+          'ins.c3.t': 'Cash & self-pay OK',
+          'ins.c3.d': 'No insurance? No problem. Get a clear quote before work starts — no surprises.',
+          'ins.s1.t': 'Call or book online',
+          'ins.s1.d': 'Tell us your vehicle, the damage, and whether you want to use insurance.',
+          'ins.s2.t': 'We help with the claim',
+          'ins.s2.d': 'Share your claim or policy details — we\'ll coordinate so you don\'t get stuck in the middle.',
+          'ins.s3.t': 'Get safe glass installed',
+          'ins.s3.d': 'Shop or mobile service. Quality glass, proper seal, back on the road.',
+          'ins.disclaimer': 'Coverage varies by policy. Deductibles and glass benefits depend on your carrier. Final approval is always between you and your insurer.',
+          'area.label': 'Rio Grande Valley',
+          'area.title': 'Proudly serving the Valley',
+          'area.sub': 'Based in Weslaco with mobile service available across the surrounding area. If you\'re nearby and need glass or tint, give us a call.',
+          'area.more': '+ nearby areas',
+          'area.note': 'Shop address: 5031 N International Blvd, Weslaco, TX 78599. Prefer we come to you? Ask about mobile service when you book or call.',
+          'area.book': 'Book in your area',
+          'area.mobile': 'Call for mobile',
+          'why.label': 'Why AGS',
+          'why.title': 'At AGS you can trust',
+          'why.sub': 'Local Weslaco shop focused on clear communication, careful installs, and getting you back on the road safely.',
+          'why.f1.t': 'Experienced technicians',
+          'why.f1.d': 'Careful work on every vehicle — from daily drivers to trucks and SUVs.',
+          'why.f2.t': 'Shop + mobile options',
+          'why.f2.d': 'Come see us at 5031 N International Blvd, or ask about mobile service.',
+          'why.f3.t': 'Easy to reach',
+          'why.f3.d': 'Office and mobile lines so you always get a person who can help.',
+          'why.f4.t': 'Real local reviews',
+          'why.f4.d': 'Neighbors recommend us for fast, efficient work that looks and feels right.',
+          'mobile.title': 'Can\'t make it to the shop?',
+          'mobile.sub': 'Mobile service is available. Call the mobile line and we\'ll work out a time that fits your day.',
+          'mobile.cta': 'Call Mobile:',
+          'book.label': 'Schedule service',
+          'book.title': 'Book an appointment',
+          'book.sub': 'Tell us what you need and when works for you. We\'ll confirm by phone — usually the same day during business hours.',
+          'book.p1.t': 'Request online',
+          'book.p1.d': 'Pick a service, preferred day, and shop or mobile.',
+          'book.p2.t': 'We confirm',
+          'book.p2.d': 'AGS calls you to lock in the time and quote details.',
+          'book.p3.t': 'Get it done',
+          'book.p3.d': 'Come to the shop or we come to you — clear glass, fast.',
+          'book.prefer': 'Prefer to talk now?',
+          'book.or': ' or ',
+          'form.success.t': 'Request received',
+          'form.success.d': 'Thanks — in the live site this would notify AutoGlass Shop instantly. For now, call <a href="tel:+19568544722" style="color: var(--gold-bright);">956-854-4722</a> to confirm your appointment.',
+          'form.another': 'Book another request',
+          'form.title': 'Request a time',
+          'form.intro': 'Takes under a minute. We\'ll follow up to confirm.',
+          'form.name': 'Full name',
+          'form.name.ph': 'Your name',
+          'form.phone': 'Phone',
+          'form.email': 'Email',
+          'form.service': 'Service needed',
+          'form.service.ph': 'Select a service',
+          'form.opt.repair': 'Windshield repair (chip/crack)',
+          'form.opt.replace': 'Windshield replacement',
+          'form.opt.side': 'Side / door glass',
+          'form.opt.rear': 'Rear glass',
+          'form.opt.tint': 'Window tint',
+          'form.opt.quote': 'Not sure — need a quote',
+          'form.location': 'Service location',
+          'form.location.ph': 'Where should we help?',
+          'form.opt.shop': 'At the shop (Weslaco)',
+          'form.opt.mobile': 'Mobile — come to me',
+          'form.opt.either': 'Either works',
+          'form.date': 'Preferred date',
+          'form.date.hint': 'Mon–Fri preferred · we\'ll confirm availability',
+          'form.time': 'Preferred time',
+          'form.opt.any': 'Any time',
+          'form.opt.morning': 'Morning (8:30–11:00)',
+          'form.opt.midday': 'Midday (11:00–2:00)',
+          'form.opt.afternoon': 'Afternoon (2:00–6:00)',
+          'form.vehicle': 'Vehicle',
+          'form.vehicle.ph': 'Year, make, model (e.g. 2019 Ford Escape)',
+          'form.insurance': 'Using insurance?',
+          'form.opt.ins.na': 'Not sure yet',
+          'form.opt.ins.yes': 'Yes — I have a claim / policy',
+          'form.opt.ins.no': 'No — self-pay',
+          'form.notes': 'Notes / damage details',
+          'form.notes.ph': 'Chip size, insurance question, best callback time…',
+          'form.submit': 'Request Appointment',
+          'form.note': 'Preview demo — submissions show confirmation here. Full version can text/email the shop and auto-reply to the customer.',
+          'reviews.label': 'Customer stories',
+          'reviews.title': 'What drivers say',
+          'reviews.sub': 'Real feedback from local customers who trusted AutoGlass Shop with their vehicles.',
+          'reviews.q1': '“Awesome service! Cesar did an amazing job with my Ford Escape! Very fast and efficient!! Would highly recommend this place to anyone! Thank you Autoglass shop!”',
+          'reviews.q2': 'Fast, efficient installs and clear communication — the kind of local shop people recommend to family and coworkers.',
+          'reviews.c2': '— What customers look for',
+          'reviews.q3': 'Full-service auto glass: repair, replacement, tint, and mobile options so Valley drivers stay safe and on schedule.',
+          'reviews.c3': '— Built around your needs',
+          'contact.label': 'Visit or call',
+          'contact.title': 'Get a quote today',
+          'contact.sub': 'Stop by the shop or call — we\'re ready to help with repair, replacement, or tint.',
+          'contact.info': 'Contact',
+          'contact.address': 'Address',
+          'contact.office': 'Office',
+          'contact.mobile': 'Mobile',
+          'contact.hours': 'Hours',
+          'day.mon': 'Monday',
+          'day.tue': 'Tuesday',
+          'day.wed': 'Wednesday',
+          'day.thu': 'Thursday',
+          'day.fri': 'Friday',
+          'day.sat': 'Saturday',
+          'day.sun': 'Sunday',
+          'day.closed': 'Closed',
+          'cta.title': 'Ready for clearer glass?',
+          'cta.sub': 'Book online or call — we\'ll get you a straight answer and a solid plan.',
+          'cta.book': 'Book Appointment',
+          'footer.note': 'This is a design preview built by <a href="https://solviedoquantum.com">SolViedo Quantum</a> for AutoGlass Shop. Content and branding can be finalized for the full launch.'
+        },
+        es: {
+          'demo.strong': 'Vista previa del sitio',
+          'demo.text': ' para AutoGlass Shop · Creado por ',
+          'demo.notlive': ' — aún no es el sitio en vivo',
+          'brand.tag': 'En AGS puede confiar',
+          'nav.services': 'Servicios',
+          'nav.why': 'Por qué nosotros',
+          'nav.insurance': 'Seguro',
+          'nav.area': 'Área de servicio',
+          'nav.reviews': 'Reseñas',
+          'nav.book': 'Cita',
+          'nav.contact': 'Contacto',
+          'nav.cta': 'Agendar cita',
+          'hero.badge': 'Weslaco, TX · Servicio móvil',
+          'hero.title': 'Vidrio cristalino. <span>Servicio de confianza.</span>',
+          'hero.lead': 'Reparación y reemplazo de parabrisas, vidrios laterales y traseros, y polarizado profesional. Trabajo rápido y cuidadoso — en el taller o donde usted esté.',
+          'hero.leadShort': 'Reparar · Reemplazar · Polarizado · Vamos a usted',
+          'hero.book': 'Agendar cita',
+          'hero.call': 'Llamar oficina',
+          'hero.mobile': 'Móvil:',
+          'hero.mobileBtn': 'Llamar móvil',
+          'hero.stat1t': 'Reparar + Reemplazar',
+          'hero.stat1d': 'Parabrisas y todo el vidrio',
+          'hero.stat2t': 'Polarizado',
+          'hero.stat2d': 'Instalación profesional',
+          'hero.stat3t': 'Servicio móvil',
+          'hero.stat3d': 'Vamos a usted',
+          'services.label': 'Lo que hacemos',
+          'services.title': 'Vidrio automotriz bien hecho',
+          'services.sub': 'Desde piedras y grietas hasta reemplazo completo de parabrisas y polarizado — calidad y servicio eficiente para conductores del Valle.',
+          'svc.repair.t': 'Reparación de parabrisas',
+          'svc.repair.d': 'Reparación de chips y grietas que puede detener el daño — a menudo el mismo día si se atiende a tiempo.',
+          'svc.replace.t': 'Reemplazo de parabrisas',
+          'svc.replace.d': 'Instalación de vidrio de calidad para autos, camionetas y SUVs. Sello correcto, listo para la carretera.',
+          'svc.side.t': 'Vidrios laterales y traseros',
+          'svc.side.d': 'Puertas, cuartos y medallón cuando se rompen — no solo parabrisas.',
+          'svc.tint.t': 'Polarizado de ventanas',
+          'svc.tint.d': 'Polarizado profesional para comodidad, privacidad y protección UV — líneas limpias, sin burbujas.',
+          'svc.mobile.t': 'Servicio móvil',
+          'svc.mobile.d': 'Vamos a usted según su horario — casa, trabajo o en el camino. Llame al móvil para detalles.',
+          'svc.fast.t': 'Rápido y eficiente',
+          'svc.fast.d': 'Los clientes confían en nosotros por la velocidad sin descuidar la calidad — instalación que resiste el Valle.',
+          'ins.label': 'Aceptamos seguros',
+          'ins.title': 'Trabajamos con su seguro',
+          'ins.sub': 'Muchas pólizas cubren la reparación o el reemplazo del parabrisas con poco o nada de su bolsillo. Le ayudamos a entender sus opciones y simplificar el proceso.',
+          'ins.c1.t': 'La mayoría de aseguradoras',
+          'ins.c1.d': 'Podemos trabajar con las aseguradoras de auto más comunes. Llame con su número de reclamo o póliza y le guiamos en los siguientes pasos.',
+          'ins.c2.t': 'La reparación a menudo conviene',
+          'ins.c2.d': 'Los chips y grietas pequeñas a menudo se cubren con deducible $0 — y reparar a tiempo puede evitar un reemplazo completo.',
+          'ins.c3.t': 'Efectivo y pago propio OK',
+          'ins.c3.d': '¿Sin seguro? No hay problema. Cotización clara antes de empezar — sin sorpresas.',
+          'ins.s1.t': 'Llame o agende en línea',
+          'ins.s1.d': 'Díganos su vehículo, el daño y si desea usar el seguro.',
+          'ins.s2.t': 'Ayudamos con el reclamo',
+          'ins.s2.d': 'Comparta su reclamo o datos de póliza — coordinamos para que no se quede en el medio.',
+          'ins.s3.t': 'Vidrio seguro instalado',
+          'ins.s3.d': 'En el taller o con servicio móvil. Vidrio de calidad, sello correcto, de regreso a la carretera.',
+          'ins.disclaimer': 'La cobertura varía según la póliza. Deducibles y beneficios de vidrio dependen de su aseguradora. La aprobación final es siempre entre usted y su aseguradora.',
+          'area.label': 'Valle del Río Grande',
+          'area.title': 'Orgullosos de servir al Valle',
+          'area.sub': 'Con base en Weslaco y servicio móvil en la zona. Si está cerca y necesita vidrio o polarizado, llámenos.',
+          'area.more': '+ zonas cercanas',
+          'area.note': 'Dirección del taller: 5031 N International Blvd, Weslaco, TX 78599. ¿Prefiere que vayamos a usted? Pregunte por el servicio móvil al agendar o llamar.',
+          'area.book': 'Agende en su zona',
+          'area.mobile': 'Llamar móvil',
+          'why.label': 'Por qué AGS',
+          'why.title': 'En AGS puede confiar',
+          'why.sub': 'Taller local en Weslaco enfocado en comunicación clara, instalaciones cuidadosas y en regresar a la carretera con seguridad.',
+          'why.f1.t': 'Técnicos con experiencia',
+          'why.f1.d': 'Trabajo cuidadoso en cada vehículo — desde autos diarios hasta camionetas y SUVs.',
+          'why.f2.t': 'Taller + servicio móvil',
+          'why.f2.d': 'Visítenos en 5031 N International Blvd, o pregunte por el servicio móvil.',
+          'why.f3.t': 'Fácil de contactar',
+          'why.f3.d': 'Líneas de oficina y móvil para que siempre hable con alguien que le ayude.',
+          'why.f4.t': 'Reseñas locales reales',
+          'why.f4.d': 'Los vecinos nos recomiendan por un trabajo rápido, eficiente y bien hecho.',
+          'mobile.title': '¿No puede venir al taller?',
+          'mobile.sub': 'Hay servicio móvil disponible. Llame al móvil y coordinamos un horario que le sirva.',
+          'mobile.cta': 'Llamar móvil:',
+          'book.label': 'Agendar servicio',
+          'book.title': 'Reserve una cita',
+          'book.sub': 'Díganos qué necesita y cuándo le conviene. Confirmamos por teléfono — normalmente el mismo día en horario laboral.',
+          'book.p1.t': 'Solicite en línea',
+          'book.p1.d': 'Elija servicio, día preferido, y taller o móvil.',
+          'book.p2.t': 'Confirmamos',
+          'book.p2.d': 'AGS le llama para fijar la hora y detalles de cotización.',
+          'book.p3.t': 'Listo',
+          'book.p3.d': 'Venga al taller o vamos a usted — vidrio limpio, rápido.',
+          'book.prefer': '¿Prefiere hablar ahora?',
+          'book.or': ' o ',
+          'form.success.t': 'Solicitud recibida',
+          'form.success.d': 'Gracias — en el sitio en vivo esto avisaría a AutoGlass Shop al instante. Por ahora, llame al <a href="tel:+19568544722" style="color: var(--gold-bright);">956-854-4722</a> para confirmar su cita.',
+          'form.another': 'Otra solicitud',
+          'form.title': 'Solicitar horario',
+          'form.intro': 'Menos de un minuto. Le contactamos para confirmar.',
+          'form.name': 'Nombre completo',
+          'form.name.ph': 'Su nombre',
+          'form.phone': 'Teléfono',
+          'form.email': 'Correo',
+          'form.service': 'Servicio necesario',
+          'form.service.ph': 'Seleccione un servicio',
+          'form.opt.repair': 'Reparación de parabrisas (chip/grieta)',
+          'form.opt.replace': 'Reemplazo de parabrisas',
+          'form.opt.side': 'Vidrio lateral / puerta',
+          'form.opt.rear': 'Vidrio trasero',
+          'form.opt.tint': 'Polarizado',
+          'form.opt.quote': 'No estoy seguro — necesito cotización',
+          'form.location': 'Lugar del servicio',
+          'form.location.ph': '¿Dónde le ayudamos?',
+          'form.opt.shop': 'En el taller (Weslaco)',
+          'form.opt.mobile': 'Móvil — vayan a mí',
+          'form.opt.either': 'Cualquiera está bien',
+          'form.date': 'Fecha preferida',
+          'form.date.hint': 'Preferible lun–vie · confirmamos disponibilidad',
+          'form.time': 'Hora preferida',
+          'form.opt.any': 'Cualquier hora',
+          'form.opt.morning': 'Mañana (8:30–11:00)',
+          'form.opt.midday': 'Mediodía (11:00–2:00)',
+          'form.opt.afternoon': 'Tarde (2:00–6:00)',
+          'form.vehicle': 'Vehículo',
+          'form.vehicle.ph': 'Año, marca, modelo (ej. 2019 Ford Escape)',
+          'form.insurance': '¿Usa seguro?',
+          'form.opt.ins.na': 'Aún no sé',
+          'form.opt.ins.yes': 'Sí — tengo reclamo / póliza',
+          'form.opt.ins.no': 'No — pago propio',
+          'form.notes': 'Notas / detalles del daño',
+          'form.notes.ph': 'Tamaño del chip, pregunta de seguro, mejor hora para llamar…',
+          'form.submit': 'Solicitar cita',
+          'form.note': 'Demo de vista previa — el envío muestra confirmación aquí. La versión completa puede enviar SMS/correo al taller y responder al cliente.',
+          'reviews.label': 'Historias de clientes',
+          'reviews.title': 'Lo que dicen los conductores',
+          'reviews.sub': 'Comentarios reales de clientes locales que confían en AutoGlass Shop.',
+          'reviews.q1': '“¡Excelente servicio! ¡Cesar hizo un trabajo increíble con mi Ford Escape! Muy rápido y eficiente. ¡Lo recomiendo a cualquiera! ¡Gracias Autoglass shop!”',
+          'reviews.q2': 'Instalaciones rápidas y eficientes con comunicación clara — el tipo de taller local que la gente recomienda a la familia y compañeros.',
+          'reviews.c2': '— Lo que buscan los clientes',
+          'reviews.q3': 'Vidrio automotriz completo: reparación, reemplazo, polarizado y opciones móviles para que los conductores del Valle sigan seguros y a tiempo.',
+          'reviews.c3': '— Hecho para sus necesidades',
+          'contact.label': 'Visite o llame',
+          'contact.title': 'Cotice hoy',
+          'contact.sub': 'Pase al taller o llame — listos para ayudar con reparación, reemplazo o polarizado.',
+          'contact.info': 'Contacto',
+          'contact.address': 'Dirección',
+          'contact.office': 'Oficina',
+          'contact.mobile': 'Móvil',
+          'contact.hours': 'Horario',
+          'day.mon': 'Lunes',
+          'day.tue': 'Martes',
+          'day.wed': 'Miércoles',
+          'day.thu': 'Jueves',
+          'day.fri': 'Viernes',
+          'day.sat': 'Sábado',
+          'day.sun': 'Domingo',
+          'day.closed': 'Cerrado',
+          'cta.title': '¿Listo para un vidrio más claro?',
+          'cta.sub': 'Agende en línea o llame — respuesta clara y un plan sólido.',
+          'cta.book': 'Agendar cita',
+          'footer.note': 'Esta es una vista previa de diseño creada por <a href="https://solviedoquantum.com">SolViedo Quantum</a> para AutoGlass Shop. El contenido y la marca se pueden finalizar para el lanzamiento completo.'
+        }
+      };
+
+      var lang = localStorage.getItem('ags-lang') || 'en';
+      var dict = I18N[lang] || I18N.en;
+
+      function applyLang(next) {
+        lang = next;
+        dict = I18N[lang] || I18N.en;
+        localStorage.setItem('ags-lang', lang);
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key] != null) el.setAttribute('placeholder', dict[key]);
+        });
+
+        // Select options that use data-i18n
+        document.querySelectorAll('option[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.textContent = dict[key];
+        });
+
+        document.querySelectorAll('.lang-toggle button, .mobile-lang button').forEach(function (btn) {
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        document.title = lang === 'es'
+          ? 'AutoGlass Shop | Weslaco, TX — En AGS puede confiar'
+          : 'AutoGlass Shop | Weslaco, TX — At AGS You Can Trust';
+      }
+
+      document.querySelectorAll('.lang-toggle button, .mobile-lang button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLang(btn.getAttribute('data-lang'));
+        });
+      });
+
+      applyLang(lang);
+
+      // Mobile menu
+      var menuBtn = document.getElementById('menu-btn');
+      var mobileNav = document.getElementById('mobile-nav');
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', function () {
+          var open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Booking form
+      var form = document.getElementById('book-form');
+      var success = document.getElementById('form-success');
+      var again = document.getElementById('book-another');
+      var dateInput = document.getElementById('date');
+
+      if (dateInput) {
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var dd = String(today.getDate()).padStart(2, '0');
+        dateInput.min = yyyy + '-' + mm + '-' + dd;
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          form.classList.add('is-hidden');
+          success.classList.add('show');
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      }
+
+      if (again) {
+        again.addEventListener('click', function () {
+          success.classList.remove('show');
+          form.classList.remove('is-hidden');
+          form.reset();
+          var name = form.querySelector('#name');
+          if (name) name.focus();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
