@@ -1677,8 +1677,14 @@
       }
       .review-card blockquote { font-size: 1.08rem !important; text-align: left !important; }
 
-      .book-layout > div:first-child { display: block !important; margin-bottom: 1.25rem; }
+      /* Drop mobile-only duplicates (area/CTAs in hero, phones in contact, steps elsewhere) */
+      #area,
+      .book-points,
+      .book-prefer-call { display: none !important; }
+
+      .book-layout > div:first-child { display: block !important; margin-bottom: 1rem; }
       .book-layout { display: block !important; width: 100%; }
+      #book .section-sub { margin-bottom: 1rem !important; }
       .book-form-card {
         max-width: 100% !important;
         width: 100% !important;
@@ -1984,7 +1990,7 @@
                 <p data-i18n="why.f3.d">Office and mobile lines so you always get a person who can help.</p>
               </div>
             </div>
-            <div class="feature">
+            <div class="feature desktop-only flex">
               <div class="feature-check" aria-hidden="true">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
               </div>
@@ -2051,8 +2057,8 @@
       </div>
     </section>
 
-    <!-- MOBILE SERVICE (area details live in hero) -->
-    <section id="area">
+    <!-- MOBILE SERVICE (kept for desktop; hero already covers this on phone) -->
+    <section id="area" class="desktop-only">
       <div class="container">
         <div class="area-mobile-note" style="margin-top: 0;">
           <div>
@@ -2115,7 +2121,7 @@
           <p class="section-sub" style="margin-bottom: 0;" data-i18n="book.sub">
             Tell us what you need and when works for you. We'll confirm by phone — usually the same day during business hours.
           </p>
-          <div class="book-points">
+          <div class="book-points desktop-only grid">
             <div class="book-point">
               <div class="book-point-num">1</div>
               <div>
@@ -2138,7 +2144,7 @@
               </div>
             </div>
           </div>
-          <p style="margin-top: 1.75rem; font-size: 1.08rem; color: var(--muted);">
+          <p class="book-prefer-call desktop-only" style="margin-top: 1.75rem; font-size: 1.08rem; color: var(--muted);">
             <span data-i18n="book.prefer">Prefer to talk now?</span>
             <a href="tel:+19568544722" style="color: var(--gold-bright); font-weight: 600;">Office 956-854-4722</a>
             <span data-i18n="book.or"> or </span>
@@ -2326,12 +2332,12 @@
     <div class="container footer-inner">
       <div>
         <div class="footer-brand">AutoGlass Shop</div>
-        <p class="footer-meta" style="margin-top: 0.35rem;">
+        <p class="footer-meta desktop-only" style="margin-top: 0.35rem;">
           5031 N International Blvd · Weslaco, TX 78599
         </p>
       </div>
       <div>
-        <p class="footer-meta">
+        <p class="footer-meta desktop-only">
           <a href="tel:+19568544722">956-854-4722</a>
           &nbsp;·&nbsp;
           <a href="tel:+19566479224">956-647-9224</a>
