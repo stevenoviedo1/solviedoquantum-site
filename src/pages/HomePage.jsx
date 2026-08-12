@@ -56,6 +56,9 @@ function HomePage() {
   const openProject = (project) => {
     if (project.link.startsWith('http')) {
       window.open(project.link, '_blank', 'noopener,noreferrer');
+    } else if (project.fullPage) {
+      // Embedded standalone SPAs (planetary, nanoverse) — full document load
+      window.location.assign(project.link);
     } else {
       navigate(project.link);
     }

@@ -1,6 +1,12 @@
 {
   "rewrites": [
     { "source": "/autoglass-shop", "destination": "/autoglass-shop/index.html" },
+    { "source": "/planetary", "destination": "/planetary/index.html" },
+    { "source": "/planetary/", "destination": "/planetary/index.html" },
+    { "source": "/planetary/:path*", "destination": "/planetary/index.html" },
+    { "source": "/nanoverse", "destination": "/nanoverse/index.html" },
+    { "source": "/nanoverse/", "destination": "/nanoverse/index.html" },
+    { "source": "/nanoverse/:path*", "destination": "/nanoverse/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
@@ -31,6 +37,24 @@
       ]
     },
     {
+      "source": "/planetary/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/nanoverse/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
       "source": "/games/(.*)",
       "headers": [
         {
@@ -51,6 +75,13 @@
       "headers": [
         { "key": "Content-Type", "value": "application/octet-stream" },
         { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" }
       ]
     }
   ]

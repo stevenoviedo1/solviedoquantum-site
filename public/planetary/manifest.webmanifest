@@ -1,0 +1,30 @@
+{
+  "name": "Walkable Worlds",
+  "short_name": "Walkable Worlds",
+  "description": "Walk Mars, Venus, the Moon, Earth, and exoplanet systems in the browser — WebGPU planetary explorer.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#02040a",
+  "theme_color": "#ff6b35",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "games", "entertainment"]
+}

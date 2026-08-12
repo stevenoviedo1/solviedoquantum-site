@@ -9,14 +9,14 @@ export const projectSections = [
     subtitle: "Shipped for customers and real-world use",
     projects: [
       {
-        id: "hostedinvite",
-        title: "HostedInvite",
+        id: "quantumstock",
+        title: "Quantum Stock Game",
         description:
-          "Done-for-you event hubs: custom guest pages, RSVPs, QR codes, host dashboard, Design Studio themes, and package booking. Live at hostedinvite.com.",
-        image: "/hostedinvite-v3.jpg",
+          "Live multiplayer paper-trading product: shared realtime market, Research Dex, Companion AI, portfolio & banking tools, plus paper casino (Hold'em & horse racing). Live at quantumstockgame.com.",
+        image: "/quantumstockgame-v2.jpg",
         imageFit: "cover",
-        link: "https://hostedinvite.com",
-        tags: ["Next.js", "Neon", "Stripe", "RSVP", "Events"],
+        link: "https://quantumstockgame.com",
+        tags: ["Next.js", "Supabase", "Trading Sim", "AI", "Multiplayer"],
       },
       {
         id: "la88",
@@ -28,14 +28,14 @@ export const projectSections = [
         tags: ["Next.js", "Supabase", "Restaurant", "Online Ordering"],
       },
       {
-        id: "quantumstock",
-        title: "Quantum Stock Game",
+        id: "hostedinvite",
+        title: "HostedInvite",
         description:
-          "Live multiplayer paper-trading product: shared realtime market, Research Dex, Companion AI, portfolio & banking tools, plus paper casino (Hold'em & horse racing). Live at quantumstockgame.com.",
-        image: "/quantumstockgame-v2.jpg",
+          "Done-for-you event hubs: custom guest pages, RSVPs, QR codes, host dashboard, Design Studio themes, and package booking. Live at hostedinvite.com.",
+        image: "/hostedinvite-v3.jpg",
         imageFit: "cover",
-        link: "https://quantumstockgame.com",
-        tags: ["Next.js", "Supabase", "Trading Sim", "AI", "Multiplayer"],
+        link: "https://hostedinvite.com",
+        tags: ["Next.js", "Neon", "Stripe", "RSVP", "Events"],
       },
     ],
   },
@@ -69,6 +69,48 @@ export const projectSections = [
     title: "Fun & Personal Projects",
     subtitle: "Experiments, games, and side builds",
     projects: [
+      {
+        id: "waveform",
+        title: "Waveform",
+        description:
+          "Original genre: Waveform Strategy. Chess-depth quantum tactics — prepare ghost futures, force collapses, outthink the field. Full campaign, GPU-powered 3D board, deterministic skill (no hit-roll casino).",
+        image: "/og-image.jpg",
+        imageFit: "cover",
+        link: "/waveform",
+        tags: ["Waveform Strategy", "Tactics", "WebGPU/WebGL", "Campaign"],
+      },
+      {
+        id: "planetary",
+        title: "Walkable Worlds",
+        description:
+          "Stand on other worlds in the browser. Mars-first WebGPU explorer — orbit, descend, walk Jezero; Earth, Moon, Venus, exoplanet systems; Cosmic Radio. Hosted on this site.",
+        image: "/planetary/og-default.png",
+        imageFit: "cover",
+        link: "/planetary/",
+        fullPage: true,
+        tags: ["WebGPU", "Three.js", "Planets", "Mars", "Education"],
+      },
+      {
+        id: "nanoverse",
+        title: "Nanoverse",
+        description:
+          "Public WebGPU lab for regenerative nanotech education — body nano-shell demos, how nanos communicate, hex Studio. Science vs speculation labeled. Hosted on this site.",
+        image: "/og-image.jpg",
+        imageFit: "cover",
+        link: "/nanoverse/",
+        fullPage: true,
+        tags: ["WebGPU", "Three.js", "Nanotech", "Education", "Studio"],
+      },
+      {
+        id: "spi-bridge",
+        title: "SPI Bridge Runner",
+        description:
+          "Godot endless runner on the Queen Isabella Causeway — dodge hazards, collect power-ups, outrun the Evil Vaquero. Desktop Windows build (download from this site or itch.io); too graphics-heavy for browser play.",
+        image: "/spi-bridge-runner.png",
+        imageFit: "contain",
+        link: "/spi-bridge-runner",
+        tags: ["Godot", "Endless Runner", "Windows", "itch.io"],
+      },
       {
         id: "phishguard",
         title: "PhishGuard — Phishing Detector",

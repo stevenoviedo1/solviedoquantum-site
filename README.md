@@ -16,9 +16,22 @@ Personal portfolio & marketing site for Steven Oviedo (SolViedo Quantum).
 ## Key Routes (SPA)
 
 - `/` — Homepage (services + portfolio)
+- `/waveform` — **Waveform** — original Waveform Strategy genre (quantum tactics campaign, GPU board)
+- `/planetary/` — **Walkable Worlds** — Mars-first WebGPU planetary explorer (embedded build)
+- `/nanoverse/` — **Nanoverse** — WebGPU regenerative nanotech education lab (embedded build)
 - `/zombies` — Zombie Rounds Unity WebGL game (full embed)
 - `/quantum-fairness-hub` — Provably fair randomness tools
 - `/ww3` — WW3 Simulator (Python/OOP turn-based game)
+
+### Rebuilding embedded WebGPU apps
+
+Sources live next to this repo (`../planetary-webgpu`, `../nanoverse-archive`). After changing them:
+
+```bash
+npm run embed:webgpu
+```
+
+That builds with `SITE_BASE=/planetary/` and `/nanoverse/`, copies into `public/`, and syncs planetary Cosmic Radio API handlers into `api/`.
 
 ## Local Development
 
