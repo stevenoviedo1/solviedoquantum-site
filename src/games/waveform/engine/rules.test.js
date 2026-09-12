@@ -32,8 +32,6 @@ describe('Waveform engine', () => {
     const unit = s0.units.find((u) => u.archetype === 'scout');
     let s = applyAction(s0, { type: 'select', unitId: unit.id });
     s = applyAction(s, { type: 'set_mode', mode: 'ghost' });
-    const moves = getLegalMoves({ ...s, mode: 'move' });
-    // legal ghost move tiles use same reach when mode ghost — use reachable via move mode select
     s = applyAction(s, { type: 'set_mode', mode: 'move' });
     const reach = getLegalMoves(s);
     const dest = reach[reach.length - 1];

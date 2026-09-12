@@ -11,7 +11,7 @@ const FROM_RE = /(?:^|\n)from:\s*(?:"?([^"<\n]+)"?\s*)?<?([^\s>]+@[^\s>]+)>?/i;
 const REPLY_RE = /(?:^|\n)reply-to:\s*(?:"?([^"<\n]+)"?\s*)?<?([^\s>]+@[^\s>]+)>?/i;
 const SUBJECT_RE = /(?:^|\n)subject:\s*(.+)/i;
 const HREF_RE = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-const EMAIL_RE = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
+const EMAIL_RE = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
 const FREE_HOSTS = [
   'github.io', 'netlify.app', 'vercel.app', 'web.app', 'pages.dev',

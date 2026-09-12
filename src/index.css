@@ -1,7 +1,187 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #000;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Offset fixed nav when jumping to in-page anchors */
+section[id] {
+    scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+    section[id] {
+        scroll-margin-top: 5rem;
+    }
+}
+
+/* ---------- Hero logo showcase ---------- */
+
+.hero-logo {
+    --rx: 0deg;
+    --ry: 0deg;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    perspective: 1200px;
+    animation: hero-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-tilt {
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    will-change: transform;
+    animation: hero-float 7s ease-in-out infinite;
+}
+
+/* No drop-shadow here: it would smear the faint star speckle into a glow that
+   stops at the image bounds and reveals the rectangle. The aura handles glow. */
+.hero-logo-img {
+    filter: none;
+}
+
+/* soft aura that follows the cursor */
+.hero-aura {
+    position: absolute;
+    inset: -14%;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at var(--glow-x) var(--glow-y),
+        rgba(34, 211, 238, 0.30),
+        rgba(139, 92, 246, 0.22) 38%,
+        rgba(139, 92, 246, 0.06) 62%,
+        transparent 74%
+    );
+    filter: blur(28px);
+    animation: hero-aura 6s ease-in-out infinite;
+}
+
+/* thin rotating conic ring */
+.hero-ring {
+    position: absolute;
+    inset: 3%;
+    border-radius: 50%;
+    pointer-events: none;
+    padding: 1.5px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(103, 232, 249, 0.85) 12%,
+        transparent 24%,
+        transparent 50%,
+        rgba(192, 132, 252, 0.85) 62%,
+        transparent 74%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.75;
+    animation: hero-spin 16s linear infinite;
+}
+
+/* orbiting light points */
+.hero-orbit {
+    position: absolute;
+    inset: -1%;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: hero-spin 22s linear infinite;
+}
+
+.hero-orbit--inner {
+    inset: 9%;
+    animation: hero-spin 15s linear infinite reverse;
+}
+
+.hero-orbit-dot {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-left: -4.5px;
+    border-radius: 50%;
+    background: #a5f3fc;
+    box-shadow: 0 0 10px 3px rgba(103, 232, 249, 0.9), 0 0 28px 8px rgba(34, 211, 238, 0.35);
+}
+
+.hero-orbit-dot--violet {
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    background: #e9d5ff;
+    box-shadow: 0 0 10px 3px rgba(192, 132, 252, 0.9), 0 0 26px 8px rgba(139, 92, 246, 0.35);
+}
+
+/* light sweep clipped to the logo's own alpha */
+.hero-shimmer {
+    pointer-events: none;
+    mix-blend-mode: screen;
+    background: linear-gradient(
+        112deg,
+        transparent 38%,
+        rgba(255, 255, 255, 0.55) 48%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.55) 52%,
+        transparent 62%
+    );
+    background-size: 260% 100%;
+    background-position: 120% 0;
+    animation: hero-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes hero-in {
+    from { opacity: 0; transform: translateY(18px) scale(0.94); filter: blur(6px); }
+    to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+@keyframes hero-float {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -12px; }
+}
+
+@keyframes hero-aura {
+    0%, 100% { opacity: 0.85; scale: 1; }
+    50%      { opacity: 1;    scale: 1.06; }
+}
+
+@keyframes hero-spin {
+    to { rotate: 360deg; }
+}
+
+@keyframes hero-shimmer {
+    0%, 55% { background-position: 120% 0; }
+    85%, 100% { background-position: -120% 0; }
+}
+
+/* text entrance stagger */
+.rise {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--d, 0ms);
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.scroll-cue {
+    animation: scroll-cue 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50%      { transform: translateY(6px); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -16,104 +196,8 @@ html {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-}
 
-body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #000;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Offset fixed nav when jumping to in-page anchors (taller on mobile for menu bar) */
-section[id] {
-    scroll-margin-top: 4.5rem;
-}
-
-@media (min-width: 768px) {
-    section[id] {
-        scroll-margin-top: 5.5rem;
+    .hero-tilt {
+        transform: none;
     }
-}
-
-/* Screen-reader only utility (Tailwind sr-only fallback if needed) */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
-.focus\:not-sr-only:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: inherit;
-    margin: inherit;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-}
-
-/* Original subtle pulse (kept for compatibility if needed) */
-@keyframes pulse {
-    0%, 100% {
-        filter: brightness(1) drop-shadow(0 0 20px rgba(139,92,246,0.8));
-    }
-
-    50% {
-        filter: brightness(1.3) drop-shadow(0 0 40px rgba(6,182,212,0.9));
-    }
-}
-
-.animate-pulse {
-    animation: pulse 4s infinite ease-in-out;
-}
-
-/* Static intense glow option (non-animated) */
-.glow-logo {
-    filter: brightness(1.1) drop-shadow(0 0 60px rgba(139,92,246,0.8)) drop-shadow(0 0 30px rgba(6,182,212,0.6));
-}
-
-    .glow-logo:hover {
-        filter: brightness(1.2) drop-shadow(0 0 100px rgba(139,92,246,1)) drop-shadow(0 0 50px rgba(6,182,212,1));
-    }
-
-/* NEW: Smooth color-shifting glow – cyan/blue → purple → back */
-@keyframes quantum-glow {
-    0% {
-        filter: brightness(1.1) drop-shadow(0 0 50px rgba(6,182,212,0.8)) /* Cyan blue - subtle */
-        drop-shadow(0 0 20px rgba(6,182,212,0.6));
-    }
-
-    25% {
-        filter: brightness(1.2) drop-shadow(0 0 70px rgba(6,182,212,1)) /* Cyan peak - brighter pulse */
-        drop-shadow(0 0 35px rgba(6,182,212,0.9));
-    }
-
-    50% {
-        filter: brightness(1.15) drop-shadow(0 0 80px rgba(139,92,246,1)) /* Full purple shift */
-        drop-shadow(0 0 40px rgba(139,92,246,0.9));
-    }
-
-    75% {
-        filter: brightness(1.2) drop-shadow(0 0 70px rgba(139,92,246,1)) /* Purple peak pulse */
-        drop-shadow(0 0 35px rgba(139,92,246,0.9));
-    }
-
-    100% {
-        filter: brightness(1.1) drop-shadow(0 0 50px rgba(6,182,212,0.8)) /* Back to cyan subtle */
-        drop-shadow(0 0 20px rgba(6,182,212,0.6));
-    }
-}
-
-.glow-transition {
-    animation: quantum-glow 8s infinite ease-in-out;
 }

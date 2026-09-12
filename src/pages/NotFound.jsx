@@ -3,13 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 function NotFound() {
     const navigate = useNavigate();
 
+    // HomePage honors the hash on mount, so no manual scroll timing is needed
     const goToPortfolio = (e) => {
         e.preventDefault();
-        navigate('/');
-        // Wait for home to mount, then scroll to portfolio
-        window.setTimeout(() => {
-            document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        navigate({ pathname: '/', hash: 'portfolio' });
     };
 
     return (

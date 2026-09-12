@@ -15,6 +15,7 @@ const BLOCK = [/\bhttps?:\/\//i, /<\s*script/i];
 
 function cleanText(t) {
   return String(t || '')
+    // eslint-disable-next-line no-control-regex -- strip ASCII control characters on purpose
     .replace(/[\u0000-\u001f]/g, '')
     .trim()
     .slice(0, 280);

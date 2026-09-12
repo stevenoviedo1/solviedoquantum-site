@@ -1,57 +1,90 @@
 import { useEffect, useState } from 'react';
-import Particles from '@tsparticles/react';
-import { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import ContactForm from '../components/ContactForm';
 import WebDevBenefits from '../components/WebDevBenefits';
 import PerfOptBenefits from '../components/PerfOptBenefits';
-import logo from '../assets/logo.jpg';
-import { projectSections } from '../data/projects';
+import CosmicBackground from '../components/CosmicBackground';
+import HeroLogo from '../components/HeroLogo';
+import RotatingWords from '../components/RotatingWords';
+import SiteNav from '../components/SiteNav';
+import SiteFooter from '../components/SiteFooter';
+import { projectSections, projects } from '../data/projects';
+import { usePrefersReducedMotion } from '../lib/hooks';
+
+const HERO_WORDS = [
+  'high-performance websites.',
+  'custom web apps.',
+  'online ordering systems.',
+  'browser games.',
+  'the future of the web.',
+];
+
+const SERVICE_ICONS = {
+  code: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m8 7-5 5 5 5" />
+      <path d="m16 7 5 5-5 5" />
+      <path d="m14 4-4 16" />
+    </svg>
+  ),
+  game: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 12h4M8 10v4" />
+      <path d="M15 11h.01M18 13h.01" />
+      <path d="M7.5 6h9a5.5 5.5 0 0 1 5.4 6.6l-.6 3.2a2.5 2.5 0 0 1-4.4 1.1L15.5 15h-7l-1.4 1.9a2.5 2.5 0 0 1-4.4-1.1l-.6-3.2A5.5 5.5 0 0 1 7.5 6Z" />
+    </svg>
+  ),
+  speed: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4.9 17.6A9 9 0 1 1 19.1 17.6" />
+      <path d="m12 13 3.5-4.5" />
+      <circle cx="12" cy="13.5" r="1.5" />
+    </svg>
+  ),
+};
+
+function ServiceIcon({ kind }) {
+  return (
+    <span className="inline-flex w-12 h-12 mb-5 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-400/10 text-cyan-300 [&>svg]:w-6 [&>svg]:h-6 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_24px_rgba(34,211,238,0.35)] transition">
+      {SERVICE_ICONS[kind]}
+    </span>
+  );
+}
+
+function ProjectBadge({ project }) {
+  const external = project.link.startsWith('http');
+  const label = external ? 'Live' : project.fullPage ? 'Open' : 'View';
+  return (
+    <span
+      className={`absolute top-3 right-3 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border backdrop-blur-sm ${
+        external
+          ? 'text-cyan-200 border-cyan-400/40 bg-black/60'
+          : 'text-purple-100 border-purple-400/40 bg-black/60'
+      }`}
+    >
+      {external && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" aria-hidden="true" />}
+      {label}
+      {external && <span aria-hidden="true">↗</span>}
+    </span>
+  );
+}
 
 function HomePage() {
-  const [init, setInit] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBenefits, setShowBenefits] = useState(false);
   const [showPerfBenefits, setShowPerfBenefits] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
-
+  const reduceMotion = usePrefersReducedMotion();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setInit(true));
-  }, []);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduceMotion(mq.matches);
-    update();
-    mq.addEventListener?.('change', update);
-    return () => mq.removeEventListener?.('change', update);
-  }, []);
 
   // Honor hash links when landing on home (e.g. /#portfolio, /#contact)
   useEffect(() => {
     const hash = window.location.hash?.replace('#', '');
-    if (!hash) return;
+    if (!hash) return undefined;
     const t = window.setTimeout(() => {
       document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
     }, 150);
     return () => window.clearTimeout(t);
   }, []);
-
-  const closeMenu = () => setMobileMenuOpen(false);
 
   const openProject = (project) => {
     if (project.link.startsWith('http')) {
@@ -64,38 +97,11 @@ function HomePage() {
     }
   };
 
+  const clientCount = projectSections.find((s) => s.id === 'customer')?.projects.length ?? 0;
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden">
-      {/* Cosmic Particle Background */}
-      {init && !reduceMotion && (
-        <Particles
-          id="tsparticles"
-          options={{
-            background: { color: { value: '#000' } },
-            fpsLimit: isMobile ? 30 : 60,
-            particles: {
-              color: { value: ['#8b5cf6', '#06b6d4'] },
-              links: {
-                color: '#8b5cf6',
-                distance: 150,
-                enable: true,
-                opacity: 0.25,
-                width: 1,
-              },
-              move: { enable: true, speed: 1 },
-              number: { density: { enable: true, area: 800 }, value: isMobile ? 14 : 36 },
-              opacity: { value: { min: 0.3, max: 0.6 } },
-              shape: { type: 'circle' },
-              size: { value: { min: 1, max: 4 } },
-            },
-            detectRetina: true,
-            pauseOnBlur: true,
-            pauseOnOutsideViewport: true,
-          }}
-          className="absolute inset-0 -z-10"
-          aria-hidden="true"
-        />
-      )}
+      <CosmicBackground disabled={reduceMotion} />
 
       {/* Skip link */}
       <a
@@ -105,133 +111,118 @@ function HomePage() {
         Skip to content
       </a>
 
-      {/* Navigation */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-purple-900/30"
-        aria-label="Primary"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-          <Link
-            to="/"
-            className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
-          >
-            SolViedo Quantum
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8 lg:gap-10 text-base lg:text-lg font-medium">
-            <a href="#home" className="hover:text-cyan-400 transition">
-              Home
-            </a>
-            <a href="#services" className="hover:text-cyan-400 transition">
-              Services
-            </a>
-            <a href="#about" className="hover:text-cyan-400 transition">
-              About
-            </a>
-            <a href="#portfolio" className="hover:text-cyan-400 transition">
-              Portfolio
-            </a>
-            <a href="#contact" className="hover:text-cyan-400 transition">
-              Contact
-            </a>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-3xl leading-none p-2 -mr-2"
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <div
-            id="mobile-menu"
-            className="md:hidden bg-black/95 backdrop-blur-lg px-6 py-8 text-xl space-y-6 text-center border-t border-purple-900/30"
-          >
-            <a href="#home" onClick={closeMenu} className="block hover:text-cyan-400 transition">
-              Home
-            </a>
-            <a href="#services" onClick={closeMenu} className="block hover:text-cyan-400 transition">
-              Services
-            </a>
-            <a href="#about" onClick={closeMenu} className="block hover:text-cyan-400 transition">
-              About
-            </a>
-            <a href="#portfolio" onClick={closeMenu} className="block hover:text-cyan-400 transition">
-              Portfolio
-            </a>
-            <a href="#contact" onClick={closeMenu} className="block hover:text-cyan-400 transition">
-              Contact
-            </a>
-          </div>
-        )}
-      </nav>
+      <SiteNav />
 
       <main id="main">
-        {/* Hero Section — logo + headline + CTA all above the fold */}
+        {/* Hero — logo is the first thing you see; headline + CTA stay above the fold on desktop */}
         <section
           id="home"
-          className="min-h-[100svh] flex flex-col items-center justify-center px-5 sm:px-6 pt-16 sm:pt-20 pb-10 text-center"
+          className="relative min-h-[100svh] flex items-center px-5 sm:px-8 pt-24 pb-16 lg:pt-20 lg:pb-20"
         >
-          <div className="mb-6 sm:mb-10 flex items-center justify-center">
-            <img
-              src={logo}
-              alt="SolViedo Quantum Logo"
-              width={650}
-              height={650}
-              fetchPriority="high"
-              className="w-full max-w-[420px] sm:max-w-[520px] md:max-w-[650px] h-auto object-contain"
-              style={{
-                filter:
-                  'drop-shadow(0 0 32px rgba(103,232,249,0.9)) drop-shadow(0 0 64px rgba(139,92,246,0.8))',
-              }}
-            />
+          <div className="pointer-events-none absolute inset-0 -z-[5] bg-[radial-gradient(ellipse_at_30%_45%,rgba(139,92,246,0.14),transparent_55%),radial-gradient(ellipse_at_75%_35%,rgba(34,211,238,0.08),transparent_50%)]" />
+
+          <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-10 lg:gap-16 xl:gap-20">
+            <HeroLogo reduceMotion={reduceMotion} />
+
+            <div className="text-center lg:text-left">
+              <p
+                className="rise text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300/90"
+                style={{ '--d': '150ms' }}
+              >
+                Web apps · Games · Performance
+              </p>
+
+              <h1
+                className="rise mt-3 text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-500 bg-clip-text text-transparent"
+                style={{ '--d': '250ms' }}
+              >
+                SolViedo Quantum
+              </h1>
+
+              <p
+                className="rise mt-4 text-xl sm:text-2xl xl:text-[1.75rem] font-medium text-white/90"
+                style={{ '--d': '350ms' }}
+              >
+                Building{' '}
+                <RotatingWords words={HERO_WORDS} paused={reduceMotion} className="text-cyan-300" />
+              </p>
+
+              <p
+                className="rise mt-6 text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                style={{ '--d': '450ms' }}
+              >
+                Drive more customers with a{' '}
+                <span className="text-cyan-300 font-semibold">high-performance website</span>.
+                Custom-coded for <span className="text-purple-300 font-semibold">blazing speed</span>{' '}
+                and <span className="text-purple-300 font-semibold">higher Google ranking</span>,
+                with unlimited design, real-time features, and seamless scaling.{' '}
+                <span className="text-rose-300 font-semibold">No templates. No monthly fees. No lock-in.</span>
+              </p>
+
+              <div
+                className="rise mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4"
+                style={{ '--d': '550ms' }}
+              >
+                <a
+                  href="#contact"
+                  className="w-full sm:w-auto px-9 py-3.5 text-base sm:text-lg font-bold text-center bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.35)] transition shadow-2xl"
+                >
+                  Get Started →
+                </a>
+                <a
+                  href="#portfolio"
+                  className="w-full sm:w-auto px-9 py-3.5 text-base sm:text-lg font-semibold text-center border border-purple-500/50 rounded-full hover:bg-purple-900/30 hover:border-cyan-400/60 transition"
+                >
+                  View Portfolio
+                </a>
+              </div>
+
+              <dl
+                className="rise mt-9 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-left"
+                style={{ '--d': '650ms' }}
+              >
+                {[
+                  { value: `${clientCount}`, label: 'live client products' },
+                  { value: `${projects.length}+`, label: 'projects shipped' },
+                  { value: '100%', label: 'custom code, zero templates' },
+                ].map((s) => (
+                  <div key={s.label} className="min-w-[120px]">
+                    <dt className="sr-only">{s.label}</dt>
+                    <dd className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent">
+                      {s.value}
+                    </dd>
+                    <dd className="text-xs sm:text-sm text-gray-400 mt-0.5">{s.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-            SolViedo Quantum
-          </h1>
-          <p className="text-base sm:text-xl md:text-2xl mt-3 text-cyan-300">
-            Building the future of the web.
-          </p>
-
-          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-gray-300 leading-relaxed">
-            Drive more customers with a{' '}
-            <span className="text-cyan-400 font-bold">high-performance website</span>.
-            Custom-coded for{' '}
-            <span className="text-purple-400 font-bold">blazing speed</span> &amp;{' '}
-            <span className="text-purple-400 font-bold">higher Google ranking</span>.
-            Unlimited design, real-time features, seamless scaling.{' '}
-            <span className="text-rose-400 font-bold">No templates. No monthly fees. No lock-in.</span>
-          </p>
-
-          <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <a
-              href="#contact"
-              className="px-8 sm:px-10 py-3 sm:py-3.5 text-base sm:text-lg font-bold bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full hover:scale-105 transition shadow-2xl"
-            >
-              Get Started →
-            </a>
-            <a
-              href="#portfolio"
-              className="px-8 sm:px-10 py-3 sm:py-3.5 text-base sm:text-lg font-semibold border border-purple-700/70 rounded-full hover:bg-purple-900/30 transition"
-            >
-              View Portfolio
-            </a>
-          </div>
+          <a
+            href="#services"
+            className="scroll-cue hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-[11px] uppercase tracking-[0.25em] text-gray-500 hover:text-cyan-300 transition"
+            aria-label="Scroll to services"
+          >
+            Scroll
+            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
         </section>
 
         {/* Services Section */}
         <section id="services" className="py-16 md:py-28 px-4 sm:px-6 bg-black/50">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-12 md:mb-16 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300/90 mb-3">
+              What I do
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
               Services
             </h2>
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-12 md:mb-16">
+              One developer, end to end — from first design to launch and beyond.
+            </p>
+
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               <button
                 type="button"
@@ -240,9 +231,10 @@ function HomePage() {
                   setShowPerfBenefits(false);
                 }}
                 aria-expanded={showBenefits}
-                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                className="group text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-purple-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] cursor-pointer transition-all duration-300 hover:-translate-y-1"
               >
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Custom Web Development</h3>
+                <ServiceIcon kind="code" />
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Custom Web Development</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
                   Sites and full web apps from scratch — marketing pages, online ordering,
                   dashboards, and realtime features. Next.js, React, and modern backends.
@@ -254,9 +246,10 @@ function HomePage() {
 
               <a
                 href="#portfolio"
-                className="bg-gradient-to-br from-cyan-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-cyan-800/50 hover:border-cyan-400 transition-all duration-300 hover:scale-[1.02] block"
+                className="group bg-gradient-to-br from-cyan-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-cyan-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] transition-all duration-300 hover:-translate-y-1 block text-left"
               >
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Game Development</h3>
+                <ServiceIcon kind="game" />
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Game Development</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
                   Browser and Unity WebGL games, multiplayer products, and interactive
                   experiences — built to play, not just look cool.
@@ -271,9 +264,10 @@ function HomePage() {
                   setShowBenefits(false);
                 }}
                 aria-expanded={showPerfBenefits}
-                className="text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-10 rounded-2xl border border-purple-800/50 hover:border-cyan-400 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                className="group text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-purple-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] cursor-pointer transition-all duration-300 hover:-translate-y-1"
               >
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">Performance Optimization</h3>
+                <ServiceIcon kind="speed" />
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Performance Optimization</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
                   Core Web Vitals, lean code, and mobile-first speed — built for SEO,
                   conversions, and real users on real phones.
@@ -468,7 +462,7 @@ function HomePage() {
                     {section.projects.map((project) => (
                       <div
                         key={project.id}
-                        role="button"
+                        role="link"
                         tabIndex={0}
                         onClick={() => openProject(project)}
                         onKeyDown={(e) => {
@@ -477,7 +471,7 @@ function HomePage() {
                             openProject(project);
                           }
                         }}
-                        className="group cursor-pointer bg-gradient-to-br from-purple-900/30 to-black p-5 sm:p-6 rounded-3xl border border-purple-800/50 hover:border-cyan-400 transition-all duration-300 md:hover:scale-[1.02] overflow-hidden text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                        className="group cursor-pointer bg-gradient-to-br from-purple-900/30 to-black p-5 sm:p-6 rounded-3xl border border-purple-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] transition-all duration-300 md:hover:-translate-y-1 overflow-hidden text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                       >
                         <div
                           className={`relative overflow-hidden rounded-2xl mb-5 h-52 sm:h-56 flex items-center justify-center ${
@@ -486,6 +480,7 @@ function HomePage() {
                               : 'bg-gray-900'
                           }`}
                         >
+                          <ProjectBadge project={project} />
                           <img
                             src={project.image}
                             alt={`${project.title} preview`}
@@ -551,6 +546,8 @@ function HomePage() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

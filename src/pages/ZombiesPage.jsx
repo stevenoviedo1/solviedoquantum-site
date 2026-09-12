@@ -31,7 +31,7 @@ function ZombiesPage() {
             </div>
 
             {/* Game Container */}
-            <div className="flex-1 w-full flex flex-col pt-14">
+            <div className="relative flex-1 w-full flex flex-col pt-14">
                 {/* Loading State */}
                 {isLoading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black z-10 pt-14">

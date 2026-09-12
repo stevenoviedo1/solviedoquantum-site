@@ -53,7 +53,7 @@ function ContactForm() {
     'w-full px-4 sm:px-5 py-3 sm:py-3.5 text-base bg-black/50 border border-purple-800/50 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400/50 transition text-white placeholder:text-gray-600';
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5 sm:space-y-6 text-left" noValidate={false}>
+    <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5 sm:space-y-6 text-left">
       <div>
         <label htmlFor="contact-name" className="block text-sm sm:text-base mb-1.5 text-cyan-300 font-medium">
           Name
