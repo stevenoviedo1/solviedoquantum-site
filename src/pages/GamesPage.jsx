@@ -14,7 +14,8 @@ const games = [
       'Built with Godot engine',
       'Active development, approaching beta release',
     ],
-    image: null,
+    video: '/games/grid-city-trailer.mp4',
+    poster: '/games/grid-city-poster.webp',
     tags: ['Godot', 'Life Sim', 'City Building', 'Beta'],
   },
   {
@@ -89,9 +90,21 @@ function GamesPage() {
                 style={{ '--d': `${150 + idx * 100}ms` }}
               >
                 <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-6 lg:gap-8 items-center">
-                  {/* Screenshot or placeholder */}
+                  {/* Video, screenshot, or placeholder */}
                   <div className="relative overflow-hidden rounded-2xl bg-[#070b14] ring-1 ring-inset ring-cyan-500/15 h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                    {game.image ? (
+                    {game.video ? (
+                      <video
+                        controls
+                        muted
+                        playsInline
+                        preload="none"
+                        poster={game.poster}
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={game.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : game.image ? (
                       <div className="relative w-full h-full">
                         <img
                           src={game.image}
