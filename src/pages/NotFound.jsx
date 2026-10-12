@@ -43,8 +43,8 @@ function NotFound() {
 
                 <p className="mt-12 text-sm text-gray-500">
                     Or contact me directly at{' '}
-                    <a href="mailto:Steven.oviedo1@gmail.com" className="text-cyan-400 hover:underline">
-                        Steven.oviedo1@gmail.com
+                    <a href="mailto:solviedoquantum@gmail.com" className="text-cyan-400 hover:underline">
+                        solviedoquantum@gmail.com
                     </a>
                 </p>
             </div>
