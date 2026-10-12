@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import mark from '../assets/mark.webp';
 
-const LINKS = [
+const HOMEPAGE_SECTION_LINKS = [
   { id: 'home', label: 'Home' },
   { id: 'services', label: 'Services' },
   { id: 'about', label: 'About' },
@@ -31,8 +31,8 @@ function SiteNav() {
   }, []);
 
   useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') return undefined;
-    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean);
+    if (!isHomePage || typeof IntersectionObserver === 'undefined') return undefined;
+    const sections = HOMEPAGE_SECTION_LINKS.map((l) => document.getElementById(l.id)).filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -44,7 +44,7 @@ function SiteNav() {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -80,22 +80,46 @@ function SiteNav() {
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-1 lg:gap-2 text-[15px] lg:text-base font-medium">
+        <div className="hidden md:flex items-center gap-1 text-[14px] lg:text-[15px] font-medium">
           {isHomePage ? (
             <>
-              {LINKS.map((l) => (
+              <a
+                href="#home"
+                aria-current={active === 'home' ? 'true' : undefined}
+                className={`relative px-2.5 py-2 rounded-full transition-colors ${
+                  active === 'home' ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
+                }`}
+              >
+                Home
+                <span
+                  aria-hidden="true"
+                  className={`absolute left-2.5 right-2.5 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-opacity duration-300 ${
+                    active === 'home' ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              </a>
+              {PAGE_LINKS.map((pl) => (
+                <Link
+                  key={pl.path}
+                  to={pl.path}
+                  className="px-2.5 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+                >
+                  {pl.label}
+                </Link>
+              ))}
+              {HOMEPAGE_SECTION_LINKS.slice(1).map((l) => (
                 <a
                   key={l.id}
                   href={`#${l.id}`}
                   aria-current={active === l.id ? 'true' : undefined}
-                  className={`relative px-3 py-2 rounded-full transition-colors ${
+                  className={`relative px-2.5 py-2 rounded-full transition-colors ${
                     active === l.id ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
                   }`}
                 >
                   {l.label}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-opacity duration-300 ${
+                    className={`absolute left-2.5 right-2.5 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-opacity duration-300 ${
                       active === l.id ? 'opacity-100' : 'opacity-0'
                     }`}
                   />
@@ -106,7 +130,7 @@ function SiteNav() {
             <>
               <Link
                 to="/"
-                className="px-3 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+                className="px-2.5 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
               >
                 Home
               </Link>
@@ -114,7 +138,7 @@ function SiteNav() {
                 <Link
                   key={pl.path}
                   to={pl.path}
-                  className={`px-3 py-2 rounded-full transition-colors ${
+                  className={`px-2.5 py-2 rounded-full transition-colors ${
                     location.pathname === pl.path ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
                   }`}
                 >
@@ -122,19 +146,25 @@ function SiteNav() {
                 </Link>
               ))}
               <Link
+                to="/#services"
+                className="px-2.5 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                Services
+              </Link>
+              <Link
+                to="/#about"
+                className="px-2.5 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                About
+              </Link>
+              <Link
                 to="/#contact"
-                className="px-3 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+                className="px-2.5 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
               >
                 Contact
               </Link>
             </>
           )}
-          <Link
-            to={isHomePage ? '#contact' : '/#contact'}
-            className="ml-2 lg:ml-3 px-5 py-2 rounded-full text-sm lg:text-[15px] font-bold text-black bg-gradient-to-r from-cyan-400 to-purple-500 hover:shadow-[0_0_24px_rgba(34,211,238,0.45)] hover:scale-[1.03] transition"
-          >
-            Start a project
-          </Link>
         </div>
 
         <button
@@ -156,7 +186,24 @@ function SiteNav() {
         >
           {isHomePage ? (
             <>
-              {LINKS.map((l) => (
+              <a
+                href="#home"
+                onClick={() => setOpen(false)}
+                className={`block transition ${active === 'home' ? 'text-cyan-300' : 'hover:text-cyan-400'}`}
+              >
+                Home
+              </a>
+              {PAGE_LINKS.map((pl) => (
+                <Link
+                  key={pl.path}
+                  to={pl.path}
+                  onClick={() => setOpen(false)}
+                  className="block hover:text-cyan-400 transition"
+                >
+                  {pl.label}
+                </Link>
+              ))}
+              {HOMEPAGE_SECTION_LINKS.slice(1).map((l) => (
                 <a
                   key={l.id}
                   href={`#${l.id}`}
@@ -182,6 +229,12 @@ function SiteNav() {
                   {pl.label}
                 </Link>
               ))}
+              <Link to="/#services" onClick={() => setOpen(false)} className="block hover:text-cyan-400 transition">
+                Services
+              </Link>
+              <Link to="/#about" onClick={() => setOpen(false)} className="block hover:text-cyan-400 transition">
+                About
+              </Link>
               <Link to="/#contact" onClick={() => setOpen(false)} className="block hover:text-cyan-400 transition">
                 Contact
               </Link>

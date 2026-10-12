@@ -183,7 +183,7 @@ function HomePage() {
               >
                 {[
                   { value: '3', label: 'games in development' },
-                  { value: '78K+', label: 'unique AI portraits' },
+                  { value: '78K+', label: 'players in Pitch Nations' },
                   { value: '100%', label: 'veteran-owned' },
                 ].map((s) => (
                   <div key={s.label} className="min-w-[120px]">
