@@ -22,14 +22,14 @@ const games = [
     id: 'football-universe',
     title: 'Football Universe',
     status: 'Beta coming soon',
-    description: 'A football (soccer) game.',
+    description: 'An American college football game.',
     bullets: [
-      'Android build currently available',
-      'Full football simulation experience',
+      'Recruiting and depth chart management',
+      'College football rankings and competition',
       'Beta launch planned',
     ],
     image: '/games/football-universe-screenshot.webp',
-    tags: ['Football', 'Android', 'Sports', 'Beta Soon'],
+    tags: ['American Football', 'College Sports', 'Recruiting', 'Beta Soon'],
   },
   {
     id: 'pitch-nations',
