@@ -9,7 +9,9 @@ import HeroLogo from '../components/HeroLogo';
 import RotatingWords from '../components/RotatingWords';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import GameCard from '../components/GameCard';
 import { projectSections } from '../data/projects';
+import { games } from '../data/games';
 import { usePrefersReducedMotion } from '../lib/hooks';
 
 const HERO_WORDS = [
@@ -434,11 +436,31 @@ function HomePage() {
               Portfolio
             </h2>
             <p className="text-base sm:text-xl text-gray-400 mb-10 md:mb-14">
-              Client work, personal builds, and school projects
+              Games and client work
             </p>
 
             <div className="space-y-14 md:space-y-20 text-left">
-              {projectSections.map((section) => (
+              {/* Games Section */}
+              <div>
+                <div className="mb-6 md:mb-8 text-center sm:text-left">
+                  <div className="inline-flex items-center gap-2 mb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.14em] px-3 py-1 rounded-full border text-purple-300 border-purple-500/40 bg-purple-500/10">
+                      Games
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Game Development</h3>
+                  <p className="text-sm sm:text-base text-gray-400 mt-1">Built with AI agent teams</p>
+                </div>
+
+                <div className="space-y-8 md:space-y-12">
+                  {games.map((game) => (
+                    <GameCard key={game.id} game={game} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Client Projects Only */}
+              {projectSections.filter((section) => section.id === 'customer').map((section) => (
                 <div key={section.id}>
                   <div className="mb-6 md:mb-8 text-center sm:text-left">
                     <div className="inline-flex items-center gap-2 mb-2">
@@ -523,6 +545,11 @@ function HomePage() {
                   </div>
                 </div>
               ))}
+
+              {/* Hidden sections - School and Fun projects data preserved but not rendered
+              To restore: remove the filter above and use projectSections.map() instead
+              Data remains in src/data/projects.js for: section.id === 'fun' and section.id === 'school'
+              */}
             </div>
           </div>
         </section>
