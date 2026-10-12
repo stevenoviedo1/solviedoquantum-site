@@ -3,11 +3,13 @@ import mark from '../assets/mark.webp';
 import { projectSections } from '../data/projects';
 
 const SECTION_LINKS = [
-  { href: '#home', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'Home', isPage: true },
+  { href: '/games', label: 'Games', isPage: true },
+  { href: '/how-i-build', label: 'How I Build', isPage: true },
+  { href: '/#services', label: 'Services' },
+  { href: '/#about', label: 'About' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 function ProjectLink({ project }) {
@@ -71,9 +73,15 @@ function SiteFooter() {
           <ul className="space-y-2.5 text-gray-300">
             {SECTION_LINKS.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="hover:text-cyan-300 transition">
-                  {l.label}
-                </a>
+                {l.isPage ? (
+                  <Link to={l.href} className="hover:text-cyan-300 transition">
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a href={l.href} className="hover:text-cyan-300 transition">
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
