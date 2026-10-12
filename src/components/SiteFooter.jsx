@@ -111,8 +111,8 @@ function SiteFooter() {
               </a>
             </li>
             <li className="break-all">
-              <a href="mailto:Steven.oviedo1@gmail.com" className="hover:text-cyan-300 transition">
-                Steven.oviedo1@gmail.com
+              <a href="mailto:solviedoquantum@gmail.com" className="hover:text-cyan-300 transition">
+                solviedoquantum@gmail.com
               </a>
             </li>
             <li>
