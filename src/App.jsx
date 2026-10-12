@@ -3,6 +3,8 @@ import { Analytics } from '@vercel/analytics/react';
 
 import { lazy, Suspense } from 'react';
 import HomePage from './pages/HomePage';
+import GamesPage from './pages/GamesPage';
+import HowIBuildPage from './pages/HowIBuildPage';
 import ZombiesPage from './pages/ZombiesPage';
 import SpiBridgePage from './pages/SpiBridgePage';
 import QuantumFairnessHub from './pages/QuantumFairnessHub';
@@ -29,6 +31,8 @@ function App() {
             element={<Navigate to={{ pathname: '/', hash: id }} replace />}
           />
         ))}
+        <Route path="/games" element={<GamesPage />} />
+        <Route path="/how-i-build" element={<HowIBuildPage />} />
         <Route path="/zombies" element={<ZombiesPage />} />
         <Route path="/spi-bridge-runner" element={<SpiBridgePage />} />
         <Route path="/quantum-fairness-hub" element={<QuantumFairnessHub />} />

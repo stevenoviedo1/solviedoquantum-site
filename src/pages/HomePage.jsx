@@ -9,7 +9,7 @@ import HeroLogo from '../components/HeroLogo';
 import RotatingWords from '../components/RotatingWords';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { projectSections, projects } from '../data/projects';
+import { projectSections } from '../data/projects';
 import { usePrefersReducedMotion } from '../lib/hooks';
 
 const HERO_WORDS = [
@@ -97,8 +97,6 @@ function HomePage() {
     }
   };
 
-  const clientCount = projectSections.find((s) => s.id === 'customer')?.projects.length ?? 0;
-
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden">
       <CosmicBackground disabled={reduceMotion} />
@@ -129,7 +127,7 @@ function HomePage() {
                 className="rise text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300/90"
                 style={{ '--d': '150ms' }}
               >
-                Web apps · Games · Performance
+                Veteran-Owned · Weslaco, Texas
               </p>
 
               <h1
@@ -143,20 +141,16 @@ function HomePage() {
                 className="rise mt-4 text-xl sm:text-2xl xl:text-[1.75rem] font-medium text-white/90"
                 style={{ '--d': '350ms' }}
               >
-                Building{' '}
-                <RotatingWords words={HERO_WORDS} paused={reduceMotion} className="text-cyan-300" />
+                Producer and creative director shipping games and products with teams of AI agents.
               </p>
 
               <p
                 className="rise mt-6 text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0"
                 style={{ '--d': '450ms' }}
               >
-                Drive more customers with a{' '}
-                <span className="text-cyan-300 font-semibold">high-performance website</span>.
-                Custom-coded for <span className="text-purple-300 font-semibold">blazing speed</span>{' '}
-                and <span className="text-purple-300 font-semibold">higher Google ranking</span>,
-                with unlimited design, real-time features, and seamless scaling.{' '}
-                <span className="text-rose-300 font-semibold">No templates. No monthly fees. No lock-in.</span>
+                From <span className="text-cyan-300 font-semibold">life-sim city games</span> to{' '}
+                <span className="text-purple-300 font-semibold">custom web apps</span>, I direct teams of AI agents
+                to build real shipped products. <span className="text-rose-300 font-semibold">No templates. No monthly fees. No lock-in.</span>
               </p>
 
               <div
@@ -164,16 +158,22 @@ function HomePage() {
                 style={{ '--d': '550ms' }}
               >
                 <a
-                  href="#contact"
+                  href="/games"
                   className="w-full sm:w-auto px-9 py-3.5 text-base sm:text-lg font-bold text-center bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.35)] transition shadow-2xl"
                 >
-                  Get Started →
+                  Games →
                 </a>
                 <a
-                  href="#portfolio"
+                  href="/how-i-build"
                   className="w-full sm:w-auto px-9 py-3.5 text-base sm:text-lg font-semibold text-center border border-purple-500/50 rounded-full hover:bg-purple-900/30 hover:border-cyan-400/60 transition"
                 >
-                  View Portfolio
+                  How I Build
+                </a>
+                <a
+                  href="#contact"
+                  className="w-full sm:w-auto px-9 py-3.5 text-base sm:text-lg font-semibold text-center border border-cyan-500/50 rounded-full hover:bg-cyan-900/30 hover:border-cyan-400/60 transition"
+                >
+                  Contact
                 </a>
               </div>
 
@@ -182,9 +182,9 @@ function HomePage() {
                 style={{ '--d': '650ms' }}
               >
                 {[
-                  { value: `${clientCount}`, label: 'live client products' },
-                  { value: `${projects.length}+`, label: 'projects shipped' },
-                  { value: '100%', label: 'custom code, zero templates' },
+                  { value: '3', label: 'games in development' },
+                  { value: '78K+', label: 'unique AI portraits' },
+                  { value: '100%', label: 'veteran-owned' },
                 ].map((s) => (
                   <div key={s.label} className="min-w-[120px]">
                     <dt className="sr-only">{s.label}</dt>
@@ -234,10 +234,10 @@ function HomePage() {
                 className="group text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-purple-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] cursor-pointer transition-all duration-300 hover:-translate-y-1"
               >
                 <ServiceIcon kind="code" />
-                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Custom Web Development</h3>
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Custom Websites & Web Apps</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
-                  Sites and full web apps from scratch — marketing pages, online ordering,
-                  dashboards, and realtime features. Next.js, React, and modern backends.
+                  Custom websites and web apps from scratch — online ordering (like La 88 Pizza), dashboards,
+                  and SEO-friendly builds. No templates, no monthly platform fees, no lock-in.
                 </p>
                 <p className="mt-5 text-cyan-400 font-semibold">
                   {showBenefits ? 'Hide comparison ↑' : 'Click for comparison →'}
@@ -245,16 +245,16 @@ function HomePage() {
               </button>
 
               <a
-                href="#portfolio"
+                href="/games"
                 className="group bg-gradient-to-br from-cyan-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-cyan-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] transition-all duration-300 hover:-translate-y-1 block text-left"
               >
                 <ServiceIcon kind="game" />
-                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Game Development</h3>
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Games</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
-                  Browser and Unity WebGL games, multiplayer products, and interactive
-                  experiences — built to play, not just look cool.
+                  Life-sim city games and football management games built with AI agent teams.
+                  Grid City, Football Universe, and Pitch Nations — all in active development.
                 </p>
-                <p className="mt-5 text-cyan-400 font-semibold">See game projects →</p>
+                <p className="mt-5 text-cyan-400 font-semibold">See the games →</p>
               </a>
 
               <button
@@ -267,10 +267,10 @@ function HomePage() {
                 className="group text-left bg-gradient-to-br from-purple-900/20 to-black p-6 sm:p-8 md:p-9 rounded-2xl border border-purple-800/50 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)] cursor-pointer transition-all duration-300 hover:-translate-y-1"
               >
                 <ServiceIcon kind="speed" />
-                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Performance Optimization</h3>
+                <h3 className="text-xl sm:text-2xl md:text-[1.6rem] font-bold mb-3">Performance & SEO</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
-                  Core Web Vitals, lean code, and mobile-first speed — built for SEO,
-                  conversions, and real users on real phones.
+                  High-performance, SEO-friendly builds. Core Web Vitals, lean code, and mobile-first speed
+                  — built for higher Google ranking and real users on real phones.
                 </p>
                 <p className="mt-5 text-cyan-400 font-semibold">
                   {showPerfBenefits ? 'Hide details ↑' : 'Click for details →'}
@@ -365,7 +365,7 @@ function HomePage() {
                     Steven Oviedo
                   </h3>
                   <p className="text-base sm:text-lg text-purple-300/95 mt-2 mb-5 sm:mb-6">
-                    Founder of SolViedo Quantum
+                    Founder · U.S. Army Veteran · Weslaco, TX
                   </p>
 
                   <div className="h-px w-16 bg-gradient-to-r from-cyan-400 to-purple-500 mb-5 sm:mb-6" />
@@ -385,9 +385,13 @@ function HomePage() {
                       <span className="text-cyan-300 font-medium">
                         Computer Science student at UTRGV
                       </span>{' '}
-                      and the founder of SolViedo Quantum — partnering with local businesses
-                      and ambitious projects, from restaurant ordering systems to multiplayer
-                      games and security tools.
+                      and the founder of{' '}
+                      <span className="text-purple-300 font-medium">
+                        SolViedo Quantum
+                      </span>{' '}
+                      — a veteran-owned studio based in Weslaco, Texas. I direct teams of AI agents
+                      (Cursor cloud agents, Claude, Grok) to build real shipped products, from life-sim city games
+                      to custom web apps and online ordering systems.
                     </p>
                   </div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import mark from '../assets/mark.webp';
 
 const LINKS = [
@@ -10,8 +10,15 @@ const LINKS = [
   { id: 'contact', label: 'Contact' },
 ];
 
+const PAGE_LINKS = [
+  { path: '/games', label: 'Games' },
+  { path: '/how-i-build', label: 'How I Build' },
+];
+
 /** Homepage navigation: transparent over the hero, solid once scrolled, highlights the section in view. */
 function SiteNav() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
@@ -74,30 +81,60 @@ function SiteNav() {
         </Link>
 
         <div className="hidden md:flex items-center gap-1 lg:gap-2 text-[15px] lg:text-base font-medium">
-          {LINKS.map((l) => (
-            <a
-              key={l.id}
-              href={`#${l.id}`}
-              aria-current={active === l.id ? 'true' : undefined}
-              className={`relative px-3 py-2 rounded-full transition-colors ${
-                active === l.id ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
-              }`}
-            >
-              {l.label}
-              <span
-                aria-hidden="true"
-                className={`absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-opacity duration-300 ${
-                  active === l.id ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            </a>
-          ))}
-          <a
-            href="#contact"
+          {isHomePage ? (
+            <>
+              {LINKS.map((l) => (
+                <a
+                  key={l.id}
+                  href={`#${l.id}`}
+                  aria-current={active === l.id ? 'true' : undefined}
+                  className={`relative px-3 py-2 rounded-full transition-colors ${
+                    active === l.id ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
+                  }`}
+                >
+                  {l.label}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-opacity duration-300 ${
+                      active === l.id ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                </a>
+              ))}
+            </>
+          ) : (
+            <>
+              <Link
+                to="/"
+                className="px-3 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                Home
+              </Link>
+              {PAGE_LINKS.map((pl) => (
+                <Link
+                  key={pl.path}
+                  to={pl.path}
+                  className={`px-3 py-2 rounded-full transition-colors ${
+                    location.pathname === pl.path ? 'text-white' : 'text-gray-300 hover:text-cyan-300'
+                  }`}
+                >
+                  {pl.label}
+                </Link>
+              ))}
+              <Link
+                to="/#contact"
+                className="px-3 py-2 rounded-full text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                Contact
+              </Link>
+            </>
+          )}
+          <Link
+            to={isHomePage ? '#contact' : '/#contact'}
             className="ml-2 lg:ml-3 px-5 py-2 rounded-full text-sm lg:text-[15px] font-bold text-black bg-gradient-to-r from-cyan-400 to-purple-500 hover:shadow-[0_0_24px_rgba(34,211,238,0.45)] hover:scale-[1.03] transition"
           >
             Start a project
-          </a>
+          </Link>
         </div>
 
         <button
@@ -117,16 +154,39 @@ function SiteNav() {
           id="mobile-menu"
           className="md:hidden bg-black/95 backdrop-blur-lg px-6 py-8 text-xl space-y-6 text-center border-t border-purple-900/30"
         >
-          {LINKS.map((l) => (
-            <a
-              key={l.id}
-              href={`#${l.id}`}
-              onClick={() => setOpen(false)}
-              className={`block transition ${active === l.id ? 'text-cyan-300' : 'hover:text-cyan-400'}`}
-            >
-              {l.label}
-            </a>
-          ))}
+          {isHomePage ? (
+            <>
+              {LINKS.map((l) => (
+                <a
+                  key={l.id}
+                  href={`#${l.id}`}
+                  onClick={() => setOpen(false)}
+                  className={`block transition ${active === l.id ? 'text-cyan-300' : 'hover:text-cyan-400'}`}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </>
+          ) : (
+            <>
+              <Link to="/" onClick={() => setOpen(false)} className="block hover:text-cyan-400 transition">
+                Home
+              </Link>
+              {PAGE_LINKS.map((pl) => (
+                <Link
+                  key={pl.path}
+                  to={pl.path}
+                  onClick={() => setOpen(false)}
+                  className={`block transition ${location.pathname === pl.path ? 'text-cyan-300' : 'hover:text-cyan-400'}`}
+                >
+                  {pl.label}
+                </Link>
+              ))}
+              <Link to="/#contact" onClick={() => setOpen(false)} className="block hover:text-cyan-400 transition">
+                Contact
+              </Link>
+            </>
+          )}
         </div>
       )}
     </nav>
